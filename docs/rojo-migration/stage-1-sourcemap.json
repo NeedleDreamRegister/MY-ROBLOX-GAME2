@@ -1,0 +1,42 @@
+{
+  "name": "DigTheMountain-RojoBootstrap",
+  "className": "DataModel",
+  "filePaths": [
+    "stage-1.project.json"
+  ],
+  "children": [
+    {
+      "name": "ServerScriptService",
+      "className": "ServerScriptService",
+      "children": [
+        {
+          "name": "RojoManaged",
+          "className": "Folder",
+          "children": [
+            {
+              "name": "RojoConnectionTest",
+              "className": "Script",
+              "filePaths": [
+                "../../src/rojo_bootstrap/RojoConnectionTest.server.luau"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "SandPrototypeAccessRules",
+          "className": "ModuleScript",
+          "filePaths": [
+            "../../src/ServerScriptService/SandPrototypeAccessRules.luau"
+          ]
+        },
+        {
+          "name": "SandPrototypeSnapshot",
+          "className": "ModuleScript",
+          "filePaths": [
+            "../../src/ServerScriptService/SandPrototypeSnapshot.luau"
+          ]
+        }
+      ]
+    }
+  ]
+}

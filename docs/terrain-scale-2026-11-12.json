@@ -1,0 +1,47 @@
+{
+  "environment": "Studio Edit, isolated temporary Terrain, no player data",
+  "large": {
+    "origin": [1802, 2, 1802],
+    "heightCells": 74,
+    "physicalSizeStuds": [596, 300, 596],
+    "initialSandCells": 562475,
+    "ownedVoxels": 1755904,
+    "logicalChunks": 9880,
+    "geometryJsonBytes": 284241,
+    "generationSeconds": 9.1484,
+    "terrainInitializationSeconds": 16.6414,
+    "initialWriteBatches": 500,
+    "approximateLuaHeapGrowthMB": 96.49,
+    "acceptedSurfaceHits": 64,
+    "additionalBaseRemoval": 1,
+    "remainingCells": 562410,
+    "movedCells": 88,
+    "maximumChunkWritesPerSurfaceHit": 3,
+    "staleSamplesAtGameInterval": 0,
+    "validatedOccupancyPositions": 1755904,
+    "restoredEmptyPositionsAfterCleanup": 1755904
+  },
+  "smallDefaultComparisonSeconds": { "previousAdapter": 0.003154, "batchedAdapter": 0.003141 },
+  "afterHeightContinuation": {
+    "initialCells": 562475,
+    "surfaceHits": 64,
+    "baseRemoval": 1,
+    "baseTransfers": 71,
+    "continuationStepsAfterFirst": 8,
+    "totalTransfers": 150,
+    "remainingCells": 562410,
+    "pending": 0,
+    "validatedOccupancyPositions": 1755904,
+    "maximumWritesPerHit": 3,
+    "realContinuationDataStoreKey": "continuation_9b9ace46-ee3f-4404-a983-cfca61f2bf12"
+  },
+  "regressionsChecked": ["1183 grid conversions", "32 initialization batches", "cross-chunk transfer", "reservation during yielding", "callback failure restoration", "foreign Terrain preserved", "normal Play: 3 digs, 452 Terrain cells, no proxy Parts"],
+  "reproducibleBenchmark": "tests/LargeTerrainScale.spec.luau; default height=12/hits=16 passed, large manual run used equivalent height=74/hits=64",
+  "limits": [
+    "The former 8-move lifetime limit is fixed by height-bounded continuation; gameplay/profile size limits still need migration before activation.",
+    "Gameplay/profile validators remain limited to 455 cells and compact decoding to 32 chunks. Large geometry has not been activated for player profiles.",
+    "Initialization measurements are not FPS, mobile, multiplayer, network or process memory benchmarks.",
+    "Large screenshot returned an empty viewport; visual quality of the large scene is unconfirmed.",
+    "A maximum-speed synthetic loop could sample an old Terrain surface; the subsequent 64-hit run at the server action interval had no stale samples."
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "name": "DigTheMountain-RojoBootstrap",
+  "serveAddress": "127.0.0.1",
+  "servePort": 34873,
+  "servePlaceIds": [0, 79018924370790],
+  "tree": {
+    "$className": "DataModel",
+    "$ignoreUnknownInstances": true,
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$ignoreUnknownInstances": true,
+      "RojoManaged": {
+        "$className": "Folder",
+        "$ignoreUnknownInstances": true,
+        "$path": "src/rojo_bootstrap"
+      },
+      "SandPrototypeSnapshot": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeSnapshot.luau"
+      },
+      "SandPrototypeAccessRules": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeAccessRules.luau"
+      },
+      "SandPrototypePlotData": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypePlotData.luau"
+      },
+      "SandPrototypeCoopData": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeCoopData.luau"
+      },
+      "SandPrototypeFindData": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeFindData.luau"
+      },
+      "SandPrototypeSaveSession": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeSaveSession.luau"
+      },
+      "SandPrototypeSaveCodec": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeSaveCodec.luau"
+      },
+      "SandPrototypeEconomy": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeEconomy.luau"
+      },
+      "SandPrototypeWorld": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeWorld.luau"
+      },
+      "SandPrototypeWheelbarrow": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeWheelbarrow.luau"
+      },
+      "SandPrototypeCollapse": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeCollapse.luau"
+      },
+      "SandPrototypeTerrain": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypeTerrain.luau"
+      },
+      "SandPrototypePlots": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypePlots.luau"
+      },
+      "SandPrototypePlotLayout": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototypePlotLayout.luau"
+      },
+      "SandPrototype": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ServerScriptService/SandPrototype.server.luau",
+        "$properties": {
+          "Enabled": true,
+          "RunContext": "Legacy",
+          "Attributes": {
+            "PersistenceEnabled": { "Bool": true },
+            "PersonalPlotsEnabled": { "Bool": true },
+            "TerrainEnabled": { "Bool": true }
+          }
+        }
+      }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "$ignoreUnknownInstances": true,
+      "SandPrototypeClientContext": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ReplicatedStorage/SandPrototypeClientContext.luau"
+      },
+      "SandPrototypeTerrainGrid": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ReplicatedStorage/SandPrototypeTerrainGrid.luau"
+      },
+      "SandPrototypeVoxelField": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ReplicatedStorage/SandPrototypeVoxelField.luau"
+      },
+      "SandPrototypeGeometry": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ReplicatedStorage/SandPrototypeGeometry.luau"
+      },
+      "SandPrototypeCartAppearance": {
+        "$ignoreUnknownInstances": true,
+        "$path": "src/ReplicatedStorage/SandPrototypeCartAppearance.luau"
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "$ignoreUnknownInstances": true,
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "$ignoreUnknownInstances": true,
+        "SandPrototypeHUD": {
+          "$ignoreUnknownInstances": true,
+          "$path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeHUD.client.luau"
+        },
+        "SandPrototypeFeedback": {
+          "$ignoreUnknownInstances": true,
+          "$path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeFeedback.client.luau"
+        },
+        "SandPrototypeCartVisual": {
+          "$ignoreUnknownInstances": true,
+          "$path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeCartVisual.client.luau"
+        },
+        "SandPrototypeShovelController": {
+          "$ignoreUnknownInstances": true,
+          "$path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeShovelController.client.luau"
+        },
+        "SandPrototypeVisits": {
+          "$ignoreUnknownInstances": true,
+          "$path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeVisits.client.luau"
+        },
+        "DTM_AmbientClient": {
+          "$ignoreUnknownInstances": true,
+          "$path": "src/StarterPlayer/StarterPlayerScripts/DTM_AmbientClient.client.luau"
+        }
+      }
+    },
+    "StarterPack": {
+      "$className": "StarterPack",
+      "$ignoreUnknownInstances": true,
+      "Лопата": {
+        "$className": "Tool",
+        "$ignoreUnknownInstances": true,
+        "SandProbeClient": {
+          "$ignoreUnknownInstances": true,
+          "$path": "src/StarterPack/SandProbe.client.luau"
+        }
+      }
+    }
+  },
+  "emitLegacyScripts": true
+}

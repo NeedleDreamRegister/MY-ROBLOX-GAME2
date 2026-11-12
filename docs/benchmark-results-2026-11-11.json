@@ -1,0 +1,116 @@
+{
+  "render": {
+    "viewport": "812, 635",
+    "results": {
+      "1": {
+        "firstAbsoluteFrame": 3663322,
+        "maxBuildChunkMs": 1.7993999645113945,
+        "medianCpuFrameMs": 16.727981594226094,
+        "p95CpuFrameMs": 17.61348381702078,
+        "frames": 90,
+        "radius": 4,
+        "buildWallMs": 1.7996998503804207,
+        "lastAbsoluteFrame": 3663411,
+        "firstFrame": 436,
+        "lastFrame": 525,
+        "maxCpuFrameMs": 18.030363127693136,
+        "parts": 165
+      },
+      "2": {
+        "firstAbsoluteFrame": 3663483,
+        "maxBuildChunkMs": 2.6014000177383423,
+        "medianCpuFrameMs": 16.678646896963755,
+        "p95CpuFrameMs": 17.655016967120673,
+        "frames": 93,
+        "radius": 6,
+        "buildWallMs": 17.35399989411235,
+        "lastAbsoluteFrame": 3663575,
+        "firstFrame": 564,
+        "lastFrame": 656,
+        "maxCpuFrameMs": 18.051573367031324,
+        "parts": 455
+      },
+      "3": {
+        "firstAbsoluteFrame": 3663653,
+        "maxBuildChunkMs": 2.5354998651891947,
+        "medianCpuFrameMs": 16.681527628477056,
+        "p95CpuFrameMs": 17.72778678367797,
+        "frames": 93,
+        "radius": 10,
+        "buildWallMs": 116.97639990597963,
+        "lastAbsoluteFrame": 3663745,
+        "firstFrame": 695,
+        "lastFrame": 787,
+        "maxCpuFrameMs": 18.345545324419845,
+        "parts": 1771
+      }
+    },
+    "environment": "Studio on this Windows PC; local render-only geometry; one client"
+  },
+  "mutation": {
+    "initial": 1771,
+    "firstAbsoluteFrame": 3730639,
+    "lastAbsoluteFrame": 3730716,
+    "moved": 19,
+    "samples": 6,
+    "profile": {
+      "CapacityLevel": 0,
+      "CarriedCells": 10,
+      "CapacityCells": 20,
+      "XP": 10,
+      "Coins": 0
+    },
+    "remaining": 1761,
+    "p95MutationMs": 0.3380691012794159,
+    "lastFrame": 10125,
+    "maxMutationMs": 0.3380691012794159,
+    "firstFrame": 10048,
+    "dug": 10,
+    "medianMutationMs": 0.24535252411783404
+  },
+  "tests": {
+    "SandPrototypeSnapshot.spec": {
+      "passed": 17,
+      "cases": [
+        "initial mountain",
+        "sale and upgrade conserve mass",
+        "copy isolation",
+        "duplicate coordinates",
+        "coordinate outside mountain",
+        "fractional coordinate",
+        "array hole",
+        "unaccounted missing cell",
+        "future schema",
+        "NaN revision",
+        "infinite revision",
+        "unexpected account coins",
+        "wrong capacity",
+        "negative inventory",
+        "duplicate numeric identity",
+        "extra sale coin",
+        "extra XP"
+      ]
+    },
+    "SandPrototypeFindSession.spec": {
+      "passed": 8
+    },
+    "SandPrototypePersonalSession.spec": {
+      "passed": 9
+    },
+    "SandPrototypeCoopData.spec": {
+      "passed": 25
+    },
+    "SandPrototypeCoopSession.spec": {
+      "passed": 12
+    },
+    "SandPrototypeSaveSession.spec": {
+      "passed": 9
+    },
+    "SandPrototypeFindData.spec": {
+      "passed": 28
+    },
+    "SandPrototypePlotData.spec": {
+      "passed": 12
+    }
+  }
+}
