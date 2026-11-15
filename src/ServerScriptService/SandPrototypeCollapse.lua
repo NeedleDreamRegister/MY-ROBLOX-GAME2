@@ -13,9 +13,10 @@ local function sourceAbove(x,y,z,getCell,phase)
 		end
 	return source,sx,sz
 end
-function Collapse.Run(x,y,z,getCell,moveCell,canOccupy,budget,phase)
+function Collapse.Run(x,y,z,getCell,moveCell,canOccupy,budget,phase,canContinue)
 	local moves=0
 	while moves<budget do
+		if canContinue and not canContinue()then break end
 		local source,sx,sz=sourceAbove(x,y,z,getCell,phase)
 		if not source then break end
 		if not canOccupy(source,x,y,z)then return moves,true,x,y,z end
@@ -30,15 +31,15 @@ end
 
 -- A vacancy rises one level per transfer. Its remaining height bounds total work;
 -- frameBudget bounds one step. Both character and frame stops preserve the job.
-function Collapse.Advance(entry,getCell,moveCell,canOccupy,frameBudget,phase)
-	local moves,pending,x,y,z=Collapse.Run(entry.x,entry.y,entry.z,getCell,moveCell,canOccupy,math.min(entry.budget,frameBudget),phase)
+function Collapse.Advance(entry,getCell,moveCell,canOccupy,frameBudget,phase,canContinue)
+	local moves,pending,x,y,z=Collapse.Run(entry.x,entry.y,entry.z,getCell,moveCell,canOccupy,math.min(entry.budget,frameBudget),phase,canContinue)
 	local remaining=entry.budget-moves
 	return moves,pending and remaining>0 and {x=x,y=y,z=z,budget=remaining}or nil
 end
 
 -- Resume old holes when a later transfer makes a source available above them.
 -- A filled vacancy is cancelled before waking neighbours, so budgets never duplicate.
-function Collapse.Process(queue,entry,getCell,moveCell,canOccupy,frameBudget,height,contains,phase)
+function Collapse.Process(queue,entry,getCell,moveCell,canOccupy,frameBudget,height,contains,phase,canContinue)
  if getCell(entry.x,entry.y,entry.z)then return 0,nil end
  return Collapse.Advance(entry,getCell,function(source,sx,sy,sz,x,y,z)
   queue.Cancel(x,y,z)
@@ -52,7 +53,7 @@ function Collapse.Process(queue,entry,getCell,moveCell,canOccupy,frameBudget,hei
     end
    end end
   end
- end,canOccupy,frameBudget,phase)
+ end,canOccupy,frameBudget,phase,canContinue)
 end
 
 -- Bounded round-robin continuation. Linked nodes allow O(1) cancellation.

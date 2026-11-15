@@ -1,11 +1,12 @@
 -- Pure regression using shipped occupancy/collapse modules; no Terrain or DataStore writes.
-return function()
+return function(height)
  local Collapse=require(game.ServerScriptService.SandPrototypeCollapse)
  local Field=require(game.ReplicatedStorage.SandPrototypeVoxelField)
- local height=6
+ height=height or 6
+ assert(type(height)=='number'and height%1==0 and height>=3 and height<=36)
  local field=Field.Create()
  local function contains(x,y,z)return y>=0 and y<=height and math.abs(x)<=height-y and math.abs(z)<=height-y end
- for y=0,height do for x=-(height-y),height-y do for z=-(height-y),height-y do field.Set(x,y,z,true)end end end
+ for y=0,height do for x=-(height-y),height-y do for z=-(height-y),height-y do field.Set(x,y,z,true)end end task.wait()end
  local initial=field.Count()
  local queue=Collapse.Queue(initial)
  local dug,moved,blocked=0,0,false

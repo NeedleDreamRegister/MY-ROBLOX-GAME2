@@ -342,7 +342,7 @@ end
 
 -- A vacancy can be filled by sand one level above, either straight down
 -- or diagonally from its immediate neighbours. Each step transfers existing mass.
-local function settleAround(x, y, z,budget)
+local function settleAround(x, y, z,budget,canContinue)
 	budget=budget or math.max(0,mountainHeight-y)
 	local motions={}
 	local characters = {}
@@ -378,7 +378,7 @@ local function settleAround(x, y, z,budget)
 		return #workspace:GetPartBoundsInBox(box,source.Size*0.95,overlap)==0
 	end,MAX_MOVES_PER_STEP,mountainHeight,function(cx,cy,cz)
 		return cy>=0 and cy<=mountainHeight and math.abs(cx)<=mountainHeight-cy and math.abs(cz)<=mountainHeight-cy
-	end,dugCells)
+	end,dugCells,canContinue)
 	movedCells += moves
 	return motions,retry
 end
@@ -394,17 +394,18 @@ task.spawn(function()
 		task.wait(0.05)
 		if canMutate()and not terrainFault then
 			local started=os.clock()
+			local function withinBudget()return os.clock()-started<0.002 end
 			local motions={}
 			local moved=0
 			local before=retryQueue.Count()
 			retryQueue.Step(function(entry)
 				if not canMutate()then return entry end
 				if getCell(entry.x,entry.y,entry.z)then return nil end
-				local transfers,retry=settleAround(entry.x,entry.y,entry.z,entry.budget)
+				local transfers,retry=settleAround(entry.x,entry.y,entry.z,entry.budget,withinBudget)
 				moved+=#transfers
 				for _,motion in transfers do if #motions<8 then table.insert(motions,motion)end end
 				return retry
-			end,8,function()return os.clock()-started<0.002 end)
+			end,8,withinBudget)
 			-- Publish/flush once per batch, with bounded cosmetic motion traffic.
 			if moved>0 then
 				changed()flushTerrain()publishCounts()
