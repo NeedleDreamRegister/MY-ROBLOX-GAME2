@@ -1,5 +1,5 @@
 -- Isolated server physics fixture. Never runs automatically or accesses DataStore.
-return function()
+return function(updateInterval)
  assert(not game.ServerScriptService.SandPrototype.Enabled)
  local player=assert(game.Players:GetPlayers()[1])
  local character=player.Character or player.CharacterAdded:Wait()
@@ -24,7 +24,11 @@ return function()
   for _,p in model:GetDescendants()do if p:IsA('BasePart')then p.Anchored=true p.CanCollide=false p.CanQuery=false end end
   model:PivotTo(CFrame.new(5000,3,-1.5))model.Parent=folder
   manual=require(game.ServerScriptService.ManualCart).Create(owner,model,function()return true end)
-  connection=game:GetService('RunService').Heartbeat:Connect(function(dt)manual.Update(dt,true)end)
+  local elapsed=0
+  connection=game:GetService('RunService').Heartbeat:Connect(function(dt)
+   elapsed+=dt;if elapsed<(updateInterval or 0)then return end
+   local step=elapsed;elapsed=0;manual.Update(step,true)
+  end)
  end
  function api.Start()manual.Toggle(owner)assert(model:GetAttribute('Pushing'))end
  function api.Snapshot()return {position=model.PrimaryPart.Position,actor=npc.HumanoidRootPart.Position,pushing=model:GetAttribute('Pushing'),blocked=model:GetAttribute('Blocked'),parked=model:GetAttribute('ManualParked'),speed=humanoid.WalkSpeed,ik=#humanoid:GetChildren()}end

@@ -92,12 +92,35 @@ function Motion.Create(model)
   hit=workspace:Raycast(position+wheelOffset+Vector3.new(0,8,0),Vector3.new(0,-30,0),params)
   if not hit or hit.Normal.Y<.82 then return nil,true end
   position=Vector3.new(position.X,hit.Position.Y+radius/hit.Normal.Y-wheelOffset.Y,position.Z)
+  -- A wheel contacts the edge of a small curb before its centre is above it.
+  -- Probe its full radius so the centre follows that contact instead of driving
+  -- a level sphere into the curb. Orientation still comes from the ground ray.
+  local probe=position+wheelOffset+Vector3.new(0,8,0)
+  local support=workspace:Spherecast(probe,radius,Vector3.new(0,-30,0),params)
+  if support then
+   local lift=probe.Y-support.Distance-(position.Y+wheelOffset.Y)
+   if lift>.35*scale then return nil,true end
+   if lift>0 then position+=Vector3.new(0,lift,0)end
+  end
   local delta=position-root.Position
   if math.abs(delta.Y)>2 then return nil,true end
   local destination=CFrame.new(position)*rotation
   local from=(root.CFrame*wheel).Position local to=(destination*wheel).Position local travel=to-from
+  local wheelHit=travel.Magnitude>.001 and workspace:Spherecast(from,collisionRadius,travel,params)
+  if wheelHit and math.abs(travel.Y)>.001 and math.abs(travel.Y)<=.35*scale then
+   -- A coarse server tick's straight chord can cut through a curb even when
+   -- both wheel poses are supported. Validate an up/across/down path instead;
+   -- neither wheel nor body may pass through an obstacle on either segment.
+   local via=travel.Y>0 and Vector3.new(from.X,to.Y,from.Z)or Vector3.new(to.X,from.Y,to.Z)
+   local first,second=via-from,to-via
+   local bodyStart=root.CFrame*bowl+Vector3.new(0,.65*scale,0)
+   if not(first.Magnitude>.001 and workspace:Spherecast(from,collisionRadius,first,params))
+    and not(second.Magnitude>.001 and workspace:Spherecast(via,collisionRadius,second,params))
+    and not(first.Magnitude>.001 and workspace:Blockcast(bodyStart,box,first,params))
+    and not((delta-first).Magnitude>.001 and workspace:Blockcast(bodyStart+first,box,delta-first,params))then wheelHit=nil end
+  end
   if (delta.Magnitude>.001 and workspace:Blockcast(root.CFrame*bowl+Vector3.new(0,.65*scale,0),box,delta,params))
-   or (travel.Magnitude>.001 and workspace:Spherecast(from,collisionRadius,travel,params))
+   or wheelHit
    or #workspace:GetPartBoundsInRadius(to,collisionRadius,overlap)>0
    or #workspace:GetPartBoundsInBox(destination*bowl+Vector3.new(0,.65*scale,0),box,overlap)>0 then return nil,true end
   return destination,false
