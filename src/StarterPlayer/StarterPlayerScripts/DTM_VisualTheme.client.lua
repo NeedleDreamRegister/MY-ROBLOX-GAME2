@@ -353,16 +353,41 @@ local function dressSandExchange(machine)
     help.Text="Автомат обслуживает владельца участка"
     return
    end
-   local carried=state:GetAttribute("InventoryCells")or state:GetAttribute("CarriedCells")or 0
-   readiness.Text=carried>0 and ("ПЕСОК С СОБОЙ: "..carried)or "НЕТ ПЕСКА ДЛЯ ПРОДАЖИ"
-   help.Text=input.PreferredInput==Enum.PreferredInput.Touch
+   local carried=state:GetAttribute("CarriedCells")or 0
+   local cargo=state:GetAttribute("CartCells")or 0
+   local cart=station.Parent:FindFirstChild("FollowWheelbarrow")
+   -- Match the server's station radius, using the authoritative cart rather than
+   -- its locally smoothed visual copy. This is guidance, never a sale decision.
+   local cartNearby=cart and cart.PrimaryPart and (cart.PrimaryPart.Position-pad.Position).Magnitude<=16
+   local available=carried+(cartNearby and cargo or 0)
+   local needsCart=cargo>0 and not cartNearby
+   readiness.Text=available>0 and ("К ПРОДАЖЕ: "..available)
+    or needsCart and ("ПОДВЕЗИТЕ ТАЧКУ: "..cargo)
+    or "НЕТ ПЕСКА ДЛЯ ПРОДАЖИ"
+   help.Text=needsCart and available==0 and "Подкатите тачку ближе к автомату"
+    or input.PreferredInput==Enum.PreferredInput.Touch
     and "Удерживайте кнопку «Продать песок»"
     or "Удерживайте E для продажи песка"
+   if activeSellPrompt==sellPrompt then
+    sellTitle.Text=available>0 and ("ПРОДАТЬ ПЕСОК: "..available)
+     or needsCart and "ПОДВЕЗИТЕ ТАЧКУ" or "НЕТ ПЕСКА"
+    sellHint.Text=available==0 and (needsCart and "Груз должен быть рядом с автоматом"or "Сначала добудьте песок")
+     or input.PreferredInput==Enum.PreferredInput.Touch and "Удерживайте кнопку для продажи"
+     or input.PreferredInput==Enum.PreferredInput.Gamepad and ("Удерживайте "..sellPrompt.GamepadKeyCode.Name)
+     or ("Удерживайте "..sellPrompt.KeyboardKeyCode.Name.." или эту кнопку")
+   end
   end
+  -- The cart can enter/leave the sale radius without an inventory change.
+  local elapsed=0
   local connections={
    state:GetAttributeChangedSignal("InventoryCells"):Connect(update),
    ownMountain:GetPropertyChangedSignal("Value"):Connect(update),
-   input:GetPropertyChangedSignal("PreferredInput"):Connect(update)
+   input:GetPropertyChangedSignal("PreferredInput"):Connect(update),
+   game:GetService("RunService").Heartbeat:Connect(function(dt)
+    elapsed+=dt;if elapsed<.25 then return end;elapsed=0
+    local ch=player.Character;local root=ch and ch:FindFirstChild("HumanoidRootPart")
+    if root and (root.Position-pad.Position).Magnitude<80 then update()end
+   end)
   }
   machine.Destroying:Connect(function()for _,connection in connections do connection:Disconnect()end end)
   update()
