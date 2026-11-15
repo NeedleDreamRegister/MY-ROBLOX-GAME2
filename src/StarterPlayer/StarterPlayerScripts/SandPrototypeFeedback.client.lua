@@ -127,7 +127,7 @@ task.spawn(function()
 		local level=state:GetAttribute("CapacityLevel")
 		local barrow=state:GetAttribute("BarrowOwned")
 		if carried==nil or coins==nil or level==nil or barrow==nil then return nil end
-		return {carried=carried,coins=coins,level=level,barrow=barrow,shovel=state:GetAttribute("ShovelLevel")or 0}
+		return {carried=carried,cart=state:GetAttribute("CartCells")or 0,coins=coins,level=level,barrow=barrow,shovel=state:GetAttribute("ShovelLevel")or 0}
 	end
 	local function update()
 		if queued then return end
@@ -142,8 +142,8 @@ task.spawn(function()
 				elseif current.level>previous.level then
 					showToast("Вместимость: "..(state:GetAttribute("CapacityCells")or 40).." ячеек")
 				elseif current.barrow>previous.barrow then
-					showToast("Тачка куплена · +80 ячеек")
-				elseif current.carried<previous.carried and current.coins>previous.coins then
+					showToast("Тачка куплена · "..(state:GetAttribute("CartCapacity")or 0).." песка")
+				elseif current.carried+current.cart<previous.carried+previous.cart and current.coins>previous.coins then
 					local earned=current.coins-previous.coins
 					showToast("+"..earned.." "..coinWord(earned).." · песок продан")
 				end

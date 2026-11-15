@@ -24,6 +24,7 @@ local function bind(tool)
   local state=P:FindFirstChild('SandPrototypeState');if not state then return end
   if state:GetAttribute('PushingCart')then return end
   local status=mountain:GetAttribute('PersistenceStatus');if status~='SessionOnly'and status~='Saved'and status~='Dirty'and status~='Saving'then hint('Дождитесь загрузки прогресса');return end
+  if state:GetAttribute('CartEnabled')and state:GetAttribute('CartNearby')==false then hint('Подкатите тачку ближе к месту копания');return end
   if Context.FreeCapacity(state)<=(state:GetAttribute('PendingCells')or 0)then hint('Контейнер заполнен — продайте песок');return end
   local target,hit=aim(position);if not target or not Context.CanTarget(P,target,cells)then
    local root=P.Character and P.Character:FindFirstChild('HumanoidRootPart')
