@@ -1,6 +1,6 @@
 # Instructions for Codex
 
-Current full-map checkout: this directory, branch codex/resume-2026-11-15. The outer root's codex/terrain-chunks and its Rojo configs are historical. Do not run either outer default.project.json or rojo.current-place.project.json against this map: an alternate server caused repeated verified stale Source overwrites. Both are locally blocked for Place0/123243510098281. Develop in the file-backed MY-ROBLOX-GAME.rbxl Studio and save that file through save_place; use cloud only after fresh source comparison. Read PROGRESS.md for actual checks and outstanding physics/cart work. Preserve all older useful instructions below.
+Current full-map checkout: this directory, branch codex/resume-2026-11-15. The outer root's codex/terrain-chunks and its Rojo configs are historical. Do not run either outer default.project.json or rojo.current-place.project.json against this map: an alternate server caused repeated verified stale Source overwrites. Both are locally blocked for Place0/123243510098281. The active cloud Place123243510098281 now uses this checkout's `rojo-full.project.json` on localhost:34874 for 88 mapped scripts. One Rojo server and one Studio integrator at a time; disk `src` pushes to the cloud Studio, while the separate file-backed RBXL is not automatically updated. Read PROGRESS.md for verification and outstanding work. Preserve all older useful instructions below.
 
 This is an existing Roblox game. Read README.md and HANDOFF.md before making changes.
 
@@ -16,7 +16,7 @@ This package now combines the related project chats. Also read START_HERE_RU.md,
 - Existing Studio-only 10-million test balance for the owner is deliberate; do not make it a reward for all live players.
 
 - The authoritative complete place is MY-ROBLOX-GAME.rbxl. Open that file in Roblox Studio.
-- src/ is an exported snapshot, NOT an already configured Rojo project. script-manifest.json maps exported files to Studio instances.
+- src/ is mapped to the cloud Studio by `rojo-full.project.json` (88 scripts, checked 16 November 2026). `script-manifest.json` records the instance paths. Studio edits do not automatically write back to disk.
 - Do not rebuild the game, mountain, roads, transport, or player systems from scratch.
 - Scope changes to the user's current request. Preserve unrelated mechanics and map objects.
 - The latest vehicle is QG Touring (DesignVersion 2), with 5 native passenger Seats and an empty driver position.

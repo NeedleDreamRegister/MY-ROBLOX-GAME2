@@ -1,0 +1,426 @@
+{
+  "name": "DigTheMountain-FullSync",
+  "serveAddress": "127.0.0.1",
+  "servePort": 34874,
+  "servePlaceIds": [
+    123243510098281
+  ],
+  "tree": {
+    "$className": "DataModel",
+    "$ignoreUnknownInstances": true,
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$ignoreUnknownInstances": true,
+      "SandPrototype": {
+        "$path": "src/ServerScriptService/SandPrototype.server.lua",
+        "$properties": {
+          "Enabled": true
+        }
+      },
+      "SandPrototypeEconomy": {
+        "$path": "src/ServerScriptService/SandPrototypeEconomy.lua"
+      },
+      "SandPrototypeSnapshot": {
+        "$path": "src/ServerScriptService/SandPrototypeSnapshot.lua"
+      },
+      "SandPrototypeSaveSession": {
+        "$path": "src/ServerScriptService/SandPrototypeSaveSession.lua"
+      },
+      "SandPrototypePlotData": {
+        "$path": "src/ServerScriptService/SandPrototypePlotData.lua"
+      },
+      "SandPrototypeWorld": {
+        "$path": "src/ServerScriptService/SandPrototypeWorld.lua"
+      },
+      "SandPrototypePlots": {
+        "$path": "src/ServerScriptService/SandPrototypePlots.lua"
+      },
+      "SandPrototypeAccessRules": {
+        "$path": "src/ServerScriptService/SandPrototypeAccessRules.lua"
+      },
+      "SandPrototypeCoopData": {
+        "$path": "src/ServerScriptService/SandPrototypeCoopData.lua"
+      },
+      "SandPrototypeFindData": {
+        "$path": "src/ServerScriptService/SandPrototypeFindData.lua"
+      },
+      "SandPrototypeWheelbarrow": {
+        "$path": "src/ServerScriptService/SandPrototypeWheelbarrow.lua"
+      },
+      "SandPrototypeCollapse": {
+        "$path": "src/ServerScriptService/SandPrototypeCollapse.lua"
+      },
+      "SandPrototypeTerrain": {
+        "$path": "src/ServerScriptService/SandPrototypeTerrain.lua"
+      },
+      "SandPrototypeSaveCodec": {
+        "$path": "src/ServerScriptService/SandPrototypeSaveCodec.lua"
+      },
+      "SandPrototypePlotLayout": {
+        "$path": "src/ServerScriptService/SandPrototypePlotLayout.lua"
+      },
+      "ProgressionAccount": {
+        "$path": "src/ServerScriptService/ProgressionAccount.lua"
+      },
+      "ProgressionData": {
+        "$path": "src/ServerScriptService/ProgressionData.lua"
+      },
+      "UpgradeTransactions": {
+        "$path": "src/ServerScriptService/UpgradeTransactions.lua"
+      },
+      "ProgressionToolService": {
+        "$path": "src/ServerScriptService/ProgressionToolService.lua"
+      },
+      "UpgradeService": {
+        "$path": "src/ServerScriptService/UpgradeService.lua"
+      },
+      "FollowCart": {
+        "$path": "src/ServerScriptService/FollowCart.lua"
+      },
+      "ConveyorService": {
+        "$path": "src/ServerScriptService/ConveyorService.lua"
+      },
+      "MountainSlideServer": {
+        "$path": "src/ServerScriptService/MountainSlideServer.server.lua",
+        "$properties": {
+          "Enabled": true
+        }
+      },
+      "ExcavationPresentation": {
+        "$path": "src/ServerScriptService/ExcavationPresentation.server.lua",
+        "$properties": {
+          "Enabled": true
+        }
+      },
+      "QuarryGardenEnvironment": {
+        "$path": "src/ServerScriptService/QuarryGardenEnvironment.server.lua",
+        "$properties": {
+          "Enabled": true
+        }
+      },
+      "OasisPolishEnvironment": {
+        "$path": "src/ServerScriptService/OasisPolishEnvironment.server.lua",
+        "$properties": {
+          "Enabled": true
+        }
+      },
+      "VegetationRefinementEnvironment": {
+        "$path": "src/ServerScriptService/VegetationRefinementEnvironment.server.lua",
+        "$properties": {
+          "Enabled": true
+        }
+      },
+      "RemasterLandscapeEnvironment": {
+        "$path": "src/ServerScriptService/RemasterLandscapeEnvironment.server.lua",
+        "$properties": {
+          "Enabled": true
+        }
+      },
+      "RojoManaged": {
+        "$className": "Folder",
+        "$ignoreUnknownInstances": true,
+        "RojoConnectionTest": {
+          "$path": "src/ServerScriptService/RojoManaged/RojoConnectionTest.server.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        }
+      },
+      "QuarryTransit": {
+        "$className": "Folder",
+        "$ignoreUnknownInstances": true,
+        "TransitController": {
+          "$path": "src/ServerScriptService/QuarryTransit/TransitController.lua"
+        },
+        "TransitBootstrap": {
+          "$path": "src/ServerScriptService/QuarryTransit/TransitBootstrap.server.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "Route": {
+          "$path": "src/ServerScriptService/QuarryTransit/Route.lua"
+        },
+        "BuildRoads": {
+          "$path": "src/ServerScriptService/QuarryTransit/BuildRoads.lua"
+        },
+        "FloorSeamFix": {
+          "$path": "src/ServerScriptService/QuarryTransit/FloorSeamFix.lua"
+        },
+        "MergeEntrance": {
+          "$path": "src/ServerScriptService/QuarryTransit/MergeEntrance.lua"
+        },
+        "ApplyEntrancePaths": {
+          "$path": "src/ServerScriptService/QuarryTransit/ApplyEntrancePaths.lua"
+        }
+      },
+      "ManualCart": {
+        "$path": "src/ServerScriptService/ManualCart.lua"
+      }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "$ignoreUnknownInstances": true,
+      "SandPrototypeClientContext": {
+        "$path": "src/ReplicatedStorage/SandPrototypeClientContext.lua"
+      },
+      "SandPrototypeTerrainGrid": {
+        "$path": "src/ReplicatedStorage/SandPrototypeTerrainGrid.lua"
+      },
+      "SandPrototypeVoxelField": {
+        "$path": "src/ReplicatedStorage/SandPrototypeVoxelField.lua"
+      },
+      "SandPrototypeGeometry": {
+        "$path": "src/ReplicatedStorage/SandPrototypeGeometry.lua"
+      },
+      "SandPrototypeCartAppearance": {
+        "$path": "src/ReplicatedStorage/SandPrototypeCartAppearance.lua"
+      },
+      "_DTM_RockBuilder": {
+        "$path": "src/ReplicatedStorage/_DTM_RockBuilder.lua"
+      },
+      "UpgradeConfig": {
+        "$path": "src/ReplicatedStorage/UpgradeConfig.lua"
+      },
+      "UpgradeToolAppearance": {
+        "$path": "src/ReplicatedStorage/UpgradeToolAppearance.lua"
+      },
+      "UpgradeMachineAppearance": {
+        "$path": "src/ReplicatedStorage/UpgradeMachineAppearance.lua"
+      },
+      "CartPose": {
+        "$path": "src/ReplicatedStorage/CartPose.lua"
+      },
+      "DigMotion": {
+        "$path": "src/ReplicatedStorage/DigMotion.lua"
+      },
+      "GameAudio": {
+        "$path": "src/ReplicatedStorage/GameAudio.lua"
+      },
+      "ExcavationJourney": {
+        "$path": "src/ReplicatedStorage/ExcavationJourney.lua"
+      },
+      "MountainSlideRules": {
+        "$path": "src/ReplicatedStorage/MountainSlideRules.lua"
+      },
+      "SandboardAppearance": {
+        "$path": "src/ReplicatedStorage/SandboardAppearance.lua"
+      },
+      "ExcavationLedgerAppearance": {
+        "$path": "src/ReplicatedStorage/ExcavationLedgerAppearance.lua"
+      },
+      "QuarryGroundAppearance": {
+        "$path": "src/ReplicatedStorage/QuarryGroundAppearance.lua"
+      },
+      "UpgradeMachineRefinement": {
+        "$path": "src/ReplicatedStorage/UpgradeMachineRefinement.lua"
+      },
+      "QuarryGardenBuilder": {
+        "$path": "src/ReplicatedStorage/QuarryGardenBuilder.lua"
+      },
+      "OasisPolish": {
+        "$path": "src/ReplicatedStorage/OasisPolish.lua"
+      },
+      "VegetationRefinement": {
+        "$path": "src/ReplicatedStorage/VegetationRefinement.lua"
+      },
+      "RemasterLandscape": {
+        "$path": "src/ReplicatedStorage/RemasterLandscape.lua"
+      },
+      "DTMCartPresentation": {
+        "$path": "src/ReplicatedStorage/DTMCartPresentation.lua"
+      },
+      "GroundCartMotion": {
+        "$path": "src/ReplicatedStorage/GroundCartMotion.lua"
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "$ignoreUnknownInstances": true,
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "$ignoreUnknownInstances": true,
+        "SandPrototypeHUD": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeHUD.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "SandPrototypeFeedback": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeFeedback.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "SandPrototypeVisits": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeVisits.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "DTM_AmbientClient": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/DTM_AmbientClient.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "SandPrototypeCartVisual": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeCartVisual.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "SandPrototypeShovelController": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeShovelController.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "DTM_VisualTheme": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/DTM_VisualTheme.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "UpgradeUI": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/UpgradeUI.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "ProgressionVisuals": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/ProgressionVisuals.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "FollowCartVisuals": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/FollowCartVisuals.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "ToolHandling": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/ToolHandling.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "UpgradeMachineVisuals": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/UpgradeMachineVisuals.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "MountainSlideClient": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/MountainSlideClient.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "DigPolishClient": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/DigPolishClient.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "QuarryGardenMotion": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/QuarryGardenMotion.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "QuarryTransitRider": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/QuarryTransitRider.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "DTMCartPresentationClient": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/DTMCartPresentationClient.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "DTM_RemasterFeedback": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/DTM_RemasterFeedback.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        },
+        "DTM_DesertLife": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/DTM_DesertLife.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        }
+      }
+    },
+    "StarterPack": {
+      "$className": "StarterPack",
+      "$ignoreUnknownInstances": true,
+      "Лопата": {
+        "$className": "Tool",
+        "$ignoreUnknownInstances": true,
+        "SandProbeClient": {
+          "$path": "src/StarterPack/Лопата/SandProbeClient.client.lua",
+          "$properties": {
+            "Enabled": true
+          }
+        }
+      }
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "$ignoreUnknownInstances": true,
+      "QuarryGardenFurnitureArchive": {
+        "$className": "Folder",
+        "$ignoreUnknownInstances": true,
+        "BuilderWithFurniture": {
+          "$path": "src/ServerStorage/QuarryGardenFurnitureArchive/BuilderWithFurniture.lua"
+        }
+      },
+      "RuntimePathFixBackup_20261115": {
+        "$className": "Folder",
+        "$ignoreUnknownInstances": true,
+        "BuildRoads": {
+          "$path": "src/ServerStorage/RuntimePathFixBackup_20261115/BuildRoads.lua"
+        }
+      },
+      "VisualRemasterSourceBackup": {
+        "$className": "Folder",
+        "$ignoreUnknownInstances": true,
+        "SandPrototypeFeedback": {
+          "$path": "src/ServerStorage/VisualRemasterSourceBackup/SandPrototypeFeedback.client.lua",
+          "$properties": {
+            "Enabled": false
+          }
+        },
+        "SandPrototypeHUD": {
+          "$path": "src/ServerStorage/VisualRemasterSourceBackup/SandPrototypeHUD.client.lua",
+          "$properties": {
+            "Enabled": false
+          }
+        },
+        "ProgressionVisuals": {
+          "$path": "src/ServerStorage/VisualRemasterSourceBackup/ProgressionVisuals.client.lua",
+          "$properties": {
+            "Enabled": false
+          }
+        },
+        "DTM_AmbientClient": {
+          "$path": "src/ServerStorage/VisualRemasterSourceBackup/DTM_AmbientClient.client.lua",
+          "$properties": {
+            "Enabled": false
+          }
+        },
+        "UpgradeUI": {
+          "$path": "src/ServerStorage/VisualRemasterSourceBackup/UpgradeUI.client.lua",
+          "$properties": {
+            "Enabled": false
+          }
+        }
+      }
+    }
+  }
+}
