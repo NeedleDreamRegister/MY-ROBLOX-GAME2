@@ -1,0 +1,2 @@
+-- Input and animation are owned by StarterPlayerScripts.SandPrototypeShovelController.
+-- Keep this object/path for existing tools; no per-respawn global input handlers here.

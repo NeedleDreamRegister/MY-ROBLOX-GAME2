@@ -1,0 +1,383 @@
+[
+  {
+    "path": "src/ServerScriptService/SandPrototype.server.lua",
+    "instance": "ServerScriptService.SandPrototype",
+    "class": "Script",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeEconomy.lua",
+    "instance": "ServerScriptService.SandPrototypeEconomy",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeSnapshot.lua",
+    "instance": "ServerScriptService.SandPrototypeSnapshot",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeSaveSession.lua",
+    "instance": "ServerScriptService.SandPrototypeSaveSession",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypePlotData.lua",
+    "instance": "ServerScriptService.SandPrototypePlotData",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeWorld.lua",
+    "instance": "ServerScriptService.SandPrototypeWorld",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypePlots.lua",
+    "instance": "ServerScriptService.SandPrototypePlots",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeAccessRules.lua",
+    "instance": "ServerScriptService.SandPrototypeAccessRules",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeCoopData.lua",
+    "instance": "ServerScriptService.SandPrototypeCoopData",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeFindData.lua",
+    "instance": "ServerScriptService.SandPrototypeFindData",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/RojoManaged/RojoConnectionTest.server.lua",
+    "instance": "ServerScriptService.RojoManaged.RojoConnectionTest",
+    "class": "Script",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeWheelbarrow.lua",
+    "instance": "ServerScriptService.SandPrototypeWheelbarrow",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeCollapse.lua",
+    "instance": "ServerScriptService.SandPrototypeCollapse",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeTerrain.lua",
+    "instance": "ServerScriptService.SandPrototypeTerrain",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypeSaveCodec.lua",
+    "instance": "ServerScriptService.SandPrototypeSaveCodec",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/SandPrototypePlotLayout.lua",
+    "instance": "ServerScriptService.SandPrototypePlotLayout",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/ProgressionAccount.lua",
+    "instance": "ServerScriptService.ProgressionAccount",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/ProgressionData.lua",
+    "instance": "ServerScriptService.ProgressionData",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/UpgradeTransactions.lua",
+    "instance": "ServerScriptService.UpgradeTransactions",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/ProgressionToolService.lua",
+    "instance": "ServerScriptService.ProgressionToolService",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/UpgradeService.lua",
+    "instance": "ServerScriptService.UpgradeService",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/FollowCart.lua",
+    "instance": "ServerScriptService.FollowCart",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/ConveyorService.lua",
+    "instance": "ServerScriptService.ConveyorService",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/MountainSlideServer.server.lua",
+    "instance": "ServerScriptService.MountainSlideServer",
+    "class": "Script",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/ServerScriptService/ExcavationPresentation.server.lua",
+    "instance": "ServerScriptService.ExcavationPresentation",
+    "class": "Script",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/ServerScriptService/QuarryGardenEnvironment.server.lua",
+    "instance": "ServerScriptService.QuarryGardenEnvironment",
+    "class": "Script",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/ServerScriptService/QuarryTransit/TransitController.lua",
+    "instance": "ServerScriptService.QuarryTransit.TransitController",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/QuarryTransit/TransitBootstrap.server.lua",
+    "instance": "ServerScriptService.QuarryTransit.TransitBootstrap",
+    "class": "Script",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/ServerScriptService/QuarryTransit/Route.lua",
+    "instance": "ServerScriptService.QuarryTransit.Route",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerScriptService/QuarryTransit/BuildRoads.lua",
+    "instance": "ServerScriptService.QuarryTransit.BuildRoads",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/SandPrototypeClientContext.lua",
+    "instance": "ReplicatedStorage.SandPrototypeClientContext",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/SandPrototypeTerrainGrid.lua",
+    "instance": "ReplicatedStorage.SandPrototypeTerrainGrid",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/SandPrototypeVoxelField.lua",
+    "instance": "ReplicatedStorage.SandPrototypeVoxelField",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/SandPrototypeGeometry.lua",
+    "instance": "ReplicatedStorage.SandPrototypeGeometry",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/SandPrototypeCartAppearance.lua",
+    "instance": "ReplicatedStorage.SandPrototypeCartAppearance",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/_DTM_RockBuilder.lua",
+    "instance": "ReplicatedStorage._DTM_RockBuilder",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/UpgradeConfig.lua",
+    "instance": "ReplicatedStorage.UpgradeConfig",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/UpgradeToolAppearance.lua",
+    "instance": "ReplicatedStorage.UpgradeToolAppearance",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/UpgradeMachineAppearance.lua",
+    "instance": "ReplicatedStorage.UpgradeMachineAppearance",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/CartPose.lua",
+    "instance": "ReplicatedStorage.CartPose",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/DigMotion.lua",
+    "instance": "ReplicatedStorage.DigMotion",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/GameAudio.lua",
+    "instance": "ReplicatedStorage.GameAudio",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/ExcavationJourney.lua",
+    "instance": "ReplicatedStorage.ExcavationJourney",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/MountainSlideRules.lua",
+    "instance": "ReplicatedStorage.MountainSlideRules",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/SandboardAppearance.lua",
+    "instance": "ReplicatedStorage.SandboardAppearance",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/ExcavationLedgerAppearance.lua",
+    "instance": "ReplicatedStorage.ExcavationLedgerAppearance",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/QuarryGroundAppearance.lua",
+    "instance": "ReplicatedStorage.QuarryGroundAppearance",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/UpgradeMachineRefinement.lua",
+    "instance": "ReplicatedStorage.UpgradeMachineRefinement",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ReplicatedStorage/QuarryGardenBuilder.lua",
+    "instance": "ReplicatedStorage.QuarryGardenBuilder",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/ServerStorage/QuarryGardenFurnitureArchive/BuilderWithFurniture.lua",
+    "instance": "ServerStorage.QuarryGardenFurnitureArchive.BuilderWithFurniture",
+    "class": "ModuleScript"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeHUD.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.SandPrototypeHUD",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeFeedback.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.SandPrototypeFeedback",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeVisits.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.SandPrototypeVisits",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/DTM_AmbientClient.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.DTM_AmbientClient",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeCartVisual.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.SandPrototypeCartVisual",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeShovelController.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.SandPrototypeShovelController",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/DTM_VisualTheme.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.DTM_VisualTheme",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/UpgradeUI.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.UpgradeUI",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/ProgressionVisuals.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.ProgressionVisuals",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/FollowCartVisuals.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.FollowCartVisuals",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/ToolHandling.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.ToolHandling",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/UpgradeMachineVisuals.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.UpgradeMachineVisuals",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/MountainSlideClient.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.MountainSlideClient",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/DigPolishClient.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.DigPolishClient",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/QuarryGardenMotion.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.QuarryGardenMotion",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPlayer/StarterPlayerScripts/QuarryTransitRider.client.lua",
+    "instance": "StarterPlayer.StarterPlayerScripts.QuarryTransitRider",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  },
+  {
+    "path": "src/StarterPack/Лопата/SandProbeClient.client.lua",
+    "instance": "StarterPack.Лопата.SandProbeClient",
+    "class": "LocalScript",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy"
+  }
+]
