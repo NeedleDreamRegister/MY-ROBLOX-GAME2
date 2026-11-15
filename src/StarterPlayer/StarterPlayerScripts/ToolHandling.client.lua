@@ -55,13 +55,27 @@ Run:BindToRenderStep('DTMCartSteer',Enum.RenderPriority.Character.Value-1,functi
  if not e or not e.cart or not h or not root or h.Health<=0 then return end
  local input=h.MoveDirection
  if input.Magnitude>.05 then
-  local look=Vector3.new(root.CFrame.LookVector.X,0,root.CFrame.LookVector.Z).Unit
+  local cart
+  local renders=workspace:FindFirstChild('DTMCartRenders')
+  if renders then for _,v in renders:GetChildren()do if v:GetAttribute('OwnerUserId')==me.UserId then cart=v break end end end
+  local blocked=cart and cart:GetAttribute('MotionBlocked')==true
+  -- A blocked cart also limits the driver's turn, keeping reverse usable.
+  local facing=blocked and cart.PrimaryPart.CFrame.LookVector or root.CFrame.LookVector
+  local look=Vector3.new(facing.X,0,facing.Z).Unit
   local desired=Vector3.new(input.X,0,input.Z).Unit
+  local reverse=look:Dot(desired)<-.5
+  if reverse then desired=-desired end
   local angle=math.atan2(look:Cross(desired).Y,look:Dot(desired))
   local turn=math.clamp(angle,-math.rad(120)*math.min(dt,.1),math.rad(120)*math.min(dt,.1))
   look=CFrame.Angles(0,turn,0):VectorToWorldSpace(look)
   root.CFrame=CFrame.lookAt(root.Position,root.Position+look)
-  h:Move(look*math.min(1,input.Magnitude),false)
+  if blocked and not reverse then
+   h:Move(Vector3.zero,false)
+   local velocity=root.AssemblyLinearVelocity
+   root.AssemblyLinearVelocity=Vector3.new(0,velocity.Y,0)
+  else
+   h:Move(look*math.min(1,input.Magnitude)*(reverse and -1 or 1),false)
+  end
  end
 end)
 Run.PreSimulation:Connect(function(dt)

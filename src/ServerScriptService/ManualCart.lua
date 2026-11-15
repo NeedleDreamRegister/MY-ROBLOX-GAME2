@@ -16,7 +16,11 @@ function Manual.Create(owner,model,canMutate)
   if equipmentConnection then equipmentConnection:Disconnect()equipmentConnection=nil end
   for _,c in controls do c:Destroy()end table.clear(controls)
   if driver and driver.Parent and speed then driver.WalkSpeed=speed end
-  if active then model:SetAttribute('ManualParked',true)end
+  if active then
+   local parked=motion.Park(owner.Character)
+   if parked then model:PivotTo(parked)end
+   model:SetAttribute('ManualParked',true)
+  end
   active=false driver=nil speed=nil publish(false)prompt.ActionText='Взяться за ручки'
  end
  local function toggle(actor)
