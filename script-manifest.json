@@ -501,5 +501,10 @@
     "instance": "ServerScriptService.ManualCart",
     "class": "ModuleScript",
     "path": "src/ServerScriptService/ManualCart.lua"
+  },
+  {
+    "instance": "ReplicatedStorage.GroundCartMotion",
+    "path": "src/ReplicatedStorage/GroundCartMotion.lua",
+    "class": "ModuleScript"
   }
 ]

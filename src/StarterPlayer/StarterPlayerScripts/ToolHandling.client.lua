@@ -40,14 +40,62 @@ local function reachOffset(ch,side,handCF)
  return Vector3.zero
 end
 local function clear(ch)
+ local e=entries[ch]
+ if e and e.driver and e.driver.Parent then e.driver.AutoRotate=e.autoRotate end
+ for ik,enabled in e and e.disabledIK or {}do if ik.Parent then ik.Enabled=enabled end end
  for _,v in ch:GetDescendants()do if (v:IsA('Motor6D')or v:IsA('AnimationConstraint'))and(v.Name:find('Shoulder')or v.Name:find('Elbow')or v.Name:find('Wrist'))then v.Transform=CFrame.identity end end
  entries[ch]=nil
 end
+-- Read default controls once per rendered frame, before replacing their movement.
+-- PreSimulation can run several times per frame and would feed our own Move back in.
+Run:BindToRenderStep('DTMCartSteer',Enum.RenderPriority.Character.Value-1,function(dt)
+ local ch=me.Character;local e=ch and entries[ch]
+ local h=ch and ch:FindFirstChildOfClass('Humanoid')
+ local root=ch and ch:FindFirstChild('HumanoidRootPart')
+ if not e or not e.cart or not h or not root or h.Health<=0 then return end
+ local input=h.MoveDirection
+ if input.Magnitude>.05 then
+  local look=Vector3.new(root.CFrame.LookVector.X,0,root.CFrame.LookVector.Z).Unit
+  local desired=Vector3.new(input.X,0,input.Z).Unit
+  local angle=math.atan2(look:Cross(desired).Y,look:Dot(desired))
+  local turn=math.clamp(angle,-math.rad(120)*math.min(dt,.1),math.rad(120)*math.min(dt,.1))
+  look=CFrame.Angles(0,turn,0):VectorToWorldSpace(look)
+  root.CFrame=CFrame.lookAt(root.Position,root.Position+look)
+  h:Move(look*math.min(1,input.Magnitude),false)
+ end
+end)
 Run.PreSimulation:Connect(function(dt)
  for _,player in Players:GetPlayers()do
   local ch=player.Character;local h=ch and ch:FindFirstChildOfClass('Humanoid');local tool=ch and ch:FindFirstChildOfClass('Tool')
   local torso=ch and ch:FindFirstChild('UpperTorso')
-  if ch and torso and h and h.Health>0 and tool and tool:GetAttribute('SandPrototypeTool')and tool:FindFirstChild('Handle')then
+  local state=player:FindFirstChild('SandPrototypeState')
+  local renders=workspace:FindFirstChild('DTMCartRenders')
+  local cart
+  if state and state:GetAttribute('PushingCart')and renders then
+   for _,v in renders:GetChildren()do if v:GetAttribute('OwnerUserId')==player.UserId then cart=v break end end
+  end
+  if ch and torso and h and h.Health>0 and cart then
+   local e=entries[ch]
+   if not e or not e.cart then if e then clear(ch)end;e={cart=true,disabledIK={}};entries[ch]=e end
+   if player==me then
+    if not e.driver then e.driver=h;e.autoRotate=h.AutoRotate end
+    h.AutoRotate=false
+   end
+   for _,side in {'Left','Right'}do
+    local ik=h:FindFirstChild('ManualCartGrip'..side)
+    if ik then if e.disabledIK[ik]==nil then e.disabledIK[ik]=ik.Enabled end;ik.Enabled=false end
+    local hand=ch:FindFirstChild(side..'Hand')
+    local grip=hand and hand:FindFirstChild(side..'GripAttachment')
+    local rail=cart:FindFirstChild('Handle'..side)
+    local target=rail and rail:FindFirstChild('GripTarget')
+    if grip and target then
+     local desired=target.WorldCFrame*grip.CFrame:Inverse()
+     desired+=reachOffset(ch,side,desired)
+     arm(ch,side,desired,torso.CFrame:PointToWorldSpace(Vector3.new(side=='Left'and -1.2 or 1.2,-.7,.2)))
+    end
+   end
+  elseif ch and torso and h and h.Health>0 and tool and tool:GetAttribute('SandPrototypeTool')and tool:FindFirstChild('Handle')then
+   if entries[ch]and entries[ch].cart then clear(ch)end
    local hand=ch:FindFirstChild('RightHand');local grip=hand and hand:FindFirstChild('RightGrip')
    if grip then
     local e=entries[ch]or{blend=0,clock=0};entries[ch]=e

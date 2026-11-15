@@ -1,4 +1,6 @@
 local Run=game:GetService('RunService')
+local Player=game.Players.LocalPlayer
+local Motion=require(game.ReplicatedStorage:WaitForChild('GroundCartMotion'))
 local folder=Instance.new('Folder');folder.Name='DTMCartRenders';folder.Parent=workspace
 local entries={}
 local function watch(m)
@@ -8,7 +10,7 @@ local function watch(m)
   local root=m:WaitForChild('GripRoot',8);local tire=m:WaitForChild('WheelTire',8);local load=m:WaitForChild('SandLoad',8);if not root or not tire or not load or not m.Parent then entries[m]=nil;return end
   local v=m:Clone();v.Name='CartRender';v:SetAttribute('FollowCart',false)
   for _,x in v:GetDescendants()do if x:IsA('BasePart')then x.Anchored=true;x.CanCollide=false;x.CanTouch=false;x.CanQuery=false elseif x:IsA('ProximityPrompt')or x:IsA('LuaSourceContainer')then x:Destroy()end end
-  e.visual=v;e.pose=root.CFrame;e.last=root.Position;e.wheels={};e.wheelLocal=v.PrimaryPart.CFrame:ToObjectSpace(v.WheelTire.CFrame)
+  e.visual=v;e.motion=Motion.Create(v);e.pose=root.CFrame;e.last=root.Position;e.wheels={};e.wheelLocal=v.PrimaryPart.CFrame:ToObjectSpace(v.WheelTire.CFrame)
   for _,x in v:GetChildren()do if x:IsA('BasePart')and x:GetAttribute('WheelRotates')then e.wheels[x]=v.WheelTire.CFrame:ToObjectSpace(x.CFrame)end end
   for _,x in m:GetDescendants()do if x:IsA('BasePart')then e.hidden[x]=x.LocalTransparencyModifier;x.LocalTransparencyModifier=1 elseif x:IsA('BillboardGui')or x:IsA('SurfaceGui')then e.guis[x]=x.Enabled;x.Enabled=false end end
   v.Parent=folder
@@ -20,7 +22,11 @@ Run:BindToRenderStep('DTMFollowCart',Enum.RenderPriority.Character.Value+1,funct
   if not source.Parent then if e.visual then e.visual:Destroy()end;entries[source]=nil
   elseif e.visual then
    local v=e.visual;local cf=source.PrimaryPart.CFrame
-   cf=e.pose:Lerp(cf,1-math.exp(-20*dt))
+   if source:GetAttribute('OwnerUserId')==Player.UserId and source:GetAttribute('Pushing')and Player.Character then
+    cf=e.motion.Step(Player.Character,dt)or e.pose
+   else
+    cf=e.pose:Lerp(cf,1-math.exp(-20*dt))
+   end
    local delta=cf.Position-e.last;e.last=cf.Position;e.pose=cf;e.angle-=Vector3.new(delta.X,0,delta.Z):Dot(cf.LookVector)/(.85*v:GetScale())
    v:PivotTo(cf)
    for wheel,rel in e.wheels do wheel.CFrame=cf*e.wheelLocal*CFrame.Angles(e.angle,0,0)*rel end
