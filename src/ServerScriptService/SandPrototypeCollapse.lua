@@ -57,7 +57,8 @@ function Collapse.Process(queue,entry,getCell,moveCell,canOccupy,frameBudget,hei
 end
 
 -- Bounded round-robin continuation. Linked nodes allow O(1) cancellation.
-function Collapse.Queue(limit)
+function Collapse.Queue(limit,clock)
+ clock=clock or os.clock
  local first,last,count=nil,nil,0
  local byKey={}
  local api={}
@@ -68,13 +69,17 @@ function Collapse.Queue(limit)
   byKey[node.key]=nil count-=1
   return node.entry
  end
- function api.Push(entry)
+ function api.Push(entry,notBefore)
   if not entry or entry.budget<=0 then return false end
   local address=key(entry.x,entry.y,entry.z)
   local previous=byKey[address]
-  if previous then previous.entry.budget=math.max(previous.entry.budget,entry.budget)return true end
+  if previous then
+   previous.entry.budget=math.max(previous.entry.budget,entry.budget)
+   previous.notBefore=math.max(previous.notBefore,notBefore or 0)
+   return true
+  end
   if count>=limit then return false end
-  local node={entry=entry,key=address,previous=last}
+  local node={entry=entry,key=address,previous=last,notBefore=notBefore or 0}
   if last then last.next=node else first=node end
   last=node byKey[address]=node count+=1
   return true
@@ -88,8 +93,10 @@ function Collapse.Queue(limit)
   local visited=0
   for _=1,checks do
    if not first or(canContinue and not canContinue())then break end
+   local notBefore=first.notBefore
    local entry=remove(first)visited+=1
-   api.Push(callback(entry))
+   -- Delay belongs to the runtime node, never to the serialized vacancy.
+   if clock()<notBefore then api.Push(entry,notBefore)else api.Push(callback(entry))end
   end
   return visited
  end

@@ -32,6 +32,8 @@ local CELL_SIZE = config.terrain and 4 or 2
 local MAX_DIG_DISTANCE = 24
 local MAX_MOVES_PER_STEP = 8
 local MIN_DIG_INTERVAL = 0.12
+-- Publish the actual empty Terrain cell before its neighbours can refill it.
+local HOLE_EXPOSURE_SECONDS = 0.2
 
 local cells = {}
 local field=config.terrain and Field.Create()or nil
@@ -383,6 +385,10 @@ local function settleAround(x, y, z,budget,canContinue)
 	return motions,retry
 end
 
+local function queueExcavation(x,y,z)
+	retryQueue.Push({x=x,y=y,z=z,budget=math.max(0,mountainHeight-y)},os.clock()+HOLE_EXPOSURE_SECONDS)
+end
+
 local function flushTerrain()
 	if not renderer then return end
 	local ok,reason=pcall(renderer.Flush)
@@ -486,8 +492,8 @@ local function digOne(player, target, followup)
 		artifact={kind=Finds.Kind,finderId=tostring(player.UserId),counter=own and 0 or outbound[tostring(player.UserId)]}
 		if own then collection[tostring(config.owner.UserId)]={kind=Finds.Kind,counter=0}end
 	end
-	local motions,retry=settleAround(x, y, z)
-	retryQueue.Push(retry)
+	queueExcavation(x,y,z)
+	local motions={}
 	flushTerrain()
 	publishCounts()
 	digEvent:FireAllClients(effectPosition, effectColor, player.UserId,found,motions,false,playerState and playerState:GetAttribute('SelectedTool'),awarded)
@@ -556,7 +562,7 @@ local function extractAuto()
  dugCells+=1;lifetimeDug+=1
  local found=Finds.Matches(artifact,x,y,z)
  if found then artifact={kind=Finds.Kind,finderId=tostring(config.owner.UserId),counter=0};collection[tostring(config.owner.UserId)]={kind=Finds.Kind,counter=0}end
- local motions,retry=settleAround(x,y,z);retryQueue.Push(retry)
+ queueExcavation(x,y,z);local motions={}
  changed();flushTerrain();publishCounts()
  digEvent:FireAllClients(selected.Position,sandColor,config.owner.UserId,found,motions,false,"conveyor",UpgradeConfig.Conveyor.AutoYield)
  if config.onChanged then config.onChanged()end

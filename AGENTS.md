@@ -1,5 +1,7 @@
 # Instructions for Codex
 
+Current full-map checkout: this directory, branch codex/resume-2026-11-15. The outer root's codex/terrain-chunks and its Rojo configs are historical. Do not run either outer default.project.json or rojo.current-place.project.json against this map: an alternate server caused repeated verified stale Source overwrites. Both are locally blocked for Place0/123243510098281. Develop in the file-backed MY-ROBLOX-GAME.rbxl Studio and save that file through save_place; use cloud only after fresh source comparison. Read PROGRESS.md for actual checks and outstanding physics/cart work. Preserve all older useful instructions below.
+
 This is an existing Roblox game. Read README.md and HANDOFF.md before making changes.
 
 This package now combines the related project chats. Also read START_HERE_RU.md, TECHNICAL_MAP.md, CHANGELOG.md and KNOWN_ISSUES.md. The latest explicit request and current implementation override historical reports.
