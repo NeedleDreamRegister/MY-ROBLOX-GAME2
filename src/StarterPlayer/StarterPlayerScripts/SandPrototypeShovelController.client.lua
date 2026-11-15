@@ -22,6 +22,7 @@ local function bind(tool)
  local function dig(position)
   if not equipped()or(P.Character and P.Character:GetAttribute('MountainSliding'))or not tool.Enabled or shopOpen()or os.clock()-last<.16 then return end
   local state=P:FindFirstChild('SandPrototypeState');if not state then return end
+  if state:GetAttribute('PushingCart')then return end
   local status=mountain:GetAttribute('PersistenceStatus');if status~='SessionOnly'and status~='Saved'and status~='Dirty'and status~='Saving'then hint('Дождитесь загрузки прогресса');return end
   if Context.FreeCapacity(state)<=(state:GetAttribute('PendingCells')or 0)then hint('Контейнер заполнен — продайте песок');return end
   local target,hit=aim(position);if not target or not Context.CanTarget(P,target,cells)then

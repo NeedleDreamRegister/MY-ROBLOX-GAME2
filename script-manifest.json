@@ -496,5 +496,10 @@
     "enabled": false,
     "runContext": "Enum.RunContext.Legacy",
     "path": "src/ServerStorage/VisualRemasterSourceBackup/UpgradeUI.client.lua"
+  },
+  {
+    "instance": "ServerScriptService.ManualCart",
+    "class": "ModuleScript",
+    "path": "src/ServerScriptService/ManualCart.lua"
   }
 ]
