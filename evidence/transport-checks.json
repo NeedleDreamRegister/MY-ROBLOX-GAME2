@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-15",
+  "geometry": {
+    "minOffset": -9.6171236038208,
+    "sampleStep": 2,
+    "transportEdges": [
+      -12,
+      3
+    ],
+    "obstructions": [],
+    "laneBreaches": [],
+    "seamPositionError": 0,
+    "vehicleEnvelope": {
+      "length": 16.6,
+      "width": 7.3
+    },
+    "maxOffset": -1.3003214597702026,
+    "seamHeadingDot": 1,
+    "roadRaycastMisses": 0
+  },
+  "journey": {
+    "MaxSeatWeldError": 0.00003052130341529846,
+    "MaxYawRate": 0.2580059880505887,
+    "MaxRouteError": 0.6123910546302795,
+    "LastLap": 3,
+    "Samples": 4022,
+    "Travel": 0,
+    "SeatedSamples": 2666,
+    "State": "Docked",
+    "MaxLaneOffset": -1.3041738271713257,
+    "PromptEvents": [
+      {
+        "State": "Docked",
+        "Prompt": "Workspace.QuarryTransitVehicles.QuarryParkCart_11883917519.PassengerSeats.PassengerSeat2.BoardPrompt",
+        "Time": 1794694200.730616,
+        "Player": "mld8nk_kk"
+      },
+      {
+        "State": "Docked",
+        "Prompt": "Workspace.QuarryTransitVehicles.QuarryParkCart_11883917519.Chassis.ExitPrompt",
+        "Time": 1794694493.226432,
+        "Player": "mld8nk_kk"
+      }
+    ],
+    "MinLaneOffset": -9.614636421203613,
+    "States": {
+      "Docked": 122,
+      "Arriving": 10,
+      "Driving": 3890
+    },
+    "MaxCruiseSpeed": 12,
+    "MaxStepSpeed": 12.54151146802433
+  },
+  "exit": {
+    "seated": false,
+    "onLanding": true,
+    "autoRotate": true,
+    "sit": false,
+    "jumpingEnabled": true,
+    "exitPrompt": false,
+    "state": "Docked",
+    "landingLocalPosition": "-0.9996623992919922, 3.1230251789093018, -2.700047016143799",
+    "cameraFollows": true
+  },
+  "afterExit": {
+    "playerSeated": false,
+    "stopSigns": 0,
+    "roadSurfaceSamples": 1552,
+    "rootY": 1.499999761581421,
+    "playerStillOnLanding": true,
+    "rotatingWheels": 4,
+    "speed": 10.704158214230192,
+    "cartState": "Driving",
+    "blockedSurfaceSamples": [],
+    "lastDwell": 4.000000208616257
+  },
+  "originalPreviewCounts": {
+    "sandCells": 455,
+    "stationDescendants": 840,
+    "plotDescendants": 423
+  },
+  "sourceVerification": {
+    "route": true,
+    "roads": true,
+    "controller": true,
+    "rider": true,
+    "bootstrap": true
+  },
+  "testScope": "Local Roblox Studio playtest, one player; gameplay mechanics were not exercised."
+}

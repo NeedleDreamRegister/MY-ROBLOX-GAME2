@@ -172,6 +172,8 @@ for i,loc in {Vector3.new(-16,0,-16),Vector3.new(-16,0,16),Vector3.new(-18,0,-14
  end
 end
 flowers.Parent=front
+require(script.Parent.FloorSeamFix)(garden,offset)
+require(script.Parent.ApplyEntrancePaths)(garden,offset)
 front:SetAttribute('TransitReady',true)
 return {partsCreated=count,plantClumpsShifted=shifted,roadWidth=24,landingPosition=tostring(pad.Position),routeLength=Route.TravelLength}
 end

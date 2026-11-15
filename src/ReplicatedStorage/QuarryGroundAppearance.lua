@@ -37,7 +37,7 @@ function G.Build()
  -- A small service apron only: the spawn-to-mountain route stays open sand.
  for ix=1,6 do for iz=1,4 do
   local x=10+(ix-1)*5.2;local z=-9-(iz-1)*6
-  p('Part','WorkshopPaver',Vector3.new(5.08,.09,5.88),CFrame.new(x,.135,z),cream:Lerp(pale,rng:NextNumber(0,.26)))
+  p('Part','WorkshopPaver',Vector3.new(5.08,.09,5.88),CFrame.new(x,.1425,z),cream:Lerp(pale,rng:NextNumber(0,.26)))
  end end
  for _,bank in {{-114,-30},{66,-40},{-102,-55},{53,-56}}do
   for i=1,6 do

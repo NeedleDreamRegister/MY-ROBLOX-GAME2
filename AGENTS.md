@@ -2,6 +2,17 @@
 
 This is an existing Roblox game. Read README.md and HANDOFF.md before making changes.
 
+This package now combines the related project chats. Also read START_HERE_RU.md, TECHNICAL_MAP.md, CHANGELOG.md and KNOWN_ISSUES.md. The latest explicit request and current implementation override historical reports.
+
+- Speak Russian, explain simply, and execute one relevant step at a time.
+- The finite mountain has 67525 runtime cells / 36 logical layers. Its 455-part Edit preview is intentionally different. Never add regeneration.
+- Five standalone benches and the pergola with its bench were removed from the active map. Preserve ServerStorage.QuarryGardenFurnitureArchive and do not enable IncludeFurniture without a request.
+- Keep the original distant dunes, mesas, oases and sand character. Keep the mountain visible; do not add large close rock formations or new hills as an unsolicited change.
+- Studio loading was fixed by the owner enabling File > Experience Settings > Security > Enable Studio Access to API Services. The current cloud game loaded 67525 cells and reached Saved / revision 1. Do not reset profiles or replace the mountain to treat this configuration error.
+- This package's primary RBXL is the latest downloaded local copy from D:/Projects/сад.rbxl. The previous Quarry Transit file is a backup. Confirm which actual Studio place is connected before edits.
+- Existing cloud PlaceId: 123243510098281; UniverseId: 10776747096. Existing DataStore: DigMountainPlots_v1, player_<UserId>. No new wallet/store or silent migration to another experience.
+- Existing Studio-only 10-million test balance for the owner is deliberate; do not make it a reward for all live players.
+
 - The authoritative complete place is MY-ROBLOX-GAME.rbxl. Open that file in Roblox Studio.
 - src/ is an exported snapshot, NOT an already configured Rojo project. script-manifest.json maps exported files to Studio instances.
 - Do not rebuild the game, mountain, roads, transport, or player systems from scratch.

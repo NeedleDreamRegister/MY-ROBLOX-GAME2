@@ -1,0 +1,546 @@
+{
+  "created": "2026-11-15",
+  "algorithm": "SHA256",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3447,
+      "sha256": "1bff8b16b4aef3c142c995b5aee77c6a3b3bb1bb69fe305b8e2c585d64d151f9"
+    },
+    {
+      "path": "backups/Quarry-Garden-v5_furniture-stored.rbxl",
+      "bytes": 1345546,
+      "sha256": "442caafb46fb2a2ce7ca7421465622cea1d12596c8c8a84f1a4c8b9a4fddeb41"
+    },
+    {
+      "path": "backups/Quarry-Transit_before-current-cloud-copy.rbxl",
+      "bytes": 1680358,
+      "sha256": "65ad2d1935a82417a94a7faf64f47b53b16b038957d382dfbfefac05f10500a5"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 6842,
+      "sha256": "5342cf56e428dd7be5f785bc275064ca46f9a1e0146748a3f807f8c4998f80fc"
+    },
+    {
+      "path": "COLLABORATION.md",
+      "bytes": 4810,
+      "sha256": "f5727cd9d18e74d12330283765ebea84158123ae60f3d2fe9b17391c9affa613"
+    },
+    {
+      "path": "evidence/boundary-removal-checks.json",
+      "bytes": 222,
+      "sha256": "eb4adca83060b485c0a9fb2df2c60fc9331fe30fc392a639a659f0e9dda44429"
+    },
+    {
+      "path": "evidence/car-redesign-checks.json",
+      "bytes": 649,
+      "sha256": "956526f268cd9f218a14ef0b2e252ef32052646dcf11e78e7afc9f2d6ac86b98"
+    },
+    {
+      "path": "evidence/current-state.json",
+      "bytes": 10004,
+      "sha256": "664903cd6a2fd3f598753c82226015b42d4a571b1a98e5b7f64fa76cb6a1f19a"
+    },
+    {
+      "path": "evidence/transport-checks.json",
+      "bytes": 2312,
+      "sha256": "de382f43bff9165d12633d6ee4e52f0a92495bbb5d17151d2325d7b1946dd06d"
+    },
+    {
+      "path": "evidence/verification-v5.json",
+      "bytes": 27540,
+      "sha256": "b25aa4ac1ac4dfe2f46d3e17fe3095d05f9fd48ef0fcb8cdbd7f2185114d0ef5"
+    },
+    {
+      "path": "HANDOFF.md",
+      "bytes": 15896,
+      "sha256": "6c1868963a4baad4cf090e62303c73379e7326949087a42e13f7634440f75fb2"
+    },
+    {
+      "path": "KNOWN_ISSUES.md",
+      "bytes": 6526,
+      "sha256": "eda09c024e5e06fbb64f0abad5601216581f68425cef3d5f944738f38f4176dd"
+    },
+    {
+      "path": "MY-ROBLOX-GAME.rbxl",
+      "bytes": 1679187,
+      "sha256": "e192c7011a763e84e4a50b56fa789f69966bbd836b44c5bf8b9e4940364305e6"
+    },
+    {
+      "path": "README.md",
+      "bytes": 971,
+      "sha256": "77accc980b4591d3539da8074a66c3355f37bb6704827ce983d313c49e7586ec"
+    },
+    {
+      "path": "reports/forge-v13-status.md",
+      "bytes": 3445,
+      "sha256": "64ec9c91b3c31657ae40b4a647007271f66aeb5adb5fff9072b4317777f98cf9"
+    },
+    {
+      "path": "reports/graphics-report.md",
+      "bytes": 29542,
+      "sha256": "5eb15831c3414133be92d913d433ceab5c231b043a201f0d54539a46c9578867"
+    },
+    {
+      "path": "reports/guidance-v15-status.md",
+      "bytes": 4435,
+      "sha256": "ff3887b84fb6599794f06c2262c68d606c4966c2cea4a7e3e0d69fdc9d02c4f3"
+    },
+    {
+      "path": "reports/mountain-growth-v11.md",
+      "bytes": 4349,
+      "sha256": "ec7bcc1bbe428d5b79e6f1cecda2945a45cd4d65cb7564a7d7835bc4e2bb49c1"
+    },
+    {
+      "path": "reports/polish-v12-status.md",
+      "bytes": 5357,
+      "sha256": "47ca2d065c30c54db947008f5adcc82c9d0639829585edea395d96bc2bcb38a8"
+    },
+    {
+      "path": "reports/progression-status.md",
+      "bytes": 3096,
+      "sha256": "986a5d4c211e268768b428c893921c3c6fb86a66a4d6c3591a8f3863b7a949d0"
+    },
+    {
+      "path": "reports/quarry-garden-report.md",
+      "bytes": 9168,
+      "sha256": "bcabb124dda5f71eed2e1643ecdff813349b91a9ccb2b6e461e73519f5909a30"
+    },
+    {
+      "path": "reports/quarry-garden-v2-report.md",
+      "bytes": 8974,
+      "sha256": "b5d9a631afa8633d0a0b3841a62628fcdecc0722c1a334187a1e0f03bb534ac2"
+    },
+    {
+      "path": "reports/quarry-garden-v3-report.md",
+      "bytes": 10978,
+      "sha256": "7c69c486f63bcff68edcd25637402424c82ccf226246498a8e3edb3a0da2dfbf"
+    },
+    {
+      "path": "reports/quarry-garden-v4-report.md",
+      "bytes": 6362,
+      "sha256": "f0fd57e08cb27a7fda3fd6262f03a2b23182b62a4da4ab8e7475481f3e172905"
+    },
+    {
+      "path": "reports/quarry-garden-v5-report.md",
+      "bytes": 8699,
+      "sha256": "7766dc63651d3715949e09d344970e3e10381003f93b28801305493159c8c76b"
+    },
+    {
+      "path": "reports/transit-handoff-original.md",
+      "bytes": 13669,
+      "sha256": "3c960af92f8aa2fb2a73818e06a994a60974a91037f8bf1e4178ac36402a8c79"
+    },
+    {
+      "path": "reports/v16-status.md",
+      "bytes": 5134,
+      "sha256": "59f479dd095659edc1fae0f21d536b0618a304a3bdfaf6934b8735bbce5ea1d3"
+    },
+    {
+      "path": "reports/v17-status.md",
+      "bytes": 9976,
+      "sha256": "b5b11b011e86991e66fde18c75e02000ef8c2e51037c6bcfb9404afb4023ead2"
+    },
+    {
+      "path": "reports/worksite-v14-status.md",
+      "bytes": 4563,
+      "sha256": "4bf72a07f6b426e87c9286d32701eee446eb52618f14ff8a3eede813d847a0df"
+    },
+    {
+      "path": "screenshots/cart-preview.jpg",
+      "bytes": 246268,
+      "sha256": "e701a1cfe6f5d78fd904a125354b8d68e4a4aa790ae3bf15cf1dc16135de777f"
+    },
+    {
+      "path": "screenshots/loading-restored.jpg",
+      "bytes": 295832,
+      "sha256": "fdbe7c0cee6baac5efa4aad4befebb0bf3aba7865f08243f70fb4bedcb9689e5"
+    },
+    {
+      "path": "screenshots/map-overview.jpg",
+      "bytes": 210151,
+      "sha256": "2bba7102ffdf9e3073817f720ec5549c44f720137b3318df3c179a9f7507acc8"
+    },
+    {
+      "path": "screenshots/quarry-garden-v5-overview.jpg",
+      "bytes": 116842,
+      "sha256": "918c1dc7adb8e9ad54b495e69b9577bdf2076058be5715282c6bb3022996e53b"
+    },
+    {
+      "path": "screenshots/quarry-garden-v5-rear.jpg",
+      "bytes": 194479,
+      "sha256": "638efda0f654ec1c90ea902078613c26a2f71477faee3f1c545f18ed94f67ba7"
+    },
+    {
+      "path": "screenshots/v17-forge-comparison.jpg",
+      "bytes": 129143,
+      "sha256": "f422cd19a26656643225b0a0e249ccbfb629f69db708f3294202964fe1a97339"
+    },
+    {
+      "path": "screenshots/v17-shovel.jpg",
+      "bytes": 199035,
+      "sha256": "41c106b5ff2afe326a9e01a7cd471b7404e3ee1c58f9d482390b14baf7ef59c3"
+    },
+    {
+      "path": "screenshots/v17-surf.jpg",
+      "bytes": 170848,
+      "sha256": "4a3abf271fe364adc4e86124a190e7655d91602f2198f25dbf4f04e65ab54939"
+    },
+    {
+      "path": "script-manifest.json",
+      "bytes": 12793,
+      "sha256": "28e60718bf19c6a669f6505f352e4c7d99091e40cbb369dea771631bf57695d2"
+    },
+    {
+      "path": "SOURCE_INDEX.md",
+      "bytes": 5035,
+      "sha256": "c749eec0ffa62bff41d2f79b1bad4344b7a6a9aefe4fe9cdb4b83a35d655c25e"
+    },
+    {
+      "path": "src/ReplicatedStorage/_DTM_RockBuilder.lua",
+      "bytes": 3888,
+      "sha256": "d3e067620b0f7c62e508aea434858e3f0ef84db5d8365123c91c245d3b7e0889"
+    },
+    {
+      "path": "src/ReplicatedStorage/CartPose.lua",
+      "bytes": 1123,
+      "sha256": "86d22d0146af8e5ac5cb2408ca183f874c5c6e5416fdb0c002f968f343d8fef5"
+    },
+    {
+      "path": "src/ReplicatedStorage/DigMotion.lua",
+      "bytes": 2315,
+      "sha256": "04e6d3eceba7fde359672d9edbcf115b1683d95fe26e78ffb8c30f6b2eb25ac3"
+    },
+    {
+      "path": "src/ReplicatedStorage/ExcavationJourney.lua",
+      "bytes": 3030,
+      "sha256": "2fbc9d2d2b729bc21bb990281aaa78e6ce3f895a6cfa5582868b6d7fa01f8768"
+    },
+    {
+      "path": "src/ReplicatedStorage/ExcavationLedgerAppearance.lua",
+      "bytes": 5907,
+      "sha256": "50904eb003d4fcc8dc59c5eafc58d03e5b29c4a2017c5d3f9ff6d211638229fa"
+    },
+    {
+      "path": "src/ReplicatedStorage/GameAudio.lua",
+      "bytes": 2830,
+      "sha256": "6e5ed5b1111a177d6a1ccaa8696f69648dff5925b5c0d6679ce789ad66289770"
+    },
+    {
+      "path": "src/ReplicatedStorage/MountainSlideRules.lua",
+      "bytes": 1862,
+      "sha256": "3fd8fb5c4ee951ad5051a787b1594311422a6ce861e27975423093564304a2a1"
+    },
+    {
+      "path": "src/ReplicatedStorage/QuarryGardenBuilder.lua",
+      "bytes": 30225,
+      "sha256": "56d6d89ea0365a68b713006ce756216e771ef51f15b671e84e7f0a4cb4473d34"
+    },
+    {
+      "path": "src/ReplicatedStorage/QuarryGroundAppearance.lua",
+      "bytes": 3473,
+      "sha256": "bd93a2679213dd2fea3bd611511dd09e01c0a5f4feb24eb8d1c2843631e110ce"
+    },
+    {
+      "path": "src/ReplicatedStorage/SandboardAppearance.lua",
+      "bytes": 2588,
+      "sha256": "0d8a34730f572142069acf54b53e19a379f94915b6bcbb03a9417587ba514d4e"
+    },
+    {
+      "path": "src/ReplicatedStorage/SandPrototypeCartAppearance.lua",
+      "bytes": 6423,
+      "sha256": "0fdbc72b7c1adfb3f646c511e54cc05dd8f5671ea5adf5d021c21c30c315e39b"
+    },
+    {
+      "path": "src/ReplicatedStorage/SandPrototypeClientContext.lua",
+      "bytes": 5317,
+      "sha256": "1575e86fa96ba55e5f7c61f4b007b9b875ea7b2351bdda595dedcbd7a6bb236a"
+    },
+    {
+      "path": "src/ReplicatedStorage/SandPrototypeGeometry.lua",
+      "bytes": 6238,
+      "sha256": "828d2c7a9bba9637fd1c678a494d99b35f1e68e3256bd08fefe85491bd65c122"
+    },
+    {
+      "path": "src/ReplicatedStorage/SandPrototypeTerrainGrid.lua",
+      "bytes": 1051,
+      "sha256": "b13a9ff669d0a04d70e44797ec4d30e15e4530bad64e4357f13cdd7927b2748b"
+    },
+    {
+      "path": "src/ReplicatedStorage/SandPrototypeVoxelField.lua",
+      "bytes": 3741,
+      "sha256": "9b788f90ed6baee5899abcdb6b7bd03abac0e017fdc7f934851119ce296a2c18"
+    },
+    {
+      "path": "src/ReplicatedStorage/UpgradeConfig.lua",
+      "bytes": 2474,
+      "sha256": "896775c21ed31bfef4c9a001a9bee0b16a8f87213d3e417aa08a5f70c32333ae"
+    },
+    {
+      "path": "src/ReplicatedStorage/UpgradeMachineAppearance.lua",
+      "bytes": 13577,
+      "sha256": "2cc519bc9cf68a1c35f5c71be5e9525450ecf85b007596554e2f49aecb845731"
+    },
+    {
+      "path": "src/ReplicatedStorage/UpgradeMachineRefinement.lua",
+      "bytes": 890,
+      "sha256": "4b8711531421c83cc56dd867f214842932bb10b647f52c83826c9c10f69a3f10"
+    },
+    {
+      "path": "src/ReplicatedStorage/UpgradeToolAppearance.lua",
+      "bytes": 9390,
+      "sha256": "4f0dfd59a126dc9d57c83bc5702e5f3fdf99f6cc4cfbd6c0b25c53e26d0b10a7"
+    },
+    {
+      "path": "src/ServerScriptService/ConveyorService.lua",
+      "bytes": 5419,
+      "sha256": "f7dd5b0c987489f322d46225d87de727e687b1d373fa77b0678ca39530d5878e"
+    },
+    {
+      "path": "src/ServerScriptService/ExcavationPresentation.server.lua",
+      "bytes": 2000,
+      "sha256": "10911f630381240e3602fc2acd17d3c8914c6dea0bac77c6b880028b130f7770"
+    },
+    {
+      "path": "src/ServerScriptService/FollowCart.lua",
+      "bytes": 3720,
+      "sha256": "12c7aae7060041da242569e741dfe6cb15d2224741e28050a2501c2d4037016c"
+    },
+    {
+      "path": "src/ServerScriptService/MountainSlideServer.server.lua",
+      "bytes": 8015,
+      "sha256": "c0f39331c15e90d8ccb8d5a386a8536de1d33b225959d3e0a59f805d9f9b24b5"
+    },
+    {
+      "path": "src/ServerScriptService/ProgressionAccount.lua",
+      "bytes": 4696,
+      "sha256": "82778cb38e1fc188b478c76082b704d89f422fecee1f51dcd94c1da44e17dfdf"
+    },
+    {
+      "path": "src/ServerScriptService/ProgressionData.lua",
+      "bytes": 5895,
+      "sha256": "65dcc94b5f7531d174e32af8bddc6c6c446f05cbbba3aed5d1a469b594026d4b"
+    },
+    {
+      "path": "src/ServerScriptService/ProgressionToolService.lua",
+      "bytes": 1517,
+      "sha256": "2c7e180d86c5f8ea1d6c8dde4cb2d52a124759ac3cba7327fbcbedc850eb171f"
+    },
+    {
+      "path": "src/ServerScriptService/QuarryGardenEnvironment.server.lua",
+      "bytes": 2505,
+      "sha256": "06367d116036fba9a1868fd378e520a99074bbcdfbb6592ae1e4358188836047"
+    },
+    {
+      "path": "src/ServerScriptService/QuarryTransit/BuildRoads.lua",
+      "bytes": 10820,
+      "sha256": "00a2e172adf7651d67a58af443e15c5c25fa97dcaf7a1d7fb072c73ef1403e3d"
+    },
+    {
+      "path": "src/ServerScriptService/QuarryTransit/Route.lua",
+      "bytes": 3730,
+      "sha256": "1c9dae5dda0718635e11ffa7ad079e405c4aec6261c6d997d5698a50e98cb3e0"
+    },
+    {
+      "path": "src/ServerScriptService/QuarryTransit/TransitBootstrap.server.lua",
+      "bytes": 2450,
+      "sha256": "a945b38a1eff6ea178a65faddd1df992df270d4dcde17e0a870ef84239900aa5"
+    },
+    {
+      "path": "src/ServerScriptService/QuarryTransit/TransitController.lua",
+      "bytes": 13012,
+      "sha256": "0222e7c9ada6331d183b82d8702016ab97d49c13b27ee0285f4184c003ed442a"
+    },
+    {
+      "path": "src/ServerScriptService/RojoManaged/RojoConnectionTest.server.lua",
+      "bytes": 43,
+      "sha256": "ee621353b9343b2d7bf4126c17d98a1f1f78818053f78fdc2ecbfe1135e843f0"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototype.server.lua",
+      "bytes": 11797,
+      "sha256": "88ae839b059a517c11c72d8d1ba979a265ef9aff83844cfb74bea27e59f79e45"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeAccessRules.lua",
+      "bytes": 206,
+      "sha256": "ba9a302b4506c2cfcc38a306dbb3009f2f5e27e2b482d307aff18d54fea87914"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeCollapse.lua",
+      "bytes": 3870,
+      "sha256": "f581369573a63c2ddf03909048b89fc81361acc4f1f1deb2b9d91b65ad7d5d29"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeCoopData.lua",
+      "bytes": 5740,
+      "sha256": "fddfec401bd2ffd6f3567e1897639e459762eeb39632fbd25f972eec3774cdec"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeEconomy.lua",
+      "bytes": 4770,
+      "sha256": "5c202e82b0b047a4cbdf0631c04ebc0cd4b2242c7ed1e25db0f1acd50a8bbcc5"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeFindData.lua",
+      "bytes": 6321,
+      "sha256": "cc0c1d2f16a427617cfae542f1d8436f17d9265615144659d94f01074bb4a163"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypePlotData.lua",
+      "bytes": 6051,
+      "sha256": "51eb943e8d055bfc654abe8497e315886e1fba09a77f2fb1509893719dbb966a"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypePlotLayout.lua",
+      "bytes": 759,
+      "sha256": "804d29bae3957bce634f0e0271640315415b950d8aa5138cb0b1bd0d4c9c56a7"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypePlots.lua",
+      "bytes": 20964,
+      "sha256": "a6d58e8cb4539e7ae69b118e6f4449228f573b2a7065b356f7d124d23c17f2b1"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeSaveCodec.lua",
+      "bytes": 4259,
+      "sha256": "54b10102d72717dba02a9618234013d7a7cbcdcb76800dcfb069d5ccca48ca0f"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeSaveSession.lua",
+      "bytes": 5953,
+      "sha256": "da77d3d1c3519804637de7ad5ee0a6262fef9eb2d617ee00511380894de3864e"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeSnapshot.lua",
+      "bytes": 3862,
+      "sha256": "aca581a30dd70bf349dbe55288704dc3fa03eb0149bea64773129d8ee4c6a201"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeTerrain.lua",
+      "bytes": 5633,
+      "sha256": "21d1fe85d5352d621c80ca14f4cda62ecc6299313126108173bf438f40dc13df"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeWheelbarrow.lua",
+      "bytes": 9553,
+      "sha256": "d6e0cb4e04e337866eb904ae71dc2d2c9242aaac34d0bd8aa83e76a3eec7541f"
+    },
+    {
+      "path": "src/ServerScriptService/SandPrototypeWorld.lua",
+      "bytes": 26084,
+      "sha256": "e0a72ef8bac1ddba31648c616d3287f175a762d66849cc440b014b8646f0d11b"
+    },
+    {
+      "path": "src/ServerScriptService/UpgradeService.lua",
+      "bytes": 2395,
+      "sha256": "264142742561d6e13d5a2d18a582ddf1754e9f7f1580462daf6f2fb1f396a646"
+    },
+    {
+      "path": "src/ServerScriptService/UpgradeTransactions.lua",
+      "bytes": 5439,
+      "sha256": "787d78e85754db5517a66f66c5d6a78d510ba191293ddb9f3c49211557a6cd4c"
+    },
+    {
+      "path": "src/ServerStorage/QuarryGardenFurnitureArchive/BuilderWithFurniture.lua",
+      "bytes": 29988,
+      "sha256": "fa0676f96d4cae3c2199cef3ba285f339bcd0941b9f448ac05aad6952deac596"
+    },
+    {
+      "path": "src/StarterPack/Лопата/SandProbeClient.client.lua",
+      "bytes": 176,
+      "sha256": "b17510217a589f8cb6a4482352a5e12e41feccba2255cffd8f95121583b0ebec"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/DigPolishClient.client.lua",
+      "bytes": 2219,
+      "sha256": "7a9c8ba80ef173103cc6997bc5872634610d4bd420b68a6bf1e1cd7aba8ea021"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/DTM_AmbientClient.client.lua",
+      "bytes": 3354,
+      "sha256": "c3fe440690fab2a18395207b9b055f131811cf0b86d065a77041d711d25f7d38"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/DTM_VisualTheme.client.lua",
+      "bytes": 19708,
+      "sha256": "b089874ee2c8a0f342f6c8ae90b8d04f2be731c158d8f4b6acca0e03bd35173f"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/FollowCartVisuals.client.lua",
+      "bytes": 3077,
+      "sha256": "aa78199e532641c5cd9a30a5a46e4518bee0283f34c053a4d616ec646d99b83f"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/MountainSlideClient.client.lua",
+      "bytes": 9739,
+      "sha256": "08c38301ec966db0997f8a6164343c3830bc3e641a010d46eabd7820bbec7580"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/ProgressionVisuals.client.lua",
+      "bytes": 4899,
+      "sha256": "84ef9351b625f2cc2baddbd526c93a1acb644a9a806d35b5600124612d8736b1"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/QuarryGardenMotion.client.lua",
+      "bytes": 2364,
+      "sha256": "24c191625e9c00d8159a3b157ebbcfbf236809618fa442bf85cf4d9a493fc062"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/QuarryTransitRider.client.lua",
+      "bytes": 8131,
+      "sha256": "4c76662a234877e4ed51b8acd5dadbf14ca91a23a4d3311044f7ed5e8e2bed1c"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeCartVisual.client.lua",
+      "bytes": 6112,
+      "sha256": "e8069fa02358f0df72c4745dca78b67d199c7df034303c5c88856b5aa84e9506"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeFeedback.client.lua",
+      "bytes": 15073,
+      "sha256": "6b0fbeb91aaa81e029d59469fc43efe34690a7215991a966dca73da937232e50"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeHUD.client.lua",
+      "bytes": 14693,
+      "sha256": "cb443f98f617bbd52497695bc132d6151aa7866d4e2127a8bdb3446906033b75"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeShovelController.client.lua",
+      "bytes": 6142,
+      "sha256": "c7682570fa920990a4b7edeede12490283b2624b89e61d68e0807306be830d6e"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/SandPrototypeVisits.client.lua",
+      "bytes": 5824,
+      "sha256": "e9eff106dc2e7454277ed96ea6982717f2e7ebd3bbe95482b6776f9ecdbdbf37"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/ToolHandling.client.lua",
+      "bytes": 5944,
+      "sha256": "566e56ee8ca0db476ee84e10b930e2a35b306a6ad7db3e9f2cc1fce38de86f93"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/UpgradeMachineVisuals.client.lua",
+      "bytes": 5405,
+      "sha256": "7c3cd00994eb78455d69a81c72b61fe11ec4fc18e7e67c37888307e64b4668fd"
+    },
+    {
+      "path": "src/StarterPlayer/StarterPlayerScripts/UpgradeUI.client.lua",
+      "bytes": 26069,
+      "sha256": "427515855e138ad08e7ce75adaeffff6f337f70414335ebf5d1b7574be2a2cc4"
+    },
+    {
+      "path": "START_HERE_RU.md",
+      "bytes": 5060,
+      "sha256": "a91ecb4a5aff0044cdf91836858b856d8c94d43b21f3d7aef52949a4ea0747c1"
+    },
+    {
+      "path": "TECHNICAL_MAP.md",
+      "bytes": 12457,
+      "sha256": "39350ea7e27d9524b424143dbb76b107ba28650b0d53d660d0069e743e4276ef"
+    }
+  ]
+}

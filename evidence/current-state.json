@@ -1,0 +1,363 @@
+{
+  "exportDate": "2026-11-15",
+  "studio": {
+    "name": "новая карта супчик",
+    "placeId": 123243510098281,
+    "universeId": 10776747096,
+    "modeAtEnd": "Edit",
+    "saveStatus": "NotNeeded"
+  },
+  "loadFailure": "StudioAccessToApisNotAllowed on DigMountainPlots_v1 GetAsync",
+  "fix": "Owner enabled File > Experience Settings > Security > Enable Studio Access to API Services, then Save. No source or save reset.",
+  "verification": {
+    "InitialCells": 67525,
+    "RemainingCells": 67525,
+    "DugCells": 0,
+    "PersistenceStatus": "Saved",
+    "SavedRevision": 1
+  },
+  "sourceVerification": {
+    "count": 67,
+    "allEqualToStudioAfterNormalizingCRLFAndOneExportNewline": true,
+    "hashes": {
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeVisits": {
+        "bytes": 5824,
+        "a": 1259794322,
+        "b": 1558502619
+      },
+      "ReplicatedStorage.GameAudio": {
+        "bytes": 2830,
+        "a": 2354637538,
+        "b": 356939079
+      },
+      "ReplicatedStorage.SandPrototypeTerrainGrid": {
+        "bytes": 1051,
+        "a": 87086183,
+        "b": 47026844
+      },
+      "ServerScriptService.SandPrototypeTerrain": {
+        "bytes": 5633,
+        "a": 4226892302,
+        "b": 1372716757
+      },
+      "ReplicatedStorage.UpgradeToolAppearance": {
+        "bytes": 9390,
+        "a": 3942443051,
+        "b": 3447415095
+      },
+      "ServerScriptService.FollowCart": {
+        "bytes": 3720,
+        "a": 1149440103,
+        "b": 623544853
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeHUD": {
+        "bytes": 14693,
+        "a": 2664038742,
+        "b": 2276689256
+      },
+      "ServerScriptService.SandPrototypeSaveSession": {
+        "bytes": 5953,
+        "a": 2431218377,
+        "b": 1557311882
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeCartVisual": {
+        "bytes": 6112,
+        "a": 2767455724,
+        "b": 1666767144
+      },
+      "ServerScriptService.SandPrototypeEconomy": {
+        "bytes": 4770,
+        "a": 4216111337,
+        "b": 1025214794
+      },
+      "ServerScriptService.SandPrototypePlotLayout": {
+        "bytes": 759,
+        "a": 3775777534,
+        "b": 25398266
+      },
+      "ServerScriptService.ProgressionData": {
+        "bytes": 5895,
+        "a": 3896599437,
+        "b": 1593210230
+      },
+      "ReplicatedStorage.QuarryGroundAppearance": {
+        "bytes": 3473,
+        "a": 3870351997,
+        "b": 495010015
+      },
+      "ServerScriptService.SandPrototypePlots": {
+        "bytes": 20964,
+        "a": 1356209435,
+        "b": 3200690313
+      },
+      "StarterPlayer.StarterPlayerScripts.FollowCartVisuals": {
+        "bytes": 3077,
+        "a": 3926081439,
+        "b": 431464022
+      },
+      "ReplicatedStorage.ExcavationLedgerAppearance": {
+        "bytes": 5907,
+        "a": 2613673953,
+        "b": 1661400845
+      },
+      "ServerScriptService.QuarryTransit.Route": {
+        "bytes": 3730,
+        "a": 1328215666,
+        "b": 609991105
+      },
+      "StarterPlayer.StarterPlayerScripts.QuarryTransitRider": {
+        "bytes": 8131,
+        "a": 2346838049,
+        "b": 3050403600
+      },
+      "ReplicatedStorage.SandPrototypeCartAppearance": {
+        "bytes": 6423,
+        "a": 933588912,
+        "b": 1720941202
+      },
+      "ReplicatedStorage.UpgradeConfig": {
+        "bytes": 2474,
+        "a": 3766227468,
+        "b": 256503923
+      },
+      "StarterPlayer.StarterPlayerScripts.DigPolishClient": {
+        "bytes": 2219,
+        "a": 3296401746,
+        "b": 220819210
+      },
+      "ServerScriptService.SandPrototypeWorld": {
+        "bytes": 26084,
+        "a": 574977566,
+        "b": 709283283
+      },
+      "ServerScriptService.UpgradeTransactions": {
+        "bytes": 5439,
+        "a": 3333787895,
+        "b": 1635853859
+      },
+      "StarterPlayer.StarterPlayerScripts.ProgressionVisuals": {
+        "bytes": 4899,
+        "a": 353138950,
+        "b": 1018887458
+      },
+      "ServerScriptService.SandPrototypeCoopData": {
+        "bytes": 5740,
+        "a": 3150283307,
+        "b": 1501644314
+      },
+      "ServerScriptService.ProgressionToolService": {
+        "bytes": 1517,
+        "a": 124479887,
+        "b": 106875411
+      },
+      "ServerScriptService.SandPrototypeSnapshot": {
+        "bytes": 3862,
+        "a": 2314838189,
+        "b": 652561007
+      },
+      "ReplicatedStorage._DTM_RockBuilder": {
+        "bytes": 3888,
+        "a": 659990653,
+        "b": 544610415
+      },
+      "ReplicatedStorage.SandPrototypeGeometry": {
+        "bytes": 6238,
+        "a": 3321191405,
+        "b": 1711712093
+      },
+      "ServerScriptService.QuarryTransit.TransitController": {
+        "bytes": 13012,
+        "a": 2053221243,
+        "b": 3169098248
+      },
+      "ServerScriptService.SandPrototypePlotData": {
+        "bytes": 6051,
+        "a": 629331568,
+        "b": 1639930813
+      },
+      "ReplicatedStorage.ExcavationJourney": {
+        "bytes": 3030,
+        "a": 1313229247,
+        "b": 531024545
+      },
+      "ServerScriptService.SandPrototypeWheelbarrow": {
+        "bytes": 9553,
+        "a": 3224527551,
+        "b": 4069785598
+      },
+      "StarterPlayer.StarterPlayerScripts.UpgradeMachineVisuals": {
+        "bytes": 5405,
+        "a": 3223736434,
+        "b": 1359357866
+      },
+      "ReplicatedStorage.CartPose": {
+        "bytes": 1123,
+        "a": 770917671,
+        "b": 57131000
+      },
+      "ReplicatedStorage.DigMotion": {
+        "bytes": 2315,
+        "a": 674659646,
+        "b": 183130468
+      },
+      "ServerScriptService.SandPrototypeAccessRules": {
+        "bytes": 206,
+        "a": 1359275564,
+        "b": 1920088
+      },
+      "ServerScriptService.UpgradeService": {
+        "bytes": 2395,
+        "a": 4125628368,
+        "b": 261057758
+      },
+      "ServerScriptService.ExcavationPresentation": {
+        "bytes": 2000,
+        "a": 1935613915,
+        "b": 185224533
+      },
+      "ServerScriptService.ConveyorService": {
+        "bytes": 5419,
+        "a": 3272561029,
+        "b": 1314820915
+      },
+      "StarterPack.Лопата.SandProbeClient": {
+        "bytes": 176,
+        "a": 2812498771,
+        "b": 1464328
+      },
+      "ServerScriptService.ProgressionAccount": {
+        "bytes": 4696,
+        "a": 2032072057,
+        "b": 992378808
+      },
+      "ReplicatedStorage.QuarryGardenBuilder": {
+        "bytes": 30225,
+        "a": 3477023031,
+        "b": 2495330434
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeShovelController": {
+        "bytes": 6142,
+        "a": 2990296608,
+        "b": 1776189615
+      },
+      "ServerScriptService.SandPrototypeFindData": {
+        "bytes": 6321,
+        "a": 1062376506,
+        "b": 1831166968
+      },
+      "ReplicatedStorage.SandPrototypeVoxelField": {
+        "bytes": 3741,
+        "a": 3595889904,
+        "b": 592438212
+      },
+      "StarterPlayer.StarterPlayerScripts.MountainSlideClient": {
+        "bytes": 9739,
+        "a": 3721794808,
+        "b": 4228073178
+      },
+      "ReplicatedStorage.UpgradeMachineAppearance": {
+        "bytes": 13577,
+        "a": 1651686441,
+        "b": 3676361749
+      },
+      "ServerScriptService.MountainSlideServer": {
+        "bytes": 8015,
+        "a": 2726705959,
+        "b": 2908463862
+      },
+      "ReplicatedStorage.MountainSlideRules": {
+        "bytes": 1862,
+        "a": 2652026406,
+        "b": 154983351
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeFeedback": {
+        "bytes": 15073,
+        "a": 3358558122,
+        "b": 2012592321
+      },
+      "ServerScriptService.QuarryGardenEnvironment": {
+        "bytes": 2505,
+        "a": 1822578710,
+        "b": 283590256
+      },
+      "ServerStorage.QuarryGardenFurnitureArchive.BuilderWithFurniture": {
+        "bytes": 29988,
+        "a": 999824502,
+        "b": 1904099076
+      },
+      "ServerScriptService.SandPrototypeCollapse": {
+        "bytes": 3870,
+        "a": 3959086043,
+        "b": 672074275
+      },
+      "ReplicatedStorage.SandPrototypeClientContext": {
+        "bytes": 5317,
+        "a": 296365976,
+        "b": 1266954709
+      },
+      "StarterPlayer.StarterPlayerScripts.DTM_AmbientClient": {
+        "bytes": 3354,
+        "a": 170174216,
+        "b": 583585421
+      },
+      "StarterPlayer.StarterPlayerScripts.DTM_VisualTheme": {
+        "bytes": 19708,
+        "a": 1295680227,
+        "b": 838959967
+      },
+      "ServerScriptService.RojoManaged.RojoConnectionTest": {
+        "bytes": 43,
+        "a": 2251579270,
+        "b": 78628
+      },
+      "ServerScriptService.SandPrototypeSaveCodec": {
+        "bytes": 4259,
+        "a": 89362350,
+        "b": 830315378
+      },
+      "ServerScriptService.QuarryTransit.TransitBootstrap": {
+        "bytes": 2450,
+        "a": 3399098311,
+        "b": 271240590
+      },
+      "ServerScriptService.SandPrototype": {
+        "bytes": 11797,
+        "a": 294735965,
+        "b": 1650056653
+      },
+      "StarterPlayer.StarterPlayerScripts.QuarryGardenMotion": {
+        "bytes": 2364,
+        "a": 3679225180,
+        "b": 244776647
+      },
+      "ReplicatedStorage.UpgradeMachineRefinement": {
+        "bytes": 890,
+        "a": 606691661,
+        "b": 34696223
+      },
+      "ReplicatedStorage.SandboardAppearance": {
+        "bytes": 2588,
+        "a": 3768496956,
+        "b": 273637455
+      },
+      "StarterPlayer.StarterPlayerScripts.UpgradeUI": {
+        "bytes": 26069,
+        "a": 141647364,
+        "b": 3614947520
+      },
+      "StarterPlayer.StarterPlayerScripts.ToolHandling": {
+        "bytes": 5944,
+        "a": 3845437201,
+        "b": 1534037180
+      },
+      "ServerScriptService.QuarryTransit.BuildRoads": {
+        "bytes": 10820,
+        "a": 1624978256,
+        "b": 750546147
+      }
+    }
+  },
+  "mapSource": "D:/Projects/сад.rbxl",
+  "mapSha256": "E192C7011A763E84E4A50B56FA789F69966BBD836B44C5BF8B9E4940364305E6",
+  "previousMapSha256": "65AD2D1935A82417A94A7FAF64F47B53B16B038957D382DFBFEFAC05F10500A5"
+}

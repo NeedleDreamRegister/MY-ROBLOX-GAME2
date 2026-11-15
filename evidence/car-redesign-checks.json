@@ -1,0 +1,25 @@
+{
+  "design": "QG Touring",
+  "mapBefore": {
+    "hash": "9ac176c9",
+    "carExcluded": true,
+    "roadAndBootstrapSourcesIncluded": true,
+    "records": 12225
+  },
+  "mapAfter": {
+    "hash": "9ac176c9",
+    "carExcluded": true,
+    "roadAndBootstrapSourcesIncluded": true,
+    "records": 12225
+  },
+  "spaceExit": {
+    "seated": false,
+    "jumpingRestored": true,
+    "hudHidden": true,
+    "position": "46.31906509399414, 3.273045539855957, 35.788631439208984",
+    "cameraFollows": true,
+    "cartStillDriving": true
+  },
+  "windshieldInclinationDegrees": 6.37,
+  "scope": "Vehicle model, its template, controller and rider interface only."
+}

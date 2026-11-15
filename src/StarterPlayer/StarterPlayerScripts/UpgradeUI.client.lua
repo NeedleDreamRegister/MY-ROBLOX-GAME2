@@ -196,7 +196,7 @@ remote.OnClientEvent:Connect(function(message)
  local installed
  if oldAccount then for id,level in message.Account.ToolLevels do if level>(oldAccount.ToolLevels[id]or 0)then installed=id;break end end end
  local previousSelection=account and account.SelectedTool;account=message.Account
- if installed then install(installed);P:SetAttribute('ForgeInstallTool',installed);P:SetAttribute('ForgeInstallSerial',(P:GetAttribute('ForgeInstallSerial')or 0)+1);notice.Text='КОМПЛЕКТ УСТАНОВЛЕН · '..C.Tool(installed).Name end
+ if installed then P:SetAttribute('ForgeInstallTool',installed);P:SetAttribute('ForgeInstallSerial',(P:GetAttribute('ForgeInstallSerial')or 0)+1);notice.Text='КОМПЛЕКТ УСТАНОВЛЕН · '..C.Tool(installed).Name end
  if previousSelection~=account.SelectedTool then focused=account.SelectedTool;heroKey=nil end
  if message.Message then notice.Text=message.Message;notice.TextColor3=message.Message:find('Недостаточно')and Color3.fromRGB(255,164,133)or Color3.fromRGB(139,233,181) end
  if message.Open then shade.Visible=true;resize();panel.BackgroundTransparency=.3;Tween:Create(panel,TweenInfo.new(.2),{BackgroundTransparency=0}):Play()end

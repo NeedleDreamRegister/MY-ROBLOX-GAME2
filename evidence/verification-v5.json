@@ -1,0 +1,1238 @@
+{
+  "version": 5,
+  "date": "2026-11-15",
+  "before": {
+    "objects": {
+      "DTM_Environment": {
+        "count": 445,
+        "hash": {
+          "1": 190311,
+          "2": 679821792,
+          "3": 941479348
+        }
+      },
+      "SandPrototypeStation": {
+        "count": 841,
+        "hash": {
+          "1": 303577,
+          "2": 3606980281,
+          "3": 1236179951
+        }
+      },
+      "SpawnLocation": {
+        "count": 27,
+        "hash": {
+          "1": 10260,
+          "2": 2527214495,
+          "3": 3768440439
+        }
+      },
+      "DTM_Decor": {
+        "count": 24,
+        "hash": {
+          "1": 6320,
+          "2": 1542428339,
+          "3": 1403390998
+        }
+      },
+      "SandPrototype": {
+        "count": 457,
+        "hash": {
+          "1": 190168,
+          "2": 1890888569,
+          "3": 485954519
+        }
+      },
+      "Baseplate": {
+        "count": 1,
+        "hash": {
+          "1": 343,
+          "2": 4235746178,
+          "3": 4258077
+        }
+      },
+      "SandPrototypePlot": {
+        "count": 424,
+        "hash": {
+          "1": 203475,
+          "2": 3945525308,
+          "3": 335620406
+        }
+      },
+      "Sign_ПРОДАЖА →": {
+        "count": 8,
+        "hash": {
+          "1": 2061,
+          "2": 111104811,
+          "3": 167695355
+        }
+      },
+      "GRASS": {
+        "count": 1,
+        "hash": {
+          "1": 54,
+          "2": 693742836,
+          "3": 123684
+        }
+      },
+      "SandPrototypePath": {
+        "count": 1,
+        "hash": {
+          "1": 86,
+          "2": 463462609,
+          "3": 333424
+        }
+      },
+      "Sign_← ГОРА": {
+        "count": 8,
+        "hash": {
+          "1": 2015,
+          "2": 2903406574,
+          "3": 156037643
+        }
+      }
+    },
+    "scripts": {
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeVisits": {
+        "1": 5824,
+        "2": 1259794322,
+        "3": 1558502619
+      },
+      "ReplicatedStorage._DTM_RockBuilder": {
+        "1": 3888,
+        "2": 659990653,
+        "3": 544610415
+      },
+      "ReplicatedStorage.SandPrototypeGeometry": {
+        "1": 6238,
+        "2": 3321191405,
+        "3": 1711712093
+      },
+      "ReplicatedStorage.SandPrototypeTerrainGrid": {
+        "1": 1051,
+        "2": 87086183,
+        "3": 47026844
+      },
+      "ReplicatedStorage.QuarryGardenBuilder": {
+        "1": 29843,
+        "2": 1991964113,
+        "3": 1570310109
+      },
+      "ReplicatedStorage.ExcavationJourney": {
+        "1": 3030,
+        "2": 1313229247,
+        "3": 531024545
+      },
+      "ServerScriptService.ExcavationPresentation": {
+        "1": 2000,
+        "2": 1935613915,
+        "3": 185224533
+      },
+      "ServerScriptService.SandPrototypeSnapshot": {
+        "1": 3862,
+        "2": 2314838189,
+        "3": 652561007
+      },
+      "ServerScriptService.MountainSlideServer": {
+        "1": 8015,
+        "2": 2726705959,
+        "3": 2908463862
+      },
+      "StarterPlayer.StarterPlayerScripts.UpgradeMachineVisuals": {
+        "1": 5405,
+        "2": 3223736434,
+        "3": 1359357866
+      },
+      "StarterPlayer.StarterPlayerScripts.QuarryGardenMotion": {
+        "1": 2364,
+        "2": 3679225180,
+        "3": 244776647
+      },
+      "ReplicatedStorage.SandPrototypeClientContext": {
+        "1": 5317,
+        "2": 296365976,
+        "3": 1266954709
+      },
+      "ReplicatedStorage.UpgradeToolAppearance": {
+        "1": 9391,
+        "2": 1604126103,
+        "3": 3447537175
+      },
+      "ServerScriptService.ProgressionToolService": {
+        "1": 1517,
+        "2": 124479887,
+        "3": 106875411
+      },
+      "ReplicatedStorage.GameAudio": {
+        "1": 2830,
+        "2": 2354637538,
+        "3": 356939079
+      },
+      "ServerScriptService.ProgressionAccount": {
+        "1": 4696,
+        "2": 2032072057,
+        "3": 992378808
+      },
+      "ServerScriptService.RojoManaged.RojoConnectionTest": {
+        "1": 43,
+        "2": 2251579270,
+        "3": 78628
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeHUD": {
+        "1": 14693,
+        "2": 2664038742,
+        "3": 2276689256
+      },
+      "ServerScriptService.SandPrototypeSaveSession": {
+        "1": 5953,
+        "2": 2431218377,
+        "3": 1557311882
+      },
+      "ReplicatedStorage.CartPose": {
+        "1": 1123,
+        "2": 770917671,
+        "3": 57131000
+      },
+      "ServerScriptService.SandPrototypeFindData": {
+        "1": 6321,
+        "2": 1062376506,
+        "3": 1831166968
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeCartVisual": {
+        "1": 6112,
+        "2": 2767455724,
+        "3": 1666767144
+      },
+      "StarterPack.Лопата.SandProbeClient": {
+        "1": 176,
+        "2": 2812498771,
+        "3": 1464328
+      },
+      "ServerScriptService.SandPrototypeEconomy": {
+        "1": 4770,
+        "2": 4216111337,
+        "3": 1025214794
+      },
+      "ServerScriptService.SandPrototypeAccessRules": {
+        "1": 206,
+        "2": 1359275564,
+        "3": 1920088
+      },
+      "ServerScriptService.SandPrototypePlotLayout": {
+        "1": 759,
+        "2": 3775777534,
+        "3": 25398266
+      },
+      "ServerScriptService.ProgressionData": {
+        "1": 5895,
+        "2": 3896599437,
+        "3": 1593210230
+      },
+      "ReplicatedStorage.DigMotion": {
+        "1": 2315,
+        "2": 674659646,
+        "3": 183130468
+      },
+      "ServerScriptService.UpgradeService": {
+        "1": 2395,
+        "2": 4125628368,
+        "3": 261057758
+      },
+      "ServerScriptService.UpgradeTransactions": {
+        "1": 5439,
+        "2": 3333787895,
+        "3": 1635853859
+      },
+      "ServerScriptService.SandPrototypePlotData": {
+        "1": 6051,
+        "2": 629331568,
+        "3": 1639930813
+      },
+      "ReplicatedStorage.QuarryGroundAppearance": {
+        "1": 3473,
+        "2": 3870351997,
+        "3": 495010015
+      },
+      "ServerScriptService.ConveyorService": {
+        "1": 5419,
+        "2": 3272561029,
+        "3": 1314820915
+      },
+      "ServerScriptService.SandPrototypePlots": {
+        "1": 20964,
+        "2": 1356209435,
+        "3": 3200690313
+      },
+      "ServerScriptService.SandPrototypeTerrain": {
+        "1": 5633,
+        "2": 4226892302,
+        "3": 1372716757
+      },
+      "StarterPlayer.StarterPlayerScripts.FollowCartVisuals": {
+        "1": 3078,
+        "2": 1080554263,
+        "3": 431504033
+      },
+      "ReplicatedStorage.ExcavationLedgerAppearance": {
+        "1": 5907,
+        "2": 2613673953,
+        "3": 1661400845
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeFeedback": {
+        "1": 15073,
+        "2": 3358558122,
+        "3": 2012592321
+      },
+      "StarterPlayer.StarterPlayerScripts.DigPolishClient": {
+        "1": 2219,
+        "2": 3296401746,
+        "3": 220819210
+      },
+      "ReplicatedStorage.SandPrototypeVoxelField": {
+        "1": 3741,
+        "2": 3595889904,
+        "3": 592438212
+      },
+      "StarterPlayer.StarterPlayerScripts.MountainSlideClient": {
+        "1": 9739,
+        "2": 3721794808,
+        "3": 4228073178
+      },
+      "ReplicatedStorage.UpgradeMachineAppearance": {
+        "1": 13577,
+        "2": 1651686441,
+        "3": 3676361749
+      },
+      "ReplicatedStorage.SandPrototypeCartAppearance": {
+        "1": 6423,
+        "2": 933588912,
+        "3": 1720941202
+      },
+      "ReplicatedStorage.MountainSlideRules": {
+        "1": 1862,
+        "2": 2652026406,
+        "3": 154983351
+      },
+      "ReplicatedStorage.UpgradeConfig": {
+        "1": 2474,
+        "2": 3766227468,
+        "3": 256503923
+      },
+      "ServerScriptService.QuarryGardenEnvironment": {
+        "1": 2505,
+        "2": 1822578710,
+        "3": 283590256
+      },
+      "ServerScriptService.SandPrototypeWheelbarrow": {
+        "1": 9553,
+        "2": 3224527551,
+        "3": 4069785598
+      },
+      "ServerScriptService.SandPrototypeCollapse": {
+        "1": 3870,
+        "2": 3959086043,
+        "3": 672074275
+      },
+      "ServerScriptService.SandPrototypeWorld": {
+        "1": 26084,
+        "2": 574977566,
+        "3": 709283283
+      },
+      "StarterPlayer.StarterPlayerScripts.DTM_AmbientClient": {
+        "1": 3354,
+        "2": 170174216,
+        "3": 583585421
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeShovelController": {
+        "1": 6145,
+        "2": 689172660,
+        "3": 1776429213
+      },
+      "StarterPlayer.StarterPlayerScripts.ProgressionVisuals": {
+        "1": 4899,
+        "2": 353138950,
+        "3": 1018887458
+      },
+      "ServerScriptService.SandPrototypeCoopData": {
+        "1": 5740,
+        "2": 3150283307,
+        "3": 1501644314
+      },
+      "StarterPlayer.StarterPlayerScripts.DTM_VisualTheme": {
+        "1": 19708,
+        "2": 1295680227,
+        "3": 838959967
+      },
+      "ServerScriptService.SandPrototype": {
+        "1": 11797,
+        "2": 294735965,
+        "3": 1650056653
+      },
+      "ServerScriptService.SandPrototypeSaveCodec": {
+        "1": 4259,
+        "2": 89362350,
+        "3": 830315378
+      },
+      "ReplicatedStorage.UpgradeMachineRefinement": {
+        "1": 890,
+        "2": 606691661,
+        "3": 34696223
+      },
+      "ReplicatedStorage.SandboardAppearance": {
+        "1": 2588,
+        "2": 3768496956,
+        "3": 273637455
+      },
+      "StarterPlayer.StarterPlayerScripts.UpgradeUI": {
+        "1": 26069,
+        "2": 141647364,
+        "3": 3614947520
+      },
+      "StarterPlayer.StarterPlayerScripts.ToolHandling": {
+        "1": 5944,
+        "2": 3845437201,
+        "3": 1534037180
+      },
+      "ServerScriptService.FollowCart": {
+        "1": 3720,
+        "2": 1149440103,
+        "3": 623544853
+      }
+    }
+  },
+  "after": {
+    "objects": {
+      "DTM_Environment": {
+        "count": 445,
+        "hash": {
+          "1": 190311,
+          "2": 679821792,
+          "3": 941479348
+        }
+      },
+      "SandPrototypeStation": {
+        "count": 841,
+        "hash": {
+          "1": 303577,
+          "2": 3606980281,
+          "3": 1236179951
+        }
+      },
+      "SpawnLocation": {
+        "count": 27,
+        "hash": {
+          "1": 10260,
+          "2": 2527214495,
+          "3": 3768440439
+        }
+      },
+      "DTM_Decor": {
+        "count": 24,
+        "hash": {
+          "1": 6320,
+          "2": 1542428339,
+          "3": 1403390998
+        }
+      },
+      "SandPrototype": {
+        "count": 457,
+        "hash": {
+          "1": 190168,
+          "2": 1890888569,
+          "3": 485954519
+        }
+      },
+      "Baseplate": {
+        "count": 1,
+        "hash": {
+          "1": 343,
+          "2": 4235746178,
+          "3": 4258077
+        }
+      },
+      "SandPrototypePlot": {
+        "count": 424,
+        "hash": {
+          "1": 203475,
+          "2": 3945525308,
+          "3": 335620406
+        }
+      },
+      "Sign_ПРОДАЖА →": {
+        "count": 8,
+        "hash": {
+          "1": 2061,
+          "2": 111104811,
+          "3": 167695355
+        }
+      },
+      "GRASS": {
+        "count": 1,
+        "hash": {
+          "1": 54,
+          "2": 693742836,
+          "3": 123684
+        }
+      },
+      "SandPrototypePath": {
+        "count": 1,
+        "hash": {
+          "1": 86,
+          "2": 463462609,
+          "3": 333424
+        }
+      },
+      "Sign_← ГОРА": {
+        "count": 8,
+        "hash": {
+          "1": 2015,
+          "2": 2903406574,
+          "3": 156037643
+        }
+      }
+    },
+    "scripts": {
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeVisits": {
+        "1": 5824,
+        "2": 1259794322,
+        "3": 1558502619
+      },
+      "ReplicatedStorage._DTM_RockBuilder": {
+        "1": 3888,
+        "2": 659990653,
+        "3": 544610415
+      },
+      "ReplicatedStorage.SandPrototypeGeometry": {
+        "1": 6238,
+        "2": 3321191405,
+        "3": 1711712093
+      },
+      "ReplicatedStorage.SandPrototypeTerrainGrid": {
+        "1": 1051,
+        "2": 87086183,
+        "3": 47026844
+      },
+      "ReplicatedStorage.QuarryGardenBuilder": {
+        "1": 29988,
+        "2": 999824502,
+        "3": 1904099076
+      },
+      "ReplicatedStorage.ExcavationJourney": {
+        "1": 3030,
+        "2": 1313229247,
+        "3": 531024545
+      },
+      "ServerScriptService.ExcavationPresentation": {
+        "1": 2000,
+        "2": 1935613915,
+        "3": 185224533
+      },
+      "ServerScriptService.SandPrototypeSnapshot": {
+        "1": 3862,
+        "2": 2314838189,
+        "3": 652561007
+      },
+      "ServerScriptService.MountainSlideServer": {
+        "1": 8015,
+        "2": 2726705959,
+        "3": 2908463862
+      },
+      "StarterPlayer.StarterPlayerScripts.UpgradeMachineVisuals": {
+        "1": 5405,
+        "2": 3223736434,
+        "3": 1359357866
+      },
+      "StarterPlayer.StarterPlayerScripts.QuarryGardenMotion": {
+        "1": 2364,
+        "2": 3679225180,
+        "3": 244776647
+      },
+      "ReplicatedStorage.SandPrototypeClientContext": {
+        "1": 5317,
+        "2": 296365976,
+        "3": 1266954709
+      },
+      "ReplicatedStorage.UpgradeToolAppearance": {
+        "1": 9391,
+        "2": 1604126103,
+        "3": 3447537175
+      },
+      "ServerScriptService.ProgressionToolService": {
+        "1": 1517,
+        "2": 124479887,
+        "3": 106875411
+      },
+      "ReplicatedStorage.GameAudio": {
+        "1": 2830,
+        "2": 2354637538,
+        "3": 356939079
+      },
+      "ServerScriptService.ProgressionAccount": {
+        "1": 4696,
+        "2": 2032072057,
+        "3": 992378808
+      },
+      "ServerScriptService.RojoManaged.RojoConnectionTest": {
+        "1": 43,
+        "2": 2251579270,
+        "3": 78628
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeHUD": {
+        "1": 14693,
+        "2": 2664038742,
+        "3": 2276689256
+      },
+      "ServerScriptService.SandPrototypeSaveSession": {
+        "1": 5953,
+        "2": 2431218377,
+        "3": 1557311882
+      },
+      "ReplicatedStorage.CartPose": {
+        "1": 1123,
+        "2": 770917671,
+        "3": 57131000
+      },
+      "ServerScriptService.SandPrototypeFindData": {
+        "1": 6321,
+        "2": 1062376506,
+        "3": 1831166968
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeCartVisual": {
+        "1": 6112,
+        "2": 2767455724,
+        "3": 1666767144
+      },
+      "StarterPack.Лопата.SandProbeClient": {
+        "1": 176,
+        "2": 2812498771,
+        "3": 1464328
+      },
+      "ServerScriptService.SandPrototypeEconomy": {
+        "1": 4770,
+        "2": 4216111337,
+        "3": 1025214794
+      },
+      "ServerScriptService.SandPrototypeAccessRules": {
+        "1": 206,
+        "2": 1359275564,
+        "3": 1920088
+      },
+      "ServerScriptService.SandPrototypePlotLayout": {
+        "1": 759,
+        "2": 3775777534,
+        "3": 25398266
+      },
+      "ServerScriptService.ProgressionData": {
+        "1": 5895,
+        "2": 3896599437,
+        "3": 1593210230
+      },
+      "ReplicatedStorage.DigMotion": {
+        "1": 2315,
+        "2": 674659646,
+        "3": 183130468
+      },
+      "ServerScriptService.UpgradeService": {
+        "1": 2395,
+        "2": 4125628368,
+        "3": 261057758
+      },
+      "ServerScriptService.UpgradeTransactions": {
+        "1": 5439,
+        "2": 3333787895,
+        "3": 1635853859
+      },
+      "ServerScriptService.SandPrototypePlotData": {
+        "1": 6051,
+        "2": 629331568,
+        "3": 1639930813
+      },
+      "ReplicatedStorage.QuarryGroundAppearance": {
+        "1": 3473,
+        "2": 3870351997,
+        "3": 495010015
+      },
+      "ServerScriptService.ConveyorService": {
+        "1": 5419,
+        "2": 3272561029,
+        "3": 1314820915
+      },
+      "ServerScriptService.SandPrototypePlots": {
+        "1": 20964,
+        "2": 1356209435,
+        "3": 3200690313
+      },
+      "ServerScriptService.SandPrototypeTerrain": {
+        "1": 5633,
+        "2": 4226892302,
+        "3": 1372716757
+      },
+      "StarterPlayer.StarterPlayerScripts.FollowCartVisuals": {
+        "1": 3078,
+        "2": 1080554263,
+        "3": 431504033
+      },
+      "ReplicatedStorage.ExcavationLedgerAppearance": {
+        "1": 5907,
+        "2": 2613673953,
+        "3": 1661400845
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeFeedback": {
+        "1": 15073,
+        "2": 3358558122,
+        "3": 2012592321
+      },
+      "StarterPlayer.StarterPlayerScripts.DigPolishClient": {
+        "1": 2219,
+        "2": 3296401746,
+        "3": 220819210
+      },
+      "ReplicatedStorage.SandPrototypeVoxelField": {
+        "1": 3741,
+        "2": 3595889904,
+        "3": 592438212
+      },
+      "StarterPlayer.StarterPlayerScripts.MountainSlideClient": {
+        "1": 9739,
+        "2": 3721794808,
+        "3": 4228073178
+      },
+      "ReplicatedStorage.UpgradeMachineAppearance": {
+        "1": 13577,
+        "2": 1651686441,
+        "3": 3676361749
+      },
+      "ReplicatedStorage.SandPrototypeCartAppearance": {
+        "1": 6423,
+        "2": 933588912,
+        "3": 1720941202
+      },
+      "ReplicatedStorage.MountainSlideRules": {
+        "1": 1862,
+        "2": 2652026406,
+        "3": 154983351
+      },
+      "ReplicatedStorage.UpgradeConfig": {
+        "1": 2474,
+        "2": 3766227468,
+        "3": 256503923
+      },
+      "ServerScriptService.QuarryGardenEnvironment": {
+        "1": 2505,
+        "2": 1822578710,
+        "3": 283590256
+      },
+      "ServerScriptService.SandPrototypeWheelbarrow": {
+        "1": 9553,
+        "2": 3224527551,
+        "3": 4069785598
+      },
+      "ServerScriptService.SandPrototypeCollapse": {
+        "1": 3870,
+        "2": 3959086043,
+        "3": 672074275
+      },
+      "ServerScriptService.SandPrototypeWorld": {
+        "1": 26084,
+        "2": 574977566,
+        "3": 709283283
+      },
+      "StarterPlayer.StarterPlayerScripts.DTM_AmbientClient": {
+        "1": 3354,
+        "2": 170174216,
+        "3": 583585421
+      },
+      "StarterPlayer.StarterPlayerScripts.SandPrototypeShovelController": {
+        "1": 6145,
+        "2": 689172660,
+        "3": 1776429213
+      },
+      "StarterPlayer.StarterPlayerScripts.ProgressionVisuals": {
+        "1": 4899,
+        "2": 353138950,
+        "3": 1018887458
+      },
+      "ServerScriptService.SandPrototypeCoopData": {
+        "1": 5740,
+        "2": 3150283307,
+        "3": 1501644314
+      },
+      "StarterPlayer.StarterPlayerScripts.DTM_VisualTheme": {
+        "1": 19708,
+        "2": 1295680227,
+        "3": 838959967
+      },
+      "ServerScriptService.SandPrototype": {
+        "1": 11797,
+        "2": 294735965,
+        "3": 1650056653
+      },
+      "ServerScriptService.SandPrototypeSaveCodec": {
+        "1": 4259,
+        "2": 89362350,
+        "3": 830315378
+      },
+      "ReplicatedStorage.UpgradeMachineRefinement": {
+        "1": 890,
+        "2": 606691661,
+        "3": 34696223
+      },
+      "ReplicatedStorage.SandboardAppearance": {
+        "1": 2588,
+        "2": 3768496956,
+        "3": 273637455
+      },
+      "StarterPlayer.StarterPlayerScripts.UpgradeUI": {
+        "1": 26069,
+        "2": 141647364,
+        "3": 3614947520
+      },
+      "StarterPlayer.StarterPlayerScripts.ToolHandling": {
+        "1": 5944,
+        "2": 3845437201,
+        "3": 1534037180
+      },
+      "ServerScriptService.FollowCart": {
+        "1": 3720,
+        "2": 1149440103,
+        "3": 623544853
+      }
+    }
+  },
+  "unchangedObjects": true,
+  "changedScripts": [
+    "ReplicatedStorage.QuarryGardenBuilder"
+  ],
+  "safety": {
+    "ready": true,
+    "stats": {
+      "unanchored": 0,
+      "queryable": 0,
+      "colliders": 144,
+      "scripts": 0,
+      "touchable": 0,
+      "parts": 5417
+    },
+    "version": 5,
+    "blocked": []
+  },
+  "park": {
+    "trees": {
+      "east": 13,
+      "west": 20
+    },
+    "route": {
+      "EastPromenade": {
+        "start": "31, 0, -15",
+        "length": 698.4962844848633,
+        "width": 14,
+        "finish": "-34, 0, -425"
+      },
+      "WestPromenade": {
+        "start": "3, 0, -8",
+        "length": 781.5597944259644,
+        "width": 14,
+        "finish": "-34, 0, -425"
+      }
+    },
+    "rearClearingsOverlaps": [],
+    "flowers": {
+      "east": 51,
+      "west": 102
+    },
+    "newDecorMiningOverlaps": []
+  },
+  "mechanicsPlaytests": "Skipped as explicitly requested; Play used for visual inspection only",
+  "releaseSha256": "BBD07E82ED6589D0043AC29C8C7539F4613A9D0582BF4F355059BDA71561D40C",
+  "backupSha256": "734E41BA161A266AAFAC3AB2DEEE565B6A0CC90AD56738A7761681AEA537DC15",
+  "terrain": {
+    "unchanged": true,
+    "tiles": 64,
+    "after": [
+      {
+        "hash": 3124669699,
+        "x": -1024,
+        "occupied": 22237,
+        "z": -1024
+      },
+      {
+        "hash": 839316787,
+        "x": -1024,
+        "occupied": 41779,
+        "z": -768
+      },
+      {
+        "hash": 464898074,
+        "x": -1024,
+        "occupied": 21938,
+        "z": -512
+      },
+      {
+        "hash": 679525427,
+        "x": -1024,
+        "occupied": 41564,
+        "z": -256
+      },
+      {
+        "hash": 1005146489,
+        "x": -1024,
+        "occupied": 21946,
+        "z": 0
+      },
+      {
+        "hash": 2613917147,
+        "x": -1024,
+        "occupied": 42121,
+        "z": 256
+      },
+      {
+        "hash": 1041988552,
+        "x": -1024,
+        "occupied": 31257,
+        "z": 512
+      },
+      {
+        "hash": 3174968460,
+        "x": -1024,
+        "occupied": 43409,
+        "z": 768
+      },
+      {
+        "hash": 1594776779,
+        "x": -768,
+        "occupied": 33380,
+        "z": -1024
+      },
+      {
+        "hash": 1239767755,
+        "x": -768,
+        "occupied": 93431,
+        "z": -768
+      },
+      {
+        "hash": 3278213093,
+        "x": -768,
+        "occupied": 20350,
+        "z": -512
+      },
+      {
+        "hash": 579530430,
+        "x": -768,
+        "occupied": 42535,
+        "z": -256
+      },
+      {
+        "hash": 412571015,
+        "x": -768,
+        "occupied": 19890,
+        "z": 0
+      },
+      {
+        "hash": 2985387114,
+        "x": -768,
+        "occupied": 42430,
+        "z": 256
+      },
+      {
+        "hash": 1123176296,
+        "x": -768,
+        "occupied": 57400,
+        "z": 512
+      },
+      {
+        "hash": 3156914942,
+        "x": -768,
+        "occupied": 66029,
+        "z": 768
+      },
+      {
+        "hash": 2429525414,
+        "x": -512,
+        "occupied": 26281,
+        "z": -1024
+      },
+      {
+        "hash": 1294080454,
+        "x": -512,
+        "occupied": 41285,
+        "z": -768
+      },
+      {
+        "hash": 2587192171,
+        "x": -512,
+        "occupied": 20594,
+        "z": -512
+      },
+      {
+        "hash": 1789186848,
+        "x": -512,
+        "occupied": 30377,
+        "z": -256
+      },
+      {
+        "hash": 1413502797,
+        "x": -512,
+        "occupied": 18730,
+        "z": 0
+      },
+      {
+        "hash": 3455787040,
+        "x": -512,
+        "occupied": 29446,
+        "z": 256
+      },
+      {
+        "hash": 1688157828,
+        "x": -512,
+        "occupied": 23386,
+        "z": 512
+      },
+      {
+        "hash": 2899374201,
+        "x": -512,
+        "occupied": 38336,
+        "z": 768
+      },
+      {
+        "hash": 569941264,
+        "x": -256,
+        "occupied": 41947,
+        "z": -1024
+      },
+      {
+        "hash": 1436189319,
+        "x": -256,
+        "occupied": 26492,
+        "z": -768
+      },
+      {
+        "hash": 3966093775,
+        "x": -256,
+        "occupied": 4893,
+        "z": -512
+      },
+      {
+        "hash": 5381,
+        "x": -256,
+        "occupied": 4096,
+        "z": -256
+      },
+      {
+        "hash": 5381,
+        "x": -256,
+        "occupied": 4096,
+        "z": 0
+      },
+      {
+        "hash": 5381,
+        "x": -256,
+        "occupied": 4096,
+        "z": 256
+      },
+      {
+        "hash": 3188213250,
+        "x": -256,
+        "occupied": 30913,
+        "z": 512
+      },
+      {
+        "hash": 1294815679,
+        "x": -256,
+        "occupied": 26598,
+        "z": 768
+      },
+      {
+        "hash": 138059733,
+        "x": 0,
+        "occupied": 75511,
+        "z": -1024
+      },
+      {
+        "hash": 1727376925,
+        "x": 0,
+        "occupied": 43229,
+        "z": -768
+      },
+      {
+        "hash": 4100054947,
+        "x": 0,
+        "occupied": 5363,
+        "z": -512
+      },
+      {
+        "hash": 5381,
+        "x": 0,
+        "occupied": 4096,
+        "z": -256
+      },
+      {
+        "hash": 5381,
+        "x": 0,
+        "occupied": 4096,
+        "z": 0
+      },
+      {
+        "hash": 5381,
+        "x": 0,
+        "occupied": 4096,
+        "z": 256
+      },
+      {
+        "hash": 1598758059,
+        "x": 0,
+        "occupied": 21908,
+        "z": 512
+      },
+      {
+        "hash": 672015645,
+        "x": 0,
+        "occupied": 25421,
+        "z": 768
+      },
+      {
+        "hash": 2675666067,
+        "x": 256,
+        "occupied": 25419,
+        "z": -1024
+      },
+      {
+        "hash": 4029928305,
+        "x": 256,
+        "occupied": 32544,
+        "z": -768
+      },
+      {
+        "hash": 1633795207,
+        "x": 256,
+        "occupied": 5326,
+        "z": -512
+      },
+      {
+        "hash": 5381,
+        "x": 256,
+        "occupied": 4096,
+        "z": -256
+      },
+      {
+        "hash": 5381,
+        "x": 256,
+        "occupied": 4096,
+        "z": 0
+      },
+      {
+        "hash": 5381,
+        "x": 256,
+        "occupied": 4096,
+        "z": 256
+      },
+      {
+        "hash": 819190763,
+        "x": 256,
+        "occupied": 15393,
+        "z": 512
+      },
+      {
+        "hash": 1058966477,
+        "x": 256,
+        "occupied": 37839,
+        "z": 768
+      },
+      {
+        "hash": 551875567,
+        "x": 512,
+        "occupied": 22657,
+        "z": -1024
+      },
+      {
+        "hash": 1138001803,
+        "x": 512,
+        "occupied": 48978,
+        "z": -768
+      },
+      {
+        "hash": 4224989428,
+        "x": 512,
+        "occupied": 6165,
+        "z": -512
+      },
+      {
+        "hash": 735390882,
+        "x": 512,
+        "occupied": 5829,
+        "z": -256
+      },
+      {
+        "hash": 1075687886,
+        "x": 512,
+        "occupied": 5164,
+        "z": 0
+      },
+      {
+        "hash": 3592037585,
+        "x": 512,
+        "occupied": 5880,
+        "z": 256
+      },
+      {
+        "hash": 2810807060,
+        "x": 512,
+        "occupied": 17607,
+        "z": 512
+      },
+      {
+        "hash": 2934487954,
+        "x": 512,
+        "occupied": 56050,
+        "z": 768
+      },
+      {
+        "hash": 2985459091,
+        "x": 768,
+        "occupied": 32781,
+        "z": -1024
+      },
+      {
+        "hash": 3191107895,
+        "x": 768,
+        "occupied": 102941,
+        "z": -768
+      },
+      {
+        "hash": 3354532847,
+        "x": 768,
+        "occupied": 21081,
+        "z": -512
+      },
+      {
+        "hash": 127685080,
+        "x": 768,
+        "occupied": 39436,
+        "z": -256
+      },
+      {
+        "hash": 384433523,
+        "x": 768,
+        "occupied": 21728,
+        "z": 0
+      },
+      {
+        "hash": 2889676017,
+        "x": 768,
+        "occupied": 40076,
+        "z": 256
+      },
+      {
+        "hash": 2566052238,
+        "x": 768,
+        "occupied": 39510,
+        "z": 512
+      },
+      {
+        "hash": 641096809,
+        "x": 768,
+        "occupied": 90001,
+        "z": 768
+      }
+    ]
+  }
+}
