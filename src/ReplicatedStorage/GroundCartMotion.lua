@@ -22,6 +22,10 @@ function Motion.Create(model)
   local overlap=OverlapParams.new();overlap.FilterType=Enum.RaycastFilterType.Exclude;overlap.FilterDescendantsInstances=excluded;overlap.RespectCanCollide=true;overlap.MaxParts=1
   return ray,overlap
  end
+ local function surfaceRotation(heading,normal)
+  local y=-(heading.X*normal.X+heading.Z*normal.Z)/normal.Y
+  return CFrame.lookAt(Vector3.zero,Vector3.new(heading.X,y,heading.Z).Unit,normal)
+ end
  local api={}
  function api.Park(ch)
   if #contacts~=3 then return nil end
@@ -52,8 +56,7 @@ function Motion.Create(model)
    if normal.Magnitude<.001 then return nil end
    normal=normal.Unit;if normal.Y<0 then normal=-normal end
    if normal.Y<.82 then return nil end
-   local forward=flat-normal*flat:Dot(normal)
-   rotation=CFrame.lookAt(Vector3.zero,forward.Unit,normal)
+   rotation=surfaceRotation(flat,normal)
   end
   local hits,height=sample();if not hits or math.abs(height-root.Position.Y)>2 then return nil end
   -- Lower the handles around the wheel, rather than nudging it into a wall.
@@ -82,6 +85,11 @@ function Motion.Create(model)
   if horizontal.Magnitude>18*dt then horizontal=horizontal.Unit*18*dt end
   local position=root.Position+horizontal
   local hit=workspace:Raycast(position+wheelOffset+Vector3.new(0,8,0),Vector3.new(0,-30,0),params)
+  if not hit or hit.Normal.Y<.82 then return nil,true end
+  -- Keep the carried tilt relative to the ground, not to the world horizon.
+  rotation=surfaceRotation(look,hit.Normal)*CFrame.Angles(math.rad(-4),0,0)
+  wheelOffset=rotation:VectorToWorldSpace(wheel.Position)
+  hit=workspace:Raycast(position+wheelOffset+Vector3.new(0,8,0),Vector3.new(0,-30,0),params)
   if not hit or hit.Normal.Y<.82 then return nil,true end
   position=Vector3.new(position.X,hit.Position.Y+radius/hit.Normal.Y-wheelOffset.Y,position.Z)
   local delta=position-root.Position
