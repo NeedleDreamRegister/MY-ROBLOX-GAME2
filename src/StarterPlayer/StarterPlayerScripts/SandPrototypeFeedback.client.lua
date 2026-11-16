@@ -283,7 +283,7 @@ RunService.Heartbeat:Connect(function(dt)
  local ray=Context.AimRay(mouse);if not ray then return end
  local params=RaycastParams.new();params.FilterType=Enum.RaycastFilterType.Exclude;params.FilterDescendantsInstances={character}
  local hit=workspace:Raycast(ray.Origin,ray.Direction*220,params)
- local target=Context.ResolveHit(player,hit,cells)
+ local target,visibleHit=Context.ResolveAim(player,hit,cells);hit=visibleHit
  if not target or not Context.CanTarget(player,target,cells)then return end
  local distance=(root.Position-(Context.DigReach(state)<24 and hit.Position or target.Position)).Magnitude
  if distance>Context.DigReach(state)then if distance<80 then hint("ПОДОЙДИТЕ БЛИЖЕ К ПЕСКУ")end;return end

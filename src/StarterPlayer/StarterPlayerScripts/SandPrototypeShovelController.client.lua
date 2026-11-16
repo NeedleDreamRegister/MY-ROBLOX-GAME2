@@ -54,7 +54,7 @@ local function bind(tool)
   local ray=Context.AimRay(mouse,position);if not ray then return end
   local params=RaycastParams.new();params.FilterType=Enum.RaycastFilterType.Exclude;params.FilterDescendantsInstances={P.Character}
   local hit=workspace:Raycast(ray.Origin,ray.Direction*220,params)
-  return Context.ResolveHit(P,hit,cells),hit
+  return Context.ResolveAim(P,hit,cells)
  end
  local function dig(position)
   if not equipped()or(P.Character and P.Character:GetAttribute('MountainSliding'))or not tool.Enabled or shopOpen()or os.clock()-last<.16 then return end

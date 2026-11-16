@@ -107,6 +107,22 @@ function Context.ResolveHit(player,hit,ownCells)
 	end
 	return nil
 end
+function Context.ResolveAim(player,hit,ownCells)
+	local state=player:FindFirstChild('SandPrototypeState')
+	local ch=player.Character;local head=ch and ch:FindFirstChild('Head')
+	if Context.DigReach(state)<24 and head and hit and hit.Instance==workspace.Terrain then
+		-- The third-person camera can see past the roof/edge of a pit while the
+		-- shovel cannot. Select the first surface the character can actually hit.
+		local delta=hit.Position-head.Position
+		if delta.Magnitude>.01 then
+			local params=RaycastParams.new();params.FilterType=Enum.RaycastFilterType.Exclude
+			params.FilterDescendantsInstances={ch}
+			local first=workspace:Raycast(head.Position,delta.Unit*(delta.Magnitude+.15),params)
+			if first then hit=first end
+		end
+	end
+	return Context.ResolveHit(player,hit,ownCells),hit
+end
 function Context.GetMountain(player)
 	if workspace:GetAttribute("PersonalPlotsEnabled")==true then
 		local reference=player:WaitForChild("SandPrototypeMountain")
