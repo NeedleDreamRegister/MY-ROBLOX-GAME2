@@ -95,6 +95,13 @@ function Adapter.Create(origin,getCell,options)
 	local dirty={}
 	local closed=false
 	local api={}
+	function api.CanOccupy(x,y,z,overlap)
+		assert(not closed,"Terrain adapter closed")
+		-- Smooth Terrain changed outside the old 3.8-stud cube in live tests.
+		-- Protect the one-cell-radius mesh footprint, including nearby feet.
+		local centre=Grid.Position(origin,x,y,z)
+		return #workspace:GetPartBoundsInBox(CFrame.new(centre),Vector3.new(8,8,8),overlap)==0
+	end
 	function api.Mark(x,y,z)
 		assert(not closed,"Terrain adapter closed")
 		assert(x%1==0 and y%1==0 and z%1==0 and x>=lo.X and x<hi.X and y>=lo.Y and y<hi.Y and z>=lo.Z and z<hi.Z,"Terrain edit outside owned region")

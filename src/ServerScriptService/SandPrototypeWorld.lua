@@ -374,6 +374,7 @@ local function settleAround(x, y, z,budget,canContinue)
 			source.Position=position
 		end
 	end,function(source,dx,dy,dz)
+		if renderer then return renderer.CanOccupy(dx,dy,dz,overlap)end
 		local sx,sy,sz=coordinates(source)
 		local box=CFrame.new(destination(source,sx,sy,sz,dx,dy,dz))*source.CFrame.Rotation
 		return #workspace:GetPartBoundsInBox(box,source.Size*0.95,overlap)==0
