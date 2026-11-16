@@ -346,6 +346,7 @@ end
 local function settleAround(x, y, z,budget,canContinue)
 	budget=budget or math.max(0,mountainHeight-y)
 	local motions={}
+	local cartBounds=require(script.Parent.FollowCart).CollapseBounds()
 	local characters = {}
 	for _, player in Players:GetPlayers() do
 		local character = player.Character
@@ -374,9 +375,15 @@ local function settleAround(x, y, z,budget,canContinue)
 			source.Position=position
 		end
 	end,function(source,dx,dy,dz)
-		if renderer then return renderer.CanOccupy(dx,dy,dz,overlap)end
 		local sx,sy,sz=coordinates(source)
-		local box=CFrame.new(destination(source,sx,sy,sz,dx,dy,dz))*source.CFrame.Rotation
+		local position=destination(source,sx,sy,sz,dx,dy,dz)
+		local half=renderer and Vector3.new(4,4,4)or source.Size*.475
+		for _,bounds in cartBounds do
+			local d=position-bounds.position;local h=half+bounds.half
+			if math.abs(d.X)<=h.X and math.abs(d.Y)<=h.Y and math.abs(d.Z)<=h.Z then return false end
+		end
+		if renderer then return renderer.CanOccupy(dx,dy,dz,overlap)end
+		local box=CFrame.new(position)*source.CFrame.Rotation
 		return #workspace:GetPartBoundsInBox(box,source.Size*0.95,overlap)==0
 	end,MAX_MOVES_PER_STEP,mountainHeight,function(cx,cy,cz)
 		return cy>=0 and cy<=mountainHeight and math.abs(cx)<=mountainHeight-cy and math.abs(cz)<=mountainHeight-cy

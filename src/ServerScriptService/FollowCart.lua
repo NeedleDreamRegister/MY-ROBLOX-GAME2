@@ -1,6 +1,23 @@
 local Run=game:GetService('RunService')
 local C=require(game.ReplicatedStorage.UpgradeConfig)
 local Cart={}
+-- Non-queryable visual carts still occupy space for sand. Cache structural
+-- bounds once per build; sample their current server pose once per collapse job.
+local collapseBounds={}
+function Cart.CollapseBounds()
+ local result={}
+ for model,bounds in collapseBounds do
+  if model.Parent and model.PrimaryPart then
+   local cf=model.PrimaryPart.CFrame*bounds.frame;local h=bounds.half
+   local r,u,l=cf.RightVector,cf.UpVector,cf.LookVector
+   local half=Vector3.new(math.abs(r.X)*h.X+math.abs(u.X)*h.Y+math.abs(l.X)*h.Z,
+    math.abs(r.Y)*h.X+math.abs(u.Y)*h.Y+math.abs(l.Y)*h.Z,
+    math.abs(r.Z)*h.X+math.abs(u.Z)*h.Y+math.abs(l.Z)*h.Z)
+   result[#result+1]={position=cf.Position,half=half}
+  end
+ end
+ return result
+end
 function Cart.Create(config)
  local owner=config.owner
  local model,state,level,label,load
@@ -19,7 +36,7 @@ function Cart.Create(config)
   model:SetAttribute('CartCells',state.CartCells);model:SetAttribute('CartCapacity',capacity);model:SetAttribute('CartEnabled',state.CartEnabled)
  end
  local function build()
-  local previous=model and model:GetPivot();if manual then manual.Destroy()manual=nil end;if model then model:Destroy()end
+  local previous=model and model:GetPivot();if manual then manual.Destroy()manual=nil end;if model then collapseBounds[model]=nil;model:Destroy()end
   model=require(game.ReplicatedStorage.SandPrototypeCartAppearance).Build();model.Name='FollowWheelbarrow';model:SetAttribute('OwnerUserId',owner.UserId);model:SetAttribute('FollowCart',true);model:SetAttribute('MovementVersion',12)
   if state.CartLevel==2 then model:ScaleTo(1.25);for _,p in model:GetChildren()do if p:IsA('BasePart')and string.find(p.Name,'Tray')then p.Color=Color3.fromRGB(34,117,130)end end end
   for _,p in model:GetDescendants()do if p:IsA('BasePart')then p.Anchored=true;p.CanCollide=false;p.CanTouch=false;p.CanQuery=false end end
@@ -37,6 +54,9 @@ function Cart.Create(config)
   local cf=CFrame.new(point.X,y+(model:GetAttribute('GripHeight')or 2.65)*model:GetScale(),point.Z)*rotation
   model:SetAttribute('ManualParked',true)
   model:PivotTo(cf);model.Parent=config.station.Parent;level=state.CartLevel;loadState()
+  local box,size=model:GetBoundingBox()
+  -- Include the full load's small rise above the rim, even when built empty.
+  collapseBounds[model]={frame=model.PrimaryPart.CFrame:ToObjectSpace(box),half=size/2+Vector3.new(.05,.6,.05)*model:GetScale()}
   manual=require(script.Parent.ManualCart).Create(owner,model,config.canMutate)
  end
  local api={}
@@ -50,7 +70,7 @@ function Cart.Create(config)
   loadState()
   local f=owner:FindFirstChild('SandPrototypeState');if f then f:SetAttribute('CartNearby',api.CanLoad())end
  end)
- function api.Destroy()closed=true;heartbeat:Disconnect();if manual then manual.Destroy()end;if model then model:Destroy()end end
+ function api.Destroy()closed=true;heartbeat:Disconnect();if manual then manual.Destroy()end;if model then collapseBounds[model]=nil;model:Destroy()end end
  return api
 end
 return Cart
