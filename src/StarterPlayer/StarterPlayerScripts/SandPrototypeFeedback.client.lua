@@ -212,6 +212,12 @@ local function showCollapse(motions)
 end
 digEvent.OnClientEvent:Connect(function(position, color, userId,found,motions,collapseOnly,toolId,amount)
 	if typeof(position) ~= "Vector3" or typeof(color) ~= "Color3" then return end
+	if not collapseOnly and userId==player.UserId and(toolId=='shovel'or toolId=='turbo')then
+		local ch=player.Character;local tool=ch and ch:FindFirstChildOfClass('Tool')
+		local aim=tool and tool:GetAttribute('DigAimPosition');local cell=tool and tool:GetAttribute('DigCellPosition')
+		if typeof(aim)=='Vector3'and typeof(cell)=='Vector3'and(cell-position).Magnitude<.1
+			and os.clock()-(tool:GetAttribute('DigStrokeAt')or -100)<.5 then position=aim end
+	end
 	local view=workspace.CurrentCamera
 	local close=view and(view.CFrame.Position-position).Magnitude<=80
 	if close then showCollapse(motions)end
@@ -276,10 +282,11 @@ RunService.Heartbeat:Connect(function(dt)
  if state:GetAttribute("PushingCart")==true then return end
  local ray=Context.AimRay(mouse);if not ray then return end
  local params=RaycastParams.new();params.FilterType=Enum.RaycastFilterType.Exclude;params.FilterDescendantsInstances={character}
- local target=Context.ResolveHit(player,workspace:Raycast(ray.Origin,ray.Direction*220,params),cells)
+ local hit=workspace:Raycast(ray.Origin,ray.Direction*220,params)
+ local target=Context.ResolveHit(player,hit,cells)
  if not target or not Context.CanTarget(player,target,cells)then return end
- local distance=(root.Position-target.Position).Magnitude
- if distance>24 then if distance<80 then hint("ПОДОЙДИТЕ БЛИЖЕ К ПЕСКУ")end;return end
+ local distance=(root.Position-(Context.DigReach(state)<24 and hit.Position or target.Position)).Magnitude
+ if distance>Context.DigReach(state)then if distance<80 then hint("ПОДОЙДИТЕ БЛИЖЕ К ПЕСКУ")end;return end
  aimDot.BackgroundColor3=Color3.fromRGB(102,229,217)
  hint(UserInputService.PreferredInput==Enum.PreferredInput.Touch and "УДЕРЖИВАЙТЕ КНОПКУ КОПАТЬ"or "УДЕРЖИВАЙТЕ ДЛЯ КОПАНИЯ",Color3.fromRGB(146,237,218))
  if type(target)=="table"then terrainMarker.Position=target.Position;terrainSelection.Adornee=terrainMarker

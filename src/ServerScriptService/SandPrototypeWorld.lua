@@ -29,7 +29,6 @@ local cellFolder = mountain:WaitForChild("Cells")
 local digEvent = ReplicatedStorage:WaitForChild("SandPrototypeDig")
 
 local CELL_SIZE = config.terrain and 4 or 2
-local MAX_DIG_DISTANCE = 24
 local MAX_MOVES_PER_STEP = 8
 local MIN_DIG_INTERVAL = 0.12
 -- Publish the actual empty Terrain cell before its neighbours can refill it.
@@ -307,7 +306,7 @@ local function isExposed(x, y, z)
 		or not getCell(x, y, z - 1)
 end
 
-local function canSeeCell(character, root, target)
+local function canSeeCell(character, root, target,surfaceReach)
 	local head = character:FindFirstChild("Head")
 	local origin = head and head.Position or root.Position
 	local params = RaycastParams.new()
@@ -318,10 +317,10 @@ local function canSeeCell(character, root, target)
 		if renderer then
 			-- Cast slightly beyond the centre so the smooth surface is included.
 			if not hit then hit=workspace:Raycast(origin,(point-origin).Unit*((point-origin).Magnitude+CELL_SIZE),params)end
-			return hit~=nil and hit.Instance==workspace.Terrain and hit.Material==Enum.Material.Sand
+			return hit~=nil and(not surfaceReach or(root.Position-hit.Position).Magnitude<=surfaceReach)and hit.Instance==workspace.Terrain and hit.Material==Enum.Material.Sand
 				and((hit.Position-target.Position).Magnitude<=CELL_SIZE*1.25)
 		end
-		return hit ~= nil and hit.Instance == target
+		return hit ~= nil and(not surfaceReach or(root.Position-hit.Position).Magnitude<=surfaceReach)and hit.Instance == target
 	end
 	if hitsTarget(target.Position) then
 		return true
@@ -450,7 +449,11 @@ local function digOne(player, target, followup)
 	end
 	local playerState=player:FindFirstChild("SandPrototypeState")
 	if playerState and playerState:GetAttribute("PushingCart")==true then return false end
-	if (root.Position - target.Position).Magnitude > MAX_DIG_DISTANCE then
+	local reach=UpgradeConfig.Reach(equippedTool:GetAttribute('UpgradeToolId'))
+	local surfaceReach=reach<24 and reach or nil
+	-- Smooth Terrain can extend beyond a logical cell's centre/box. Use the
+	-- server's own visible-surface ray for physical reach, with a cheap broadphase.
+	if (root.Position - target.Position).Magnitude > reach+(surfaceReach and CELL_SIZE*1.25 or 0) then
 		return false
 	end
 	local now = os.clock()
@@ -459,7 +462,7 @@ local function digOne(player, target, followup)
 	end
 	if not followup then lastDigAt[player] = now end
 
-	if not canSeeCell(character, root, target) then
+	if not canSeeCell(character, root, target,surfaceReach) then
 		return false
 	end
 	if not canMutate() then return false end

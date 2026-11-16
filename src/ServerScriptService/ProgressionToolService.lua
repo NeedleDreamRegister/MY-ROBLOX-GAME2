@@ -12,10 +12,21 @@ function S.Create(owner,getAccount)
    if container then for _,tool in container:GetChildren()do
     if tool:IsA('Tool') and tool:GetAttribute('SandPrototypeTool') then
      if tool:GetAttribute('UpgradeToolId')==a.SelectedTool and not selected then selected=tool
-     else wasEquipped=wasEquipped or container==owner.Character;tool:Destroy()end
+     else
+      wasEquipped=wasEquipped or container==owner.Character
+      local hand=owner.Character and owner.Character:FindFirstChild('RightHand')
+      if hand then for _,joint in hand:GetChildren()do
+       if joint.Name=='RightGrip'and joint:IsA('JointInstance')and joint.Part1 and joint.Part1:IsDescendantOf(tool)then joint:Destroy()end
+      end end
+      tool:Destroy()
+     end
     end
    end end
   end
+  local hand=owner.Character and owner.Character:FindFirstChild('RightHand')
+  if hand then for _,joint in hand:GetChildren()do
+   if joint.Name=='RightGrip'and joint:IsA('JointInstance')and joint.Part0==hand and joint.Part1==nil then joint:Destroy()end
+  end end
   if not selected then selected=Appearance.Build(a.SelectedTool);selected.Parent=backpack end
   selected:SetAttribute('UpgradeLevel',a.ToolLevels[a.SelectedTool])
   selected.ToolTip=string.format('%s · уровень %d · %d песка',C.Tool(a.SelectedTool).Name,a.ToolLevels[a.SelectedTool],C.Capacity(a))

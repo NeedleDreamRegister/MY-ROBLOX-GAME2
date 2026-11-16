@@ -2,8 +2,21 @@ local Players=game:GetService('Players')
 local Run=game:GetService('RunService')
 local Motion=require(game.ReplicatedStorage:WaitForChild('DigMotion'))
 local me=Players.LocalPlayer
-local entries,lastDig={},{}
-game.ReplicatedStorage:WaitForChild('SandPrototypeDig').OnClientEvent:Connect(function(_,_,uid,_,_,collapse,kind)if not collapse and kind~='conveyor'then lastDig[uid]=os.clock()end end)
+local entries,lastDig,lastDigPosition,lastStroke={},{},{},{}
+game.ReplicatedStorage:WaitForChild('SandPrototypeDig').OnClientEvent:Connect(function(position,_,uid,_,_,collapse,kind)if not collapse and kind~='conveyor'then lastDig[uid]=os.clock();lastDigPosition[uid]=position;lastStroke[uid]=(lastStroke[uid]or 0)+1 end end)
+local function directionBasis(up,right)
+ up=up.Unit;right=right-up*right:Dot(up)
+ if right.Magnitude<.01 then right=up:Cross(Vector3.yAxis)end
+ if right.Magnitude<.01 then right=Vector3.xAxis end
+ right=right.Unit;return CFrame.fromMatrix(Vector3.zero,right,up,right:Cross(up))
+end
+local function equippedGrip(hand,handle)
+ if not hand then return nil end
+ for _,joint in hand:GetChildren()do
+  if joint.Name=='RightGrip'and(joint:IsA('JointInstance')or joint:IsA('AnimationConstraint'))
+   and joint.Part0==hand and joint.Part1==handle then return joint end
+ end
+end
 local function frame(direction,hint)
  local up=direction.Unit;local right=hint:Cross(up)
  if right.Magnitude<.01 then right=Vector3.xAxis:Cross(up)end
@@ -110,19 +123,51 @@ Run.PreSimulation:Connect(function(dt)
    end
   elseif ch and torso and h and h.Health>0 and tool and tool:GetAttribute('SandPrototypeTool')and tool:FindFirstChild('Handle')then
    if entries[ch]and entries[ch].cart then clear(ch)end
-   local hand=ch:FindFirstChild('RightHand');local grip=hand and hand:FindFirstChild('RightGrip')
+   local hand=ch:FindFirstChild('RightHand');local grip=equippedGrip(hand,tool.Handle)
    if grip then
     local e=entries[ch]or{blend=0,clock=0};entries[ch]=e
     local active=player==me and(tool:GetAttribute('DigActiveUntil')or 0)>os.clock()or player~=me and os.clock()-(lastDig[player.UserId]or-math.huge)<.35
     if active then e.clock+=dt else e.clock=0 end
     e.blend+=((active and 1 or 0)-e.blend)*(1-math.exp(-16*dt))
-    local phase=(e.clock%.56)/.56;local scoop=math.sin(phase*math.pi*2);local weight=e.blend;local two=tool:GetAttribute('TwoHanded')
-    local variant=math.floor(e.clock/.56)%3
+    local id=tool:GetAttribute('UpgradeToolId');local physical=id=='shovel'or id=='turbo'
+    local stamp=player==me and(tool:GetAttribute('DigStrokeAt')or -100)or(lastDig[player.UserId]or -100)
+    local phase=physical and math.clamp((os.clock()-stamp)/.18,0,1)or(e.clock%.56)/.56;local scoop=math.sin(phase*math.pi*2);local weight=e.blend;local two=tool:GetAttribute('TwoHanded')
+    local variant=physical and(((player==me and tool:GetAttribute('DigStrokeIndex')or lastStroke[player.UserId])or 1)-1)%3 or math.floor(e.clock/.56)%3
     local sinceImpact=os.clock()-(lastDig[player.UserId]or -100)
     local recoil=sinceImpact<.15 and math.exp(-sinceImpact*27)or 0
     tool:SetAttribute('DigStrokeVariant',variant+1)
     local native=Motion.Frames[math.clamp(math.floor(phase*(#Motion.Frames-1))+1,1,#Motion.Frames)].RightUpperArm
     local desired=torso.CFrame*CFrame.new((two and .15 or .65)+weight*.035*(variant-1)*scoop,(two and -.45 or .1)+weight*(-.12-.2*(scoop+1)/2)+recoil*.05,-.85-weight*.2*(1-scoop)+recoil*.075)*CFrame.Angles(weight*(math.rad(17+variant*3)+math.rad(22)*scoop+(native and native[1]or 0)*.05)+math.rad(2)*recoil,weight*math.sin(phase*math.pi)^2*math.rad((variant-1)*4),weight*scoop*math.rad((variant-1)*2))
+    local aim=player==me and tool:GetAttribute('DigAimPosition')or lastDigPosition[player.UserId]
+    local edge=tool:FindFirstChild('CuttingEdge')
+    if physical and edge then
+     local pivot=torso.CFrame:PointToWorldSpace(Vector3.new(.15,-.1,-.5))
+     local tip=tool.Handle.CFrame:PointToObjectSpace(edge.Position)
+     local function pose(point)
+      local rotation=CFrame.fromAxisAngle(torso.CFrame.RightVector,math.rad(-15))*directionBasis(point-pivot,torso.CFrame.RightVector)*directionBasis(tip,Vector3.xAxis):Inverse()
+      return CFrame.new(point-rotation:VectorToWorldSpace(tip))*rotation
+     end
+     desired=pose(torso.CFrame:PointToWorldSpace(Vector3.new(.15,-2.1,-1.8)))
+     if typeof(aim)=='Vector3'and(aim-pivot).Magnitude>.1 and(aim-pivot).Magnitude<8 then
+      if e.contactStamp~=stamp then
+       -- One bounded search per stroke, not per frame: choose a shaft angle
+       -- that lets both hands reach while keeping the blade at the surface.
+       local base=directionBasis(aim-pivot,torso.CFrame.RightVector)*directionBasis(tip,Vector3.xAxis):Inverse()
+       local bestScore=math.huge
+       for angle=-90,90,15 do
+        local rotation=CFrame.fromAxisAngle(torso.CFrame.RightVector,math.rad(angle))*base
+        local candidate=CFrame.new(aim-rotation:VectorToWorldSpace(tip))*rotation
+        local right=reachOffset(ch,'Right',candidate*grip.C1*grip.C0:Inverse()).Magnitude
+        local left=reachOffset(ch,'Left',candidate*tool.Handle.LeftGrip.CFrame*ch.LeftHand.LeftGripAttachment.CFrame:Inverse()).Magnitude
+        local score=right+left+math.abs(angle+15)*.0001
+        if score<bestScore then bestScore=score;e.contactRotation=rotation end
+       end
+       e.contactStamp=stamp
+      end
+      local contact=CFrame.new(aim-e.contactRotation:VectorToWorldSpace(tip))*e.contactRotation
+      desired=desired:Lerp(contact,math.sin(phase*math.pi)^2)
+     end
+    end
     local leftHand=ch:FindFirstChild('LeftHand');local leftTarget=tool.Handle:FindFirstChild('LeftGrip')
     -- Move the rigid tool into reach of both arms instead of stretching either wrist.
     for _=1,6 do

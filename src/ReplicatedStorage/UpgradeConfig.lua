@@ -17,6 +17,8 @@ C.Conveyor={UpgradePrice={0,2000,4000,10000,20000},Speed={5,9,14,14,18},AutoInte
 function C.Tool(id) return C.ById[id] end
 function C.Capacity(a) local t=C.ById[a.SelectedTool]; return t.Capacity[a.ToolLevels[t.Id]] end
 function C.CartCapacity(a) return C.Cart.Capacity[a.CartLevel] or 0 end
+-- Physical shovels use visible-surface reach; advanced tools keep centre reach.
+function C.Reach(id)return(id==nil or id=='shovel'or id=='turbo')and 5 or 24 end
 function C.Yield(a) local t=C.ById[a.SelectedTool]; return math.max(1,math.floor(t.Yield*(1+.15*(a.ToolLevels[t.Id]-1)))) end
 return C
 

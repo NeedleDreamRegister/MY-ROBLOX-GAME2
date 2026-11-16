@@ -2,6 +2,8 @@ local Context={}
 local Grid=require(script.Parent:WaitForChild("SandPrototypeTerrainGrid"))
 local Field=require(script.Parent:WaitForChild("SandPrototypeVoxelField"))
 local Geometry=require(script.Parent:WaitForChild("SandPrototypeGeometry"))
+local UpgradeConfig=require(script.Parent:WaitForChild("UpgradeConfig"))
+function Context.DigReach(state)return UpgradeConfig.Reach(state and state:GetAttribute('SelectedTool'))end
 function Context.CenterAim()
 	local input=game:GetService("UserInputService").PreferredInput
 	return input==Enum.PreferredInput.Touch or input==Enum.PreferredInput.Gamepad
