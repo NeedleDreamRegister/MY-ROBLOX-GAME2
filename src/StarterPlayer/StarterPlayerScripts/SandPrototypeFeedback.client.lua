@@ -72,20 +72,20 @@ local aimHint=Instance.new("TextLabel");aimHint.Name="AimHint";aimHint.AnchorPoi
 local toast = Instance.new("TextLabel")
 toast.Name = "DigToast"
 toast.AnchorPoint = Vector2.new(0.5, 0)
-toast.Position = UDim2.new(0.5, 0, 0.25, 0)
-toast.Size = UDim2.fromOffset(240, 30)
+toast.Position = UDim2.new(0.5, 0, 1, -66)
+toast.Size = UDim2.fromOffset(230, 24)
 toast.BackgroundColor3 = Color3.fromRGB(24, 31, 39)
 toast.BackgroundTransparency = 0.15
 toast.TextColor3 = Color3.fromRGB(255, 233, 163)
 toast.Font = Enum.Font.GothamBold
-toast.TextSize = 18
+toast.TextSize = 12
 toast.TextScaled = true
 toast.Text = "+1 песок"
 toast.Visible = false
 toast.Parent = gui
 local toastSize = Instance.new("UITextSizeConstraint")
-toastSize.MinTextSize = 14
-toastSize.MaxTextSize = 18
+toastSize.MinTextSize = 10
+toastSize.MaxTextSize = 12
 toastSize.Parent = toast
 local corner = Instance.new("UICorner")
 corner.CornerRadius = UDim.new(0, 10)
@@ -94,6 +94,7 @@ local toastSequence, activeBursts, activeDigSounds = 0, 0, 0
 local random = Random.new()
 
 local function showToast(message)
+	if player.PlayerGui:FindFirstChild('DTM_RemasterRewards')and(message:find('продан')or message:find('Тачка куплена')or message:find('Вместимость:')or message:find('Лопата II'))then return end
 	toast.Text = message
 	toastSequence += 1
 	local sequence = toastSequence
@@ -231,7 +232,7 @@ digEvent.OnClientEvent:Connect(function(position, color, userId,found,motions,co
 		lastDigToastAt=now
 		digToastCount+=amount or 1
 		burstFind=burstFind or found
-		showToast(burstFind and "Найден осколок!"or "Песок +"..digToastCount)
+		if burstFind then showToast("Найден осколок!")end
 	end
 	local camera = workspace.CurrentCamera
 	if not camera or (camera.CFrame.Position - position).Magnitude > 80 or activeBursts >= 8 then return end

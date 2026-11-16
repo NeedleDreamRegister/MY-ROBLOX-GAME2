@@ -148,12 +148,13 @@ local detail=text(card,'Detail','Монеты зачислены',10,Color3.from
 local cardBase=UDim2.new(1,-18,0,118)
 local function resize()
  local camera=workspace.CurrentCamera;if not camera then return end
- local vp=camera.ViewportSize;local compact=vp.X<650
- card.AnchorPoint=compact and Vector2.new(.5,0) or Vector2.new(1,0)
- local availableHeight=gui.AbsoluteSize.Y>0 and gui.AbsoluteSize.Y or vp.Y
- local compactTop=math.min(math.max(218,vp.Y*.30),math.max(8,availableHeight-104))
- cardBase=compact and UDim2.new(.5,0,0,compactTop) or UDim2.new(1,-18,0,118)
- card.Size=UDim2.fromOffset(math.min(320,vp.X-28),94);card.Position=cardBase
+ local vp=camera.ViewportSize
+ card.AnchorPoint=Vector2.new(1,0);cardBase=UDim2.new(1,-12,0,116)
+ card.Size=UDim2.fromOffset(math.min(224,vp.X-24),56);card.Position=cardBase
+ icon.Size=UDim2.fromOffset(26,26);icon.Position=UDim2.fromOffset(10,15);symbol.TextSize=14
+ heading.Position=UDim2.fromOffset(46,6);heading.Size=UDim2.new(1,-54,0,17);heading.TextSize=9
+ value.Position=UDim2.fromOffset(46,24);value.Size=UDim2.new(1,-54,0,25);value.TextSize=16
+ detail.Visible=false
 end
 if workspace.CurrentCamera then listen(workspace.CurrentCamera:GetPropertyChangedSignal('ViewportSize'),resize) end
 listen(workspace:GetPropertyChangedSignal('CurrentCamera'),resize);resize()
@@ -188,9 +189,9 @@ local function enqueue(entry)
    end
    local item=table.remove(queue,1);card.Visible=true;card.Position=cardBase+UDim2.fromOffset(20,0);card.GroupTransparency=1
    heading.Text=item.title;value.Text=item.amount and ('+ '..pretty(item.amount)..'  ◈') or item.value;detail.Text=item.detail or 'Монеты зачислены на баланс'
-   icon.BackgroundColor3=item.color or gold;symbol.Text=item.kind=='sale' and '◆' or '✓';value.TextSize=item.kind=='sale' and 24 or 18
+   icon.BackgroundColor3=item.color or gold;symbol.Text=item.kind=='sale' and '◆' or '✓';value.TextSize=item.kind=='sale' and 16 or 13
    tween(card,.28,{Position=cardBase,GroupTransparency=0});icon.Rotation=-14;tween(icon,.45,{Rotation=0})
-   local complete=waitForCard(item.kind=='sale'and 1.65 or 2.2)
+   local complete=waitForCard(item.kind=='sale'and 1.2 or 1.5)
    if not alive or not script.Parent or not gui.Parent then break end
    if complete then tween(card,.3,{Position=cardBase+UDim2.fromOffset(0,-9),GroupTransparency=1});complete=waitForCard(.32)end
    if not alive or not script.Parent or not gui.Parent then break end

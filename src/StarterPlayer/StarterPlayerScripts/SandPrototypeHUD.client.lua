@@ -46,6 +46,7 @@ local arrow=label(compass,'DirectionArrow','↑',UDim2.fromOffset(8,7),UDim2.fro
 local directionTitle=label(compass,'DirectionTitle','',UDim2.fromOffset(44,7),UDim2.new(1,-52,0,17),11,gold)
 local directionDistance=label(compass,'DirectionDistance','',UDim2.fromOffset(44,25),UDim2.new(1,-52,0,15),10,Color3.fromRGB(190,214,212))
 local canGuide=true
+local detailsOpen=false
 local manual=false;local auto=false;local wasFull=false;local lastInventory=0;local lastRatio=-1;local fillTween;local compact=false
 local function pretty(n)local s=tostring(math.floor(n));repeat local changed,count=s:gsub('^(%d+)(%d%d%d)','%1 %2');s=changed until count==0;return s end
 local function refresh()
@@ -84,7 +85,7 @@ local function refresh()
  guide.Text=not canGuide and 'ГОТОВО'or(manual or auto)and 'СКРЫТЬ'or all>0 and 'ПРОДАЖА'or 'МЕТКА'
  guide.Visible=canGuide
  objectiveTitle.Size=UDim2.new(1,canGuide and -106 or -28,0,23)
- detail.Size=compact and canGuide and UDim2.new(1,-106,0,30)or UDim2.new(1,-28,0,compact and 30 or 32)
+ detail.Size=UDim2.new(1,-20,0,42)
  local save=mountain:GetAttribute('PersistenceStatus')or 'Loading'
  local messages={SessionOnly='ТЕСТ В STUDIO · ПРОГРЕСС ДО ОСТАНОВКИ ИГРЫ',Saved='ПРОГРЕСС СОХРАНЁН',Dirty='СОХРАНЕНИЕ ПРОГРЕССА…',Saving='СОХРАНЕНИЕ ПРОГРЕССА…',Loading='ЗАГРУЗКА ПРОГРЕССА…',SaveFailed='НЕ УДАЛОСЬ СОХРАНИТЬ ПРОГРЕСС',LoadFailed='НЕ УДАЛОСЬ ЗАГРУЗИТЬ ПРОГРЕСС',LockLost='ПРОФИЛЬ ВРЕМЕННО НЕДОСТУПЕН',Locked='ПРОФИЛЬ УЖЕ ОТКРЫТ'}
  status.Text=compact and save=='SessionOnly'and 'STUDIO · ВРЕМЕННЫЙ ПРОГРЕСС'or messages[save]or 'ПРОВЕРКА ПРОГРЕССА…'
@@ -97,24 +98,33 @@ local function refresh()
   directionTitle.Text=({['ПРОДАЖА ПЕСКА']='ПРОДАЖА',['ЗОНА ДОБЫЧИ']='ДОБЫЧА'})[targetName]or targetName;directionDistance.Text=distance<=9 and 'Вы у цели'or(distance..' м до цели')
   anchor.Position=target;beaconTitle.Text=targetName;beaconDistance.Text=distance<=9 and(targetName=='ПРОДАЖА ПЕСКА'and(Input.PreferredInput==Enum.PreferredInput.Touch and 'УДЕРЖИВАЙТЕ КНОПКУ ПРОДАЖИ'or 'УДЕРЖИВАЙТЕ E')or 'ВЫ У ЦЕЛИ')or(distance..' м')
  end
- card.Visible=not inShop;objective.Visible=not inShop;status.Visible=not inShop
- bubble.Enabled=(manual or auto)and canGuide and healthy and root~=nil and h~=nil and h.Health>0 and not inShop
+ card.Visible=not inShop;objective.Visible=not inShop;status.Visible=not inShop and not healthy
+ bubble.Enabled=manual and canGuide and healthy and root~=nil and h~=nil and h.Health>0 and not inShop
  compass.Visible=bubble.Enabled
 end
 guide.Activated:Connect(function()if not canGuide then return end;if auto then auto=false;manual=false;wasFull=true else manual=not manual end;refresh()end)
+local details=Instance.new('TextButton');details.Name='Details';details.Text='?';details.TextSize=13;details.Font=Enum.Font.GothamBold;details.TextColor3=gold;details.BackgroundTransparency=1;details.Size=UDim2.fromOffset(26,28);details.Position=UDim2.new(1,-28,0,2);details.Parent=objective
+progress.Parent=objective
 local function resize()
  local vp=workspace.CurrentCamera.ViewportSize;compact=vp.X<600 or vp.Y<450
- local width=compact and math.clamp(vp.X*.44,222,260)or 306
- card.Size=UDim2.fromOffset(width,compact and 116 or 134);objective.Position=UDim2.fromOffset(12,compact and 142 or 154);objective.Size=UDim2.fromOffset(width,compact and 64 or 83)
- brand.TextSize=compact and 8 or 10;money.TextSize=compact and 14 or 17;money.Position=UDim2.new(1,-111,0,5);money.Size=UDim2.fromOffset(96,23)
- inventory.TextSize=compact and 16 or 19;inventoryCap.MaxTextSize=compact and 16 or 19;moneyCap.MaxTextSize=compact and 14 or 17;tool.Position=UDim2.fromOffset(14,compact and 75 or 78);progress.Position=UDim2.fromOffset(14,compact and 95 or 101);progress.TextSize=compact and 9 or 10
- objectiveTitle.TextSize=compact and 12 or 14;objectiveTitle.Size=UDim2.new(1,-102,0,23);detail.Position=UDim2.fromOffset(14,compact and 33 or 39);detail.Size=UDim2.new(1,-28,0,compact and 30 or 32);detail.TextSize=compact and 10 or 11
- guide.Size=UDim2.fromOffset(78,compact and 44 or 32);guide.Position=UDim2.new(1,-90,0,compact and 6 or 8)
- detail.Size=compact and UDim2.new(1,-106,0,30)or UDim2.new(1,-28,0,32)
- local navLeft=width+24;local navWidth=math.min(200,math.max(120,vp.X-navLeft-146));local navX=math.clamp(vp.X/2-navWidth/2,navLeft,math.max(navLeft,vp.X-146-navWidth))
- compass.Position=vp.X<600 and UDim2.fromOffset(12,232)or UDim2.fromOffset(navX,12);compass.Size=UDim2.fromOffset(vp.X<600 and width or navWidth,46)
- status.Position=UDim2.fromOffset(18,compact and 124 or 242);status.Size=UDim2.fromOffset(width-8,18);status.TextSize=8
+ local width=compact and 184 or 224
+ card.Size=UDim2.fromOffset(width,84);brand.Visible=false
+ money.Position=UDim2.fromOffset(10,3);money.Size=UDim2.new(1,-20,0,20);moneyCap.MaxTextSize=14
+ inventory.Position=UDim2.fromOffset(10,26);inventory.Size=UDim2.new(1,-20,0,20);inventoryCap.MaxTextSize=15
+ bar.Position=UDim2.fromOffset(10,52);bar.Size=UDim2.new(1,-20,0,4)
+ tool.Position=UDim2.fromOffset(10,62);tool.Size=UDim2.new(1,-20,0,16);tool.TextSize=10
+ progress.Visible=detailsOpen;progress.Position=UDim2.fromOffset(10,76);progress.Size=UDim2.new(1,-20,0,17);progress.TextSize=9
+ objective.Position=UDim2.fromOffset(12,104);objective.Size=UDim2.fromOffset(width,detailsOpen and 100 or 32)
+ objectiveTitle.Position=UDim2.fromOffset(10,4);objectiveTitle.Size=UDim2.new(1,-88,0,24);objectiveTitle.TextSize=10;objectiveTitle.TextWrapped=false;objectiveTitle.TextTruncate=Enum.TextTruncate.AtEnd
+ guide.Position=UDim2.new(1,-77,0,3);guide.Size=UDim2.fromOffset(48,26);guide.TextSize=9
+ detail.Position=UDim2.fromOffset(10,33);detail.Size=UDim2.new(1,-20,0,42);detail.TextSize=10;detail.Visible=detailsOpen
+ status.Position=UDim2.fromOffset(18,detailsOpen and 208 or 140);status.Size=UDim2.fromOffset(width,24);status.TextSize=9
+ compass.Position=UDim2.new(.5,-75,0,12);compass.Size=UDim2.fromOffset(150,36);arrow.TextSize=18;arrow.Position=UDim2.fromOffset(4,3)
+ directionTitle.Position=UDim2.fromOffset(32,2);directionTitle.Size=UDim2.new(1,-36,0,17);directionTitle.TextSize=10
+ directionDistance.Position=UDim2.fromOffset(32,18);directionDistance.Size=UDim2.new(1,-36,0,14);directionDistance.TextSize=9
+ bubble.Size=UDim2.fromOffset(150,42);bubble.MaxDistance=180
 end
+details.Activated:Connect(function()detailsOpen=not detailsOpen;resize();refresh()end)
 workspace.CurrentCamera:GetPropertyChangedSignal('ViewportSize'):Connect(resize)
 local elapsed=0;Run.Heartbeat:Connect(function(dt)elapsed+=dt;if elapsed>=.2 then elapsed=0;refresh()end end)
 gui.Destroying:Connect(function()anchor:Destroy()end)

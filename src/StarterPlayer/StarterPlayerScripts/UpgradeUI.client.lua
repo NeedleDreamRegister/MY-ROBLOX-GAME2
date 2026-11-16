@@ -9,9 +9,9 @@ local Art=require(R:WaitForChild('UpgradeToolAppearance'))
 local remote=R:WaitForChild('DTMUpgradeRemote')
 local Audio=require(R:WaitForChild('GameAudio'))
 local gui=Instance.new('ScreenGui');gui.Name='UpgradeUI';gui.ResetOnSpawn=false;gui.DisplayOrder=40;gui.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;gui.Parent=P:WaitForChild('PlayerGui')
-local toast=Instance.new('TextLabel');toast.Name='UnlockToast';toast.AnchorPoint=Vector2.new(.5,1);toast.Position=UDim2.new(.5,0,1,-12);toast.Size=UDim2.new(.72,0,0,36);toast.BackgroundColor3=Color3.fromRGB(29,84,78);toast.TextColor3=Color3.fromRGB(206,255,236);toast.Font=Enum.Font.GothamBold;toast.TextSize=18;toast.TextWrapped=true;toast.Visible=false;toast.ZIndex=60;toast.Parent=gui;local tc=Instance.new('UICorner');tc.CornerRadius=UDim.new(0,12);tc.Parent=toast
+local toast=Instance.new('TextLabel');toast.Name='UnlockToast';toast.AnchorPoint=Vector2.new(.5,1);toast.Position=UDim2.new(.5,0,1,-12);toast.Size=UDim2.new(0,260,0,30);toast.BackgroundColor3=Color3.fromRGB(29,84,78);toast.TextColor3=Color3.fromRGB(206,255,236);toast.Font=Enum.Font.GothamBold;toast.TextSize=12;toast.TextWrapped=true;toast.Visible=false;toast.ZIndex=60;toast.Parent=gui;local tc=Instance.new('UICorner');tc.CornerRadius=UDim.new(0,12);tc.Parent=toast
 local toastToken=0
-local function unlockToast(text)toastToken+=1;local token=toastToken;toast.Text=text;toast.Visible=true;task.delay(4,function()if toastToken==token then toast.Visible=false end end)end
+local function unlockToast(text)toastToken+=1;local token=toastToken;toast.Text=text;toast.Visible=true;task.delay(2,function()if toastToken==token then toast.Visible=false end end)end
 local shade=Instance.new('Frame');shade.Name='Modal';shade.Size=UDim2.fromScale(1,1);shade.BackgroundColor3=Color3.fromRGB(2,7,16);shade.BackgroundTransparency=.28;shade.Visible=false;shade.Active=true;shade.Parent=gui
 local panel=Instance.new('Frame');panel.Name='Shop';panel.AnchorPoint=Vector2.new(.5,.5);panel.Position=UDim2.fromScale(.5,.5);panel.Size=UDim2.fromScale(.94,.88);panel.BackgroundColor3=Color3.new(1,1,1);panel.BorderSizePixel=0;panel.Parent=shade
 local constraint=Instance.new('UISizeConstraint');constraint.MaxSize=Vector2.new(1060,700);constraint.Parent=panel

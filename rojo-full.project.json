@@ -156,6 +156,9 @@
       },
       "ManualCart": {
         "$path": "src/ServerScriptService/ManualCart.lua"
+      },
+      "PlayerComfort": {
+        "$path": "src/ServerScriptService/PlayerComfort.server.lua"
       }
     },
     "ReplicatedStorage": {
@@ -356,6 +359,9 @@
           "$properties": {
             "Enabled": true
           }
+        },
+        "PlayerComfort": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/PlayerComfort.client.lua"
         }
       }
     },

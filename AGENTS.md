@@ -30,3 +30,8 @@ This package now combines the related project chats. Also read START_HERE_RU.md,
 - Before a handoff, update HANDOFF.md with changes, outstanding work and checks actually performed. Do not repeat long gameplay checks unless relevant.
 - The owner explicitly asked not to spend time testing unrelated mining/economy/gameplay mechanics.
 - Use normal commits/pushes; preserve remote history and collaborators' work.
+
+## Общение — постоянное правило владельца, 16 ноября
+Во время работы писать очень кратко: только действие или существенный результат. Не тратить текст на подробные планы и повторы. В конце небольшой отчёт: что добавлено/изменено, ошибки, непроверенное и следующий шаг.
+
+Актуально после пакета комфорта:91скрипт вrojo-full.project.json/script-manifest.json, включая PlayerComfort server/client и QuarryCartoonStyle. Tab удерживать; спринтCtrl/Shift серверный, с тачкой/спуском не смешивать скорость. Не возвращать широкие автоматические HUD-панели и всплывающее+песок на каждый удар.

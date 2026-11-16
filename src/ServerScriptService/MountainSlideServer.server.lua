@@ -53,7 +53,7 @@ remote.OnServerEvent:Connect(function(p,action,value)
  if not h or not root or h.Health<=0 or h.Sit then return end
  local sample=Rules.Sample(p,root,8)
  if not sample then remote:FireClient(p,'Для спуска поднимитесь выше на гору');return end
- local e={ch=ch,h=h,root=root,walk=h.WalkSpeed,hip=h.HipHeight,rotate=h.AutoRotate,start=os.clock(),dir=sample.Direction,speed=18,steer=Vector3.zero,m=sample.Mountain,air=0,lean=0,tool=ch:FindFirstChildOfClass('Tool')}
+ local e={ch=ch,h=h,root=root,walk=h:GetAttribute('DTMWalkBase')or h.WalkSpeed,hip=h.HipHeight,rotate=h.AutoRotate,start=os.clock(),dir=sample.Direction,speed=18,steer=Vector3.zero,m=sample.Mountain,air=0,lean=0,tool=ch:FindFirstChildOfClass('Tool')}
  active[p]=e;h:UnequipTools();ch:SetAttribute('MountainSliding',true);h.WalkSpeed=0;h.AutoRotate=false;h.HipHeight=1.35
  pcall(function()root:SetNetworkOwner(nil)end);h:ChangeState(Enum.HumanoidStateType.Physics)
  local a=Instance.new('Attachment');a.Name='SlideOrientation';a.Parent=root;e.attachment=a

@@ -28,7 +28,7 @@ function Manual.Create(owner,model,canMutate)
   if active then release()return end
   local ch=owner.Character local h=ch and ch:FindFirstChildOfClass('Humanoid')local r=ch and ch:FindFirstChild('HumanoidRootPart')
   if not h or h.Health<=0 or h.SeatPart or ch:GetAttribute('MountainSliding')or not r or(r.Position-root.Position).Magnitude>8 then return end
-  active=true driver=h speed=h.WalkSpeed h.WalkSpeed=math.min(speed,12)h:UnequipTools()
+  active=true driver=h speed=h:GetAttribute('DTMWalkBase')or h.WalkSpeed h.WalkSpeed=math.min(speed,12)h:UnequipTools()
   model:SetAttribute('ManualParked',false)publish(true)prompt.ActionText='Оставить тачку'
   for _,side in {'Left','Right'}do
    local upper=ch:FindFirstChild(side..'UpperArm')local hand=ch:FindFirstChild(side..'Hand')

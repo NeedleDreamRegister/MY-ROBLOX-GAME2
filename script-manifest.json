@@ -511,5 +511,18 @@
     "instance": "ReplicatedStorage.GroundCartMotion",
     "path": "src/ReplicatedStorage/GroundCartMotion.lua",
     "class": "ModuleScript"
+  },
+  {
+    "instance": "ServerScriptService.PlayerComfort",
+    "class": "Script",
+    "enabled": true,
+    "runContext": "Enum.RunContext.Legacy",
+    "path": "src/ServerScriptService/PlayerComfort.server.lua"
+  },
+  {
+    "instance": "StarterPlayer.StarterPlayerScripts.PlayerComfort",
+    "class": "LocalScript",
+    "enabled": true,
+    "path": "src/StarterPlayer/StarterPlayerScripts/PlayerComfort.client.lua"
   }
 ]

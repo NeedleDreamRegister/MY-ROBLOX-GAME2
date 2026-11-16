@@ -6,7 +6,10 @@ local UpgradeConfig=require(script.Parent:WaitForChild("UpgradeConfig"))
 function Context.DigReach(state)return UpgradeConfig.Reach(state and state:GetAttribute('SelectedTool'))end
 function Context.CenterAim()
 	local input=game:GetService("UserInputService").PreferredInput
+	local p=game.Players.LocalPlayer;local head=p and p.Character and p.Character:FindFirstChild('Head')
+	local camera=workspace.CurrentCamera
 	return input==Enum.PreferredInput.Touch or input==Enum.PreferredInput.Gamepad
+		or(camera~=nil and head~=nil and(camera.CFrame.Position-head.Position).Magnitude<1.05)
 end
 function Context.AimRay(mouse,position)
 	local camera=workspace.CurrentCamera
