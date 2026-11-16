@@ -1,0 +1,4 @@
+Add the lines below to the EXISTING project-root AGENTS.md (preserve all other instructions). If the file does not exist, you may create it:
+
+## Dig the Mountain — Visual Style
+For every task involving 3D assets, world design, environment, UI, lighting or visual effects, read and follow `VISUAL_STYLE_GUIDE.md` in the repository root. The approved master image is `references/Sandforge_Upgrade_Workshop/00_MASTER_compact_approved_3quarter.png`; see `references/Sandforge_Upgrade_Workshop/REFERENCE_NOTES.md` for reference priority and caveats. Do not redesign existing assets or change gameplay without explicit authorization.
