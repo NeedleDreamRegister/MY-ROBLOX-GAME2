@@ -303,6 +303,11 @@
     "path": "src/ReplicatedStorage/VegetationRefinement.lua"
   },
   {
+    "instance": "ReplicatedStorage.QuarryCartoonStyle",
+    "class": "ModuleScript",
+    "path": "src/ReplicatedStorage/QuarryCartoonStyle.lua"
+  },
+  {
     "instance": "ReplicatedStorage.RemasterLandscape",
     "class": "ModuleScript",
     "path": "src/ReplicatedStorage/RemasterLandscape.lua"

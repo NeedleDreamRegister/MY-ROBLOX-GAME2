@@ -224,6 +224,9 @@
       "VegetationRefinement": {
         "$path": "src/ReplicatedStorage/VegetationRefinement.lua"
       },
+      "QuarryCartoonStyle": {
+        "$path": "src/ReplicatedStorage/QuarryCartoonStyle.lua"
+      },
       "RemasterLandscape": {
         "$path": "src/ReplicatedStorage/RemasterLandscape.lua"
       },

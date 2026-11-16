@@ -1,5 +1,7 @@
 -- Refine each generated site's existing plants after all layout work completes.
 local Refine=require(game.ReplicatedStorage:WaitForChild('VegetationRefinement'))
+local Style=require(game.ReplicatedStorage:WaitForChild('QuarryCartoonStyle'))
+Style.ApplyWorld()
 local watched=setmetatable({}, {__mode='k'})
 local function site(garden)
  if watched[garden]or not garden.Name:match('^Site_')then return end
@@ -14,6 +16,8 @@ local function site(garden)
   if not garden.Parent then return end
   local ok,err=pcall(Refine.Site,garden)
   if not ok then warn('Vegetation refinement: '..tostring(err))end
+  local styled,styleError=pcall(Style.ApplySite,garden)
+  if not styled then warn('Garden color style: '..tostring(styleError))end
  end)
 end
 local function root(folder)

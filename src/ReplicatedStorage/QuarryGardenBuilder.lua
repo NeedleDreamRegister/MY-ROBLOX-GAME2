@@ -32,7 +32,12 @@ function Garden.Build(parent,offset,options)
  local reserve={{-8,13,-12,9},{10,42,-35,-9},{13,38,-47,-27},{127,161,-57,-29},{-53,-37,-33,-22},{-92,-73,-34,-20}}
  local count=0
  local naturalBanks,bankByGroup={},{}
- local knolls={{X=-125,Z=-20,RX=18,RZ=12,H=1.7},{X=85,Z=0,RX=18,RZ=10,H=1.5}}
+ local knolls={
+  {X=-125,Z=-20,RX=18,RZ=12,H=1.7}, -- pond bank
+  {X=85,Z=0,RX=18,RZ=10,H=1.5}, -- eastern lawn
+  {X=-42,Z=14,RX=11,RZ=8,H=1.4},
+  {X=76,Z=15,RX=10,RZ=8,H=1.25},
+ }
  local function groundHeight(p)
   local height=0
   for _,k in knolls do local r=math.sqrt(((p.X-k.X)/k.RX)^2+((p.Z-k.Z)/k.RZ)^2)
@@ -399,7 +404,14 @@ function Garden.Build(parent,offset,options)
   end
  end)
  local treeSpots={{-149,1},{-117,-11},{-98,7},{-72,-9},{-63,-23},{-25,15},{48,9},{70,-3},{98,-11},{116,7},{168,-12}}
- chunk('CourtyardTrees',function(g)for i,p in treeSpots do if not(low and i%4==0)then tree(g,Vector3.new(p[1],0,p[2]),.88+(i%3)*.16,i*1.4)end end end)
+ chunk('CourtyardTrees',function(g)
+  for i,p in treeSpots do
+   if not(low and i%4==0)then
+    local scale=(i==3 or i==10)and 1.55 or .88+(i%3)*.16
+    tree(g,Vector3.new(p[1],0,p[2]),scale,i*1.4)
+   end
+  end
+ end)
  local beds={{-142,-27},{-124,6},{-102,-18},{-72,3},{-58,-8},{-59,-36},{44,-9},{62,8},{83,-7},{103,5},{117,-20},{167,-23}}
  for index,spot in beds do
   chunk('BotanicalBed'..index,function(g)
