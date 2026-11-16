@@ -75,7 +75,18 @@ local function bind(tool)
   if not root or(root.Position-point).Magnitude>reach then hint('Подойдите ближе — лопата не достаёт');return end
   last=os.clock();stroke(hit,target);local request=Context.Request(target);afterWindup(function()remote:FireServer(request)end)
  end
- local function update()cancel();gui.Enabled=equipped()and touch();tool.ManualActivationOnly=touch();if touch()and not(P.Character and P.Character:GetAttribute('MountainSliding'))and tool.Parent==P:FindFirstChildOfClass('Backpack')then task.defer(function()local h=P.Character and P.Character:FindFirstChildOfClass('Humanoid');if h and not P.Character:GetAttribute('MountainSliding')and tool.Parent==P:FindFirstChildOfClass('Backpack')then h:EquipTool(tool)end end)end end
+ local state=P:FindFirstChild('SandPrototypeState')
+ local function canAutoEquip()
+  local ch=P.Character;local h=ch and ch:FindFirstChildOfClass('Humanoid')
+  return not closed and touch()and h and h.Health>0 and not ch:GetAttribute('MountainSliding')
+   and state and not state:GetAttribute('PushingCart')and state:GetAttribute('SelectedTool')==tool:GetAttribute('UpgradeToolId')
+   and not ch:FindFirstChildOfClass('Tool')and tool.Parent==P:FindFirstChildOfClass('Backpack')
+ end
+ local function update()
+  cancel();gui.Enabled=equipped()and touch()and not(state and state:GetAttribute('PushingCart'))
+  tool.ManualActivationOnly=touch()
+  if canAutoEquip()then task.defer(function()if canAutoEquip()then P.Character.Humanoid:EquipTool(tool)end end)end
+ end
  local function hold(input)if equipped()and not shopOpen()then held=true;heldInput=input;dig()end end
  connect(tool.Equipped,update);connect(tool.Unequipped,function()cancel();gui.Enabled=false end)
  connect(tool.Activated,function()if not touch()and not Context.TouchBlocked(P.PlayerGui,Input:GetMouseLocation())then hold()end end);connect(tool.Deactivated,function()held=false;heldInput=nil end)
@@ -83,10 +94,10 @@ local function bind(tool)
  connect(Input.InputEnded,function(input)if input==heldInput or input.UserInputType==Enum.UserInputType.MouseButton1 then held=false;heldInput=nil end end)
  connect(Input.TouchTapInWorld,function(position,processed)if touch()and not processed and equipped()and not Context.TouchBlocked(P.PlayerGui,position)then dig(position)end end)
  connect(Input:GetPropertyChangedSignal('PreferredInput'),update);connect(Input.WindowFocusReleased,cancel);connect(P.CharacterRemoving,cancel)
+ if state then connect(state:GetAttributeChangedSignal('PushingCart'),update)end
  connect(Run.Heartbeat,function()if held then dig()end end)
  connect(tool.Destroying,function()cancel();closed=true;gui:Destroy();bound[tool]=nil;for _,c in connections do c:Disconnect()end end)
  update()
- task.defer(function()if touch()and not(P.Character and P.Character:GetAttribute('MountainSliding'))and tool.Parent==P:FindFirstChildOfClass('Backpack')then local h=P.Character and P.Character:FindFirstChildOfClass('Humanoid');if h then h:EquipTool(tool)end end end)
 end
 local function watch(container)for _,t in container:GetChildren()do bind(t)end;container.ChildAdded:Connect(bind)end
 P.ChildAdded:Connect(function(c)if c:IsA('Backpack')then watch(c)end end);watch(P:WaitForChild('Backpack'))
