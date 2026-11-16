@@ -24,6 +24,11 @@ function J.Resolve(a,info)
   result.Title='Контейнер заполнен';result.Detail='Продайте песок и освободите место';result.Target='sale'
  elseif not info.HasTool then
   result.Title='Возьмите инструмент';result.Detail=info.Touch and 'Нажмите на значок инструмента внизу экрана'or 'Клавиша 1 — взять инструмент';result.Target='mine'
+ elseif(a.CartLevel or 0)==0 and(a.CapacityLevel or 0)>=1 then
+  local afford=(a.Coins or 0)>=C.Cart.Price
+  result.Title=afford and 'Доступна ручная тачка'or('На тачку: '..tostring(a.Coins or 0)..' / '..C.Cart.Price)
+  result.Detail='Автозагрузка рядом · от '..C.Cart.Capacity[1]..' песка · или улучшите инструмент'
+  result.Target=afford and 'shop'or 'mine'
  else
   local nextTool
   if info.ToolLevels then

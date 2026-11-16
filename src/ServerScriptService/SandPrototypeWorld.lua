@@ -546,6 +546,8 @@ publishCounts()
 
 local station = config.station
 local sellPad = station:WaitForChild("SellPad")
+-- The kiosk can hide its floor-mounted prompt; ownership/range stay server checked.
+sellPad:WaitForChild('SellPrompt').RequiresLineOfSight=false
 connect(sellPad:WaitForChild("SellPrompt").Triggered,function(player)
  if player==config.owner and Economy.Sell(player,sellPad)then requestSave()end
 end)
@@ -555,32 +557,8 @@ for _,padName in {"UpgradePad","WheelbarrowPad"}do
  if pad then for _,v in pad:GetChildren()do if v:IsA("ProximityPrompt")then v.Enabled=false end end end
 end
 toolService=require(script.Parent.ProgressionToolService).Create(config.owner,function()return Economy.GetMutable(config.owner)end)
-local function extractAuto()
- if not canMutate()or countCells()==0 then return false end
- local selected,score
- local intake=terrainOrigin+Vector3.new(16,0,mountainHeight*4+5)
- local function consider(x,y,z)
-  if not isExposed(x,y,z)then return end
-  local candidate=getCell(x,y,z)
-  local distance=(candidate.Position-intake).Magnitude
-  if not score or distance<score then selected=candidate;score=distance end
- end
- if field then field.Each(consider)else for _,p in cells do local x,y,z=coordinates(p);consider(x,y,z)end end
- if not selected then return false end
- local x,y,z=coordinates(selected)
- if field then field.Set(x,y,z,false)else cells[key(x,y,z)]=nil;selected:Destroy()end
- if renderer then renderer.Mark(x,y,z)end
- dugCells+=1;lifetimeDug+=1
- local found=Finds.Matches(artifact,x,y,z)
- if found then artifact={kind=Finds.Kind,finderId=tostring(config.owner.UserId),counter=0};collection[tostring(config.owner.UserId)]={kind=Finds.Kind,counter=0}end
- queueExcavation(x,y,z);local motions={}
- changed();flushTerrain();publishCounts()
- digEvent:FireAllClients(selected.Position,sandColor,config.owner.UserId,found,motions,false,"conveyor",UpgradeConfig.Conveyor.AutoYield)
- if config.onChanged then config.onChanged()end
- return true
-end
 conveyorService=require(script.Parent.ConveyorService).Create({owner=config.owner,economy=Economy,station=station,
- origin=terrainOrigin,height=mountainHeight,cart=cart,canMutate=canMutate,save=requestSave,extract=extractAuto})
+ origin=terrainOrigin,height=mountainHeight,cart=cart,canMutate=canMutate,save=requestSave})
 upgradeService=require(script.Parent.UpgradeService).Create({owner=config.owner,machine=station:WaitForChild("UpgradeMachine"),
  remote=ReplicatedStorage:WaitForChild("DTMUpgradeRemote"),getAccount=function()return Economy.GetMutable(config.owner)end,
  canMutate=canMutate,changed=function()Economy.Notify(config.owner);requestSave()end,publish=function()end})

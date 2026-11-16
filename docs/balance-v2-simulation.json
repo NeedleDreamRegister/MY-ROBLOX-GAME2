@@ -1,0 +1,164 @@
+{
+  "legacyOverflowPreserved": true,
+  "allUpgrades": {
+    "stages": {
+      "1": {
+        "cart": 500,
+        "yield": 5,
+        "cells": 792,
+        "trips": 18,
+        "tool": "shovel",
+        "spent": 2100
+      },
+      "2": {
+        "cart": 750,
+        "yield": 10,
+        "cells": 1536,
+        "trips": 27,
+        "tool": "turbo",
+        "spent": 7100
+      },
+      "3": {
+        "cart": 3000,
+        "yield": 15,
+        "cells": 2893,
+        "trips": 41,
+        "tool": "crystal",
+        "spent": 22950
+      },
+      "4": {
+        "cart": 3750,
+        "yield": 24,
+        "cells": 7875,
+        "trips": 72,
+        "tool": "vortex",
+        "spent": 106950
+      },
+      "5": {
+        "cart": 4500,
+        "yield": 37,
+        "cells": 12238,
+        "trips": 103,
+        "tool": "lava",
+        "spent": 227950
+      },
+      "6": {
+        "cart": 5250,
+        "yield": 54,
+        "cells": 19735,
+        "trips": 169,
+        "tool": "gravity",
+        "spent": 540950
+      },
+      "7": {
+        "cart": 6000,
+        "yield": 75,
+        "cells": 34511,
+        "trips": 325,
+        "tool": "abyss",
+        "spent": 1420950
+      },
+      "8": {
+        "cart": 6750,
+        "yield": 100,
+        "cells": 63859,
+        "trips": 702,
+        "tool": "reality",
+        "spent": 3820950
+      }
+    },
+    "firstCart": {
+      "cells": 275,
+      "trips": 14
+    },
+    "cells": 63859,
+    "trips": 702,
+    "spent": 3820950,
+    "firstUpgrade": {
+      "cells": 100,
+      "trips": 5
+    }
+  },
+  "productionWrites": 0,
+  "direct": {
+    "stages": {
+      "1": {
+        "cart": 500,
+        "yield": 2,
+        "cells": 275,
+        "trips": 14,
+        "tool": "shovel",
+        "spent": 450
+      },
+      "2": {
+        "cart": 750,
+        "yield": 6,
+        "cells": 1025,
+        "trips": 17,
+        "tool": "turbo",
+        "spent": 1950
+      },
+      "3": {
+        "cart": 3000,
+        "yield": 11,
+        "cells": 1973,
+        "trips": 26,
+        "tool": "crystal",
+        "spent": 8200
+      },
+      "4": {
+        "cart": 3750,
+        "yield": 16,
+        "cells": 3651,
+        "trips": 35,
+        "tool": "vortex",
+        "spent": 28200
+      },
+      "5": {
+        "cart": 4500,
+        "yield": 25,
+        "cells": 6470,
+        "trips": 47,
+        "tool": "lava",
+        "spent": 73200
+      },
+      "6": {
+        "cart": 5250,
+        "yield": 38,
+        "cells": 11270,
+        "trips": 74,
+        "tool": "gravity",
+        "spent": 193200
+      },
+      "7": {
+        "cart": 6000,
+        "yield": 55,
+        "cells": 20536,
+        "trips": 141,
+        "tool": "abyss",
+        "spent": 543200
+      },
+      "8": {
+        "cart": 6750,
+        "yield": 76,
+        "cells": 38869,
+        "trips": 308,
+        "tool": "reality",
+        "spent": 1543200
+      }
+    },
+    "firstCart": {
+      "cells": 275,
+      "trips": 14
+    },
+    "cells": 38869,
+    "trips": 308,
+    "spent": 1543200,
+    "firstUpgrade": {
+      "cells": 100,
+      "trips": 5
+    }
+  },
+  "cartNeverShrinksOnEquip": true,
+  "balanceVersion": 2
+}

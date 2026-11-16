@@ -8,7 +8,7 @@ function S.Create(config)
  local finish=config.station.SellPad.Position+Vector3.new(-3.5,.9,0)
  local direction=(finish-start).Unit local length=(finish-start).Magnitude
  local model=Instance.new('Model');model.Name='PersonalConveyor';model:SetAttribute('OwnerUserId',owner.UserId);model:SetAttribute('Start',start);model:SetAttribute('Finish',finish)
- local sections={} local count=0 local closed=false local lastLoad=-math.huge local nextAuto=os.clock()+3
+ local sections={} local count=0 local closed=false local lastLoad=-math.huge
  local function part(parent,name,size,cf,color,material)
   local p=Instance.new('Part');p.Name=name;p.Size=size;p.CFrame=cf;p.Color=color;p.Material=material or Enum.Material.Metal;p.Anchored=true;p.CanCollide=false;p.CanTouch=false;p.CanQuery=false;p.Parent=parent return p
  end
@@ -47,7 +47,8 @@ function S.Create(config)
  end
  local loadConnection=prompt.Triggered:Connect(function(player)
   if player~=owner or not config.canMutate() or os.clock()-lastLoad<.5 then return end
-  local r=player.Character and player.Character:FindFirstChild('HumanoidRootPart');if not r or(r.Position-start).Magnitude>11 then return end
+  local r=player.Character and player.Character:FindFirstChild('HumanoidRootPart');local h=player.Character and player.Character:FindFirstChildOfClass('Humanoid')
+  if not r or not h or h.Health<=0 or(r.Position-start).Magnitude>11 then return end
   lastLoad=os.clock();local a=E.GetMutable(owner);local ok=T.LoadConveyor(a,os.time(),length/C.Conveyor.Speed[math.max(1,a.ConveyorLevel)],config.cart.CanSell(intake))
   if ok then E.Notify(owner);config.save();api.Update()end
  end)
@@ -58,14 +59,6 @@ function S.Create(config)
   if closed or not config.canMutate()then return end
   local a=E.GetMutable(owner)
   if T.Deliver(a,os.time())then E.Notify(owner);config.save();api.Update()end
-  local interval=C.Conveyor.AutoInterval[a.ConveyorLevel]or 0
-  if interval>0 and os.clock()>=nextAuto then
-   nextAuto=os.clock()+interval
-   if a.ConveyorSand+C.Conveyor.AutoYield<=C.Conveyor.MaxBatch and config.extract()then
-    if a.ConveyorSand==0 then a.ConveyorDeliveryAt=os.time()+math.ceil(length/C.Conveyor.Speed[a.ConveyorLevel])end
-    a.ConveyorSand+=C.Conveyor.AutoYield;a.XP+=C.Conveyor.AutoYield;E.Notify(owner);config.save();api.Update()
-   end
-  end
  end)
  function api.Destroy()closed=true;loadConnection:Disconnect();heartbeat:Disconnect();model:Destroy()end
  return api

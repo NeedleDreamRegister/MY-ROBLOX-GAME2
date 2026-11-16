@@ -25,7 +25,7 @@ end
 local title=label(panel,'FORGE / МАСТЕРСКАЯ',21,UDim2.fromOffset(18,10),UDim2.new(1,-80,0,28),Color3.fromRGB(238,207,147))
 local balance=label(panel,'Монеты: 0',16,UDim2.fromOffset(18,39),UDim2.new(1,-100,0,24),Color3.fromRGB(250,203,106))
 
-local subtitle=label(panel,'ИНСТРУМЕНТЫ  /  ТРАНСПОРТ  /  АВТОМАТИЗАЦИЯ',11,UDim2.fromOffset(18,42),UDim2.new(1,-350,0,20),Color3.fromRGB(138,174,185))
+local subtitle=label(panel,'ИНСТРУМЕНТЫ  /  ТРАНСПОРТ  /  ДОСТАВКА',11,UDim2.fromOffset(18,42),UDim2.new(1,-350,0,20),Color3.fromRGB(138,174,185))
 local wallet=Instance.new('Frame');wallet.Name='Wallet';wallet.Position=UDim2.new(1,-314,0,10);wallet.Size=UDim2.fromOffset(242,56);wallet.BackgroundColor3=Color3.fromRGB(55,48,34);wallet.BorderSizePixel=0;wallet.Parent=panel;round(wallet,12);stroke(wallet,Color3.fromRGB(149,119,67))
 local walletCaption=label(wallet,'ВАШ БАЛАНС',10,UDim2.fromOffset(12,6),UDim2.new(1,-24,0,15),Color3.fromRGB(184,167,132))
 balance.Parent=wallet;balance.Position=UDim2.fromOffset(12,23);balance.Size=UDim2.new(1,-24,0,28);balance.Font=Enum.Font.GothamBold;balance.TextSize=21
@@ -81,14 +81,14 @@ refreshHero=function()
  if key==heroKey then return end;heroKey=key;heroCamera=nil
  for _,v in hero:GetChildren()do if v:IsA('GuiObject')then v:Destroy()end end
  local tool=C.Tool(focused);local level=account.ToolLevels[focused];local color=tool.Color
- label(hero,'КОЛЛЕКЦИЯ / '..(active==3 and 'ТРАНСПОРТ'or active==4 and 'АВТОМАТИЗАЦИЯ'or 'ИНСТРУМЕНТЫ'),11,UDim2.fromOffset(15,13),UDim2.new(1,-30,0,21),Color3.fromRGB(125,176,182))
+ label(hero,'КОЛЛЕКЦИЯ / '..(active==3 and 'ТРАНСПОРТ'or active==4 and 'ДОСТАВКА'or 'ИНСТРУМЕНТЫ'),11,UDim2.fromOffset(15,13),UDim2.new(1,-30,0,21),Color3.fromRGB(125,176,182))
  icon(hero,active==3 and 'cart'or active==4 and 'section'or 'tool',active==3 and 'cart'or active==4 and '4'or focused,true)
  local name=active==3 and 'Тачка для песка'or active==4 and 'Конвейерная линия'or tool.Name
  label(hero,name,23,UDim2.new(0,16,.62,0),UDim2.new(1,-32,0,55),active<3 and color or Color3.fromRGB(123,224,225))
- local stats=active==3 and('УРОВЕНЬ '..account.CartLevel..' / 2\nВместимость: '..money(C.Cart.Capacity[math.max(1,account.CartLevel)]))or active==4 and('СЕКЦИИ '..account.ConveyorSections..' / 4\nУровень '..account.ConveyorLevel..' / 5')or('УРОВЕНЬ '..level..' / 5\nВместимость: '..money(tool.Capacity[math.max(1,level)]))
- if active==2 and level>0 and level<5 then stats='ВМЕСТИМОСТЬ\n'..money(tool.Capacity[level])..'  →  '..money(tool.Capacity[level+1])end
+ local stats=active==3 and('УРОВЕНЬ '..account.CartLevel..' / 2\nВместимость: '..money(C.CartCapacity(account,math.max(1,account.CartLevel))))or active==4 and('СЕКЦИИ '..account.ConveyorSections..' / 4\nУровень '..account.ConveyorLevel..' / 5')or('УРОВЕНЬ '..level..' / 5\nВместимость: '..money(tool.Capacity[math.max(1,level)]))
+ if active==2 and level>0 and level<5 then stats='ДОБЫЧА '..C.YieldAt(tool,level)..' → '..C.YieldAt(tool,level+1)..'\nВМЕСТИМОСТЬ '..money(tool.Capacity[level])..' → '..money(tool.Capacity[level+1])end
  if active==1 then local current=C.Tool(account.SelectedTool);local currentLevel=account.ToolLevels[account.SelectedTool]
-  stats='ВМЕСТИМОСТЬ: '..money(current.Capacity[currentLevel])..'  →  '..money(tool.Capacity[math.max(1,level)])..'\nДОБЫЧА: '..C.Yield(account)..'  →  '..math.max(1,math.floor(tool.Yield*(1+.15*(math.max(1,level)-1))))..' за раскоп'
+  stats='ВМЕСТИМОСТЬ: '..money(current.Capacity[currentLevel])..'  →  '..money(tool.Capacity[math.max(1,level)])..'\nДОБЫЧА: '..C.Yield(account)..'  →  '..C.YieldAt(tool,math.max(1,level))..' за раскоп'
  end
  label(hero,stats,14,UDim2.new(0,16,.78,0),UDim2.new(1,-32,0,45),Color3.fromRGB(218,231,226))
  local stripe=Instance.new('Frame');stripe.Size=UDim2.new(1,-32,0,3);stripe.Position=UDim2.new(0,16,.94,0);stripe.BackgroundColor3=color;stripe.BorderSizePixel=0;stripe.Parent=hero
@@ -103,16 +103,16 @@ local function card(name,description,kind,id,color)
  local art=icon(row,kind,id)
  if tileMode then
   art.Position=UDim2.fromOffset(10,25);art.Size=UDim2.new(1,-20,0,110);art.BackgroundColor3=Color3.fromRGB(13,24,35)
-  label(row,kind=='tool'and 'ИНСТРУМЕНТ' or kind=='cart'and 'ТРАНСПОРТ'or 'ЛИНИЯ ДОБЫЧИ',10,UDim2.fromOffset(14,7),UDim2.new(1,-60,0,15),Color3.fromRGB(132,159,170))
- else art.Position=UDim2.fromOffset(10,10);art.Size=UDim2.fromOffset(106,116)end
+  label(row,kind=='tool'and 'ИНСТРУМЕНТ' or kind=='cart'and 'ТРАНСПОРТ'or 'ЛИНИЯ ДОСТАВКИ',10,UDim2.fromOffset(14,7),UDim2.new(1,-60,0,15),Color3.fromRGB(132,159,170))
+ else art.Position=UDim2.fromOffset(10,10);art.Size=compact and UDim2.fromOffset(64,76)or UDim2.fromOffset(106,116)end
  if kind=='tool'then local inspect=Instance.new('TextButton');inspect.Name='Inspect';inspect.Size=UDim2.fromScale(1,1);inspect.BackgroundTransparency=1;inspect.Text='';inspect.Parent=art;inspect.Activated:Connect(function()focused=id;heroKey=nil;render();Audio.Play('click')end)end
- local left=tileMode and 14 or 130
- label(row,name,tileMode and 17 or 18,UDim2.fromOffset(left,tileMode and 143 or 10),UDim2.new(1,-left-12,0,27),color)
+ local left=tileMode and 14 or compact and 86 or 130
+ label(row,name,tileMode and 17 or compact and 15 or 18,UDim2.fromOffset(left,tileMode and 143 or 10),UDim2.new(1,-left-12,0,27),color)
  label(row,description,tileMode and 12 or 13,UDim2.fromOffset(left,tileMode and 174 or 42),UDim2.new(1,-left-12,0,tileMode and 55 or 54),Color3.fromRGB(183,203,216))
  return row,left
 end
 local function action(row,text,enabled,fn,name)
- return button(row,name or 'Purchase',text,tileMode and UDim2.new(0,12,1,-52)or UDim2.new(1,-238,1,-50),tileMode and UDim2.new(1,-24,0,44)or UDim2.fromOffset(226,44),enabled,fn)
+ return button(row,name or 'Purchase',text,tileMode and UDim2.new(0,12,1,-52)or compact and UDim2.new(0,10,1,-50)or UDim2.new(1,-238,1,-50),tileMode and UDim2.new(1,-24,0,44)or compact and UDim2.new(1,-20,0,44)or UDim2.fromOffset(226,44),enabled,fn)
 end
 local function lock(row)
  local shackle=Instance.new('Frame');shackle.Size=UDim2.fromOffset(15,15);shackle.Position=UDim2.new(1,-36,0,12);shackle.BackgroundTransparency=1;shackle.Parent=row;round(shackle,7);stroke(shackle,Color3.fromRGB(155,161,180),3)
@@ -130,9 +130,9 @@ render=function()
    local level=account.ToolLevels[t.Id];local owned=level>0;local unlocked=account.Unlocks[t.Id]
    local desc
    if active==1 then desc=owned and string.format('КУПЛЕНО · уровень %d/5\nВместимость: %s',level,money(t.Capacity[level]))or unlocked and('Вместимость: '..money(t.Capacity[1])..'\nПокупка: '..money(t.Price)..' монет')or('ЗАКРЫТО · заработайте всего '..money(t.Unlock)..'\nПрогресс: '..money(account.TotalCoinsEarned)..' / '..money(t.Unlock))
-   else desc=not owned and 'Сначала купите этот инструмент во вкладке «Инструменты»'or level==5 and('МАКСИМАЛЬНЫЙ УРОВЕНЬ\nВместимость: '..money(t.Capacity[level]))or string.format('Уровень %d/5 · вместимость %s → %s\nУлучшение: %s монет',level,money(t.Capacity[level]),money(t.Capacity[level+1]),money(t.Upgrades[level+1]))end
+   else desc=not owned and 'Сначала купите этот инструмент во вкладке «Инструменты»'or level==5 and('МАКСИМАЛЬНЫЙ УРОВЕНЬ\nВместимость: '..money(t.Capacity[level]))or string.format('Добыча %d → %d · вместимость %s → %s\nУлучшение: %s монет',C.YieldAt(t,level),C.YieldAt(t,level+1),money(t.Capacity[level]),money(t.Capacity[level+1]),money(t.Upgrades[level+1]))end
    if active==1 and focused==t.Id then
-    local nextLevel=math.max(1,level);local nextYield=math.max(1,math.floor(t.Yield*(1+.15*(nextLevel-1))))
+    local nextLevel=math.max(1,level);local nextYield=C.YieldAt(t,nextLevel)
     desc='Вместимость '..money(C.Capacity(account))..' → '..money(t.Capacity[nextLevel])..'\nДобыча '..C.Yield(account)..' → '..nextYield..' за раскоп\n'..(owned and('Куплено · уровень '..level..'/5')or unlocked and 'Доступен к покупке'or('Нужен общий заработок '..money(t.Unlock)))
    end
    local row,left=card(t.Name,desc,'tool',t.Id,unlocked and t.Color or Color3.fromRGB(131,142,165))
@@ -144,9 +144,10 @@ render=function()
    else local cost=owned and t.Upgrades[level+1];action(row,not owned and 'НЕ КУПЛЕН' or level==5 and 'МАКСИМУМ' or('УЛУЧШИТЬ · '..money(cost)),owned and level<5 and account.Coins>=cost,function()send('upgradeTool',t.Id)end)end
   end
  elseif active==3 then
-  local level=account.CartLevel;local desc=level==0 and('Вместимость: 500\n'..(account.Unlocks.cart and 'Доступна покупка за 2 000 монет' or 'Нужна Обычная лопата уровня 2'))or string.format('Уровень %d/2 · песок %s / %s\n%s',level,money(account.CartCells),money(C.CartCapacity(account)),level==1 and 'Следующее улучшение: 1 500 песка · 5 000 монет' or 'Усиленная тачка · максимальный уровень')
+  local level=account.CartLevel
+  local desc=level==0 and('Вместимость: '..money(C.CartCapacity(account,1))..'\n'..(account.Unlocks.cart and('Цена: '..money(C.Cart.Price)..' монет')or 'Нужна Обычная лопата уровня 2'))or('Уровень '..level..'/2 · песок '..money(account.CartCells)..' / '..money(C.CartCapacity(account))..'\n'..(level==1 and('Далее: '..money(C.CartCapacity(account,2))..' песка · '..money(C.Cart.UpgradePrice)..' монет')or 'Вместимость растёт с классом купленных инструментов'))
   local row=card('Тачка для песка',desc,'cart','cart',Color3.fromRGB(255,191,92))
-  action(row,level==0 and 'КУПИТЬ · 2 000' or level==1 and 'УЛУЧШИТЬ · 5 000' or 'МАКСИМУМ',level==0 and account.Unlocks.cart and account.Coins>=2000 or level==1 and account.Coins>=5000,function()send(level==0 and 'buyCart' or 'upgradeCart')end)
+  action(row,level==0 and('КУПИТЬ · '..money(C.Cart.Price))or level==1 and('УЛУЧШИТЬ · '..money(C.Cart.UpgradePrice))or 'МАКСИМУМ',level==0 and account.Unlocks.cart and account.Coins>=C.Cart.Price or level==1 and account.Coins>=C.Cart.UpgradePrice,function()send(level==0 and 'buyCart'or 'upgradeCart')end)
   if level>0 then local r=card('Использование тачки','Включена: песок идёт только в тачку.\nОтключена: песок идёт в выбранный инструмент.','cart','toggle',Color3.fromRGB(98,211,205));action(r,account.CartEnabled and 'ОТКЛЮЧИТЬ ТАЧКУ' or 'ВКЛЮЧИТЬ ТАЧКУ',true,function()send('toggleCart')end,'ToggleCart')end
  else
   for i,s in C.Sections do
@@ -154,7 +155,7 @@ render=function()
    local row=card('Секция конвейера '..i,owned and 'ПОСТРОЕНА · часть транспортной линии'or('Цена '..money(s.Price)..' · общий заработок '..money(s.Unlock)..'\n'..(not nextSection and 'Сначала постройте предыдущую секцию' or not unlocked and('Заработано: '..money(account.TotalCoinsEarned)..' / '..money(s.Unlock))or 'Доступна постройка')),'section',tostring(i),Color3.fromRGB(82,197,235))
    action(row,owned and 'ПОСТРОЕНО' or 'ПОСТРОИТЬ · '..money(s.Price),not owned and nextSection and unlocked and account.Coins>=s.Price,function()send('buySection',tostring(i))end)
   end
-  local level=account.ConveyorLevel;local descriptions={'Ручная загрузка песка','Лента перевозит быстрее','Ещё больше скорость перевозки','Автоматическая добыча песка','Автоматическая добыча вдвое быстрее'}
+  local level=account.ConveyorLevel;local descriptions={};for i=1,5 do descriptions[i]='Ручная загрузка · '..C.Conveyor.Speed[i]..' studs/с'end
   local desc=level==0 and 'Сначала купите все четыре секции'or('Уровень '..level..'/5 · '..descriptions[level]..'\n'..(level<5 and('Далее: '..descriptions[level+1])or 'Максимальный уровень'))
   local row=card('Развитие конвейера',desc,'section','4',Color3.fromRGB(183,124,255));local cost=C.Conveyor.UpgradePrice[level+1]
   action(row,level==0 and 'НУЖНЫ 4 СЕКЦИИ'or level==5 and 'МАКСИМУМ'or('УЛУЧШИТЬ · '..money(cost)),level>0 and level<5 and account.Coins>=cost,function()send('upgradeConveyor')end)
@@ -166,7 +167,7 @@ local function hide()if shade.Visible then Audio.Play('close')end;shade.Visible=
 close.Activated:Connect(hide)
 Input.InputBegan:Connect(function(input,processed)if input.KeyCode==Enum.KeyCode.Escape and shade.Visible then hide()end end)
 local function resize()
- compact=panel.AbsoluteSize.X<600;local short=panel.AbsoluteSize.Y<360;shortLayout=short;tileMode=not short
+ compact=panel.AbsoluteSize.X<600;local short=panel.AbsoluteSize.Y<360;shortLayout=short;tileMode=not compact and panel.AbsoluteSize.Y>=466
  wide=panel.AbsoluteSize.X>=880 and panel.AbsoluteSize.Y>=500;hero.Visible=wide;heroKey=nil
  title.TextSize=compact and 18 or short and 18 or 23;balance.TextSize=short and 17 or 21
  title.Position=UDim2.fromOffset(18,short and 6 or 10);title.Size=UDim2.new(1,-80,0,short and 24 or 28)
@@ -182,9 +183,9 @@ local function resize()
   wallet.Position=UDim2.fromOffset(18,40);wallet.Size=UDim2.new(1,-94,0,33);walletCaption.Visible=false;balance.Position=UDim2.fromOffset(10,2);balance.Size=UDim2.new(1,-20,0,29);balance.TextSize=17
   notice.Position=UDim2.fromOffset(18,78);tabs.Position=UDim2.fromOffset(12,114);scroll.Position=UDim2.fromOffset(12,166);scroll.Size=UDim2.new(1,-24,1,-178)
  end
- layout.CellSize=tileMode and UDim2.new(scroll.AbsoluteSize.X>=540 and .5 or 1,-8,0,290)or UDim2.new(1,-8,0,148)
+ layout.CellSize=tileMode and UDim2.new(scroll.AbsoluteSize.X>=540 and .5 or 1,-8,0,290)or UDim2.new(1,-8,0,compact and 168 or 148)
  if wide then scroll.Position=UDim2.fromOffset(276,154);scroll.Size=UDim2.new(1,-288,1,-166)end
- layout.CellSize=tileMode and UDim2.new((wide and panel.AbsoluteSize.X-288 or panel.AbsoluteSize.X-24)>=540 and .5 or 1,-8,0,290)or UDim2.new(1,-8,0,148)
+ layout.CellSize=tileMode and UDim2.new((wide and panel.AbsoluteSize.X-288 or panel.AbsoluteSize.X-24)>=540 and .5 or 1,-8,0,290)or UDim2.new(1,-8,0,compact and 168 or 148)
  installation.Position=notice.Position;installation.Size=notice.Size
  if shade.Visible then render()end
 end
