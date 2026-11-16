@@ -5,7 +5,8 @@ return function(tool)
  local player=game.Players.LocalPlayer
  assert(tool.Parent==player.Character and tool:FindFirstChild('CuttingEdge'))
  local strokes,frames={},{}
- local maxHandGap=0
+ local maxHandGap,maxGripSlide=0,0
+ local gripOutOfBounds=false
  local params=RaycastParams.new();params.FilterType=Enum.RaycastFilterType.Exclude
  params.FilterDescendantsInstances={player.Character}
  local axes={Vector3.xAxis,-Vector3.xAxis,Vector3.yAxis,-Vector3.yAxis,Vector3.zAxis,-Vector3.zAxis}
@@ -29,6 +30,10 @@ return function(tool)
   local ch=player.Character
   for _,joint in ch.RightHand:GetChildren()do
    if joint.Name=='RightGrip'and joint.Part1==tool.Handle then
+    local slide=tool.Grip.Position.Y-joint.C1.Position.Y
+    if slide<-.01 or slide>2.51 then gripOutOfBounds=true end
+    maxGripSlide=math.max(maxGripSlide,slide)
+    if tool.Handle.LeftGrip.Position.Y< -2.16 or tool.Handle.LeftGrip.Position.Y>.36 then gripOutOfBounds=true end
     maxHandGap=math.max(maxHandGap,((ch.RightHand.CFrame*joint.C0).Position-(tool.Handle.CFrame*joint.C1).Position).Magnitude)
    end
   end
@@ -46,8 +51,9 @@ return function(tool)
   end
   assert(verified>0,'no fresh Terrain contact was observed')
   assert(maxHandGap<.02,'hands lost the actual equipped grip')
+  assert(not gripOutOfBounds,'a hand left the usable shaft')
   table.sort(frames)
-  return {strokes=strokes,verified=verified,maxHandGap=maxHandGap,frames=#frames,
+  return {strokes=strokes,verified=verified,maxHandGap=maxHandGap,maxGripSlide=maxGripSlide,frames=#frames,
    frameP95=frames[math.ceil(#frames*.95)],frameMax=frames[#frames]}
  end
 end

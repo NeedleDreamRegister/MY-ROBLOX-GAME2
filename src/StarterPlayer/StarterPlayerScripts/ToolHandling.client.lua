@@ -54,6 +54,8 @@ local function reachOffset(ch,side,handCF)
 end
 local function clear(ch)
  local e=entries[ch]
+ if e and e.grip and e.grip.Parent then e.grip.C1=e.baseGrip end
+ if e and e.leftTarget and e.leftTarget.Parent then e.leftTarget.CFrame=e.baseLeft end
  if e and e.driver and e.driver.Parent then e.driver.AutoRotate=e.autoRotate end
  for ik,enabled in e and e.disabledIK or {}do if ik.Parent then ik.Enabled=enabled end end
  for _,v in ch:GetDescendants()do if (v:IsA('Motor6D')or v:IsA('AnimationConstraint'))and(v.Name:find('Shoulder')or v.Name:find('Elbow')or v.Name:find('Wrist'))then v.Transform=CFrame.identity end end
@@ -125,7 +127,14 @@ Run.PreSimulation:Connect(function(dt)
    if entries[ch]and entries[ch].cart then clear(ch)end
    local hand=ch:FindFirstChild('RightHand');local grip=equippedGrip(hand,tool.Handle)
    if grip then
-    local e=entries[ch]or{blend=0,clock=0};entries[ch]=e
+    local e=entries[ch]
+    if not e or e.tool~=tool then
+     if e then clear(ch)end
+     e={blend=0,clock=0,tool=tool,grip=grip,baseGrip=grip.C1,leftTarget=tool.Handle:FindFirstChild('LeftGrip')}
+     e.baseLeft=e.leftTarget and e.leftTarget.CFrame;entries[ch]=e
+    end
+    grip.C1=e.baseGrip
+    if e.leftTarget then e.leftTarget.CFrame=e.baseLeft end
     local active=player==me and(tool:GetAttribute('DigActiveUntil')or 0)>os.clock()or player~=me and os.clock()-(lastDig[player.UserId]or-math.huge)<.35
     if active then e.clock+=dt else e.clock=0 end
     e.blend+=((active and 1 or 0)-e.blend)*(1-math.exp(-16*dt))
@@ -149,23 +158,31 @@ Run.PreSimulation:Connect(function(dt)
      end
      desired=pose(torso.CFrame:PointToWorldSpace(Vector3.new(.15,-2.1,-1.8)))
      if typeof(aim)=='Vector3'and(aim-pivot).Magnitude>.1 and(aim-pivot).Magnitude<8 then
-      if e.contactStamp~=stamp then
-       -- One bounded search per stroke, not per frame: choose a shaft angle
-       -- that lets both hands reach while keeping the blade at the surface.
+      if e.contactStamp~=stamp or(pivot-e.contactPivot).Magnitude>.2
+       or torso.CFrame.RightVector:Dot(e.contactRight)<.995 then
+       -- Reuse the shaft angle while stationary; refresh after moving/turning
+       -- so walking into a pit does not leave the contact pose out of reach.
        local base=directionBasis(aim-pivot,torso.CFrame.RightVector)*directionBasis(tip,Vector3.xAxis):Inverse()
        local bestScore=math.huge
+       for slide=0,2.5,.5 do
        for angle=-90,90,15 do
         local rotation=CFrame.fromAxisAngle(torso.CFrame.RightVector,math.rad(angle))*base
         local candidate=CFrame.new(aim-rotation:VectorToWorldSpace(tip))*rotation
-        local right=reachOffset(ch,'Right',candidate*grip.C1*grip.C0:Inverse()).Magnitude
-        local left=reachOffset(ch,'Left',candidate*tool.Handle.LeftGrip.CFrame*ch.LeftHand.LeftGripAttachment.CFrame:Inverse()).Magnitude
-        local score=right+left+math.abs(angle+15)*.0001
-        if score<bestScore then bestScore=score;e.contactRotation=rotation end
+        local right=reachOffset(ch,'Right',candidate*e.baseGrip*CFrame.new(0,-slide,0)*grip.C0:Inverse()).Magnitude
+        local left=reachOffset(ch,'Left',candidate*e.baseLeft*CFrame.new(0,-slide,0)*ch.LeftHand.LeftGripAttachment.CFrame:Inverse()).Magnitude
+        local score=right+left+math.abs(angle+15)*.0001+slide*.003
+        if score<bestScore then bestScore=score;e.contactRotation=rotation;e.contactSlide=slide end
        end
-       e.contactStamp=stamp
+       end
+       e.contactStamp=stamp;e.contactPivot=pivot;e.contactRight=torso.CFrame.RightVector
       end
       local contact=CFrame.new(aim-e.contactRotation:VectorToWorldSpace(tip))*e.contactRotation
-      desired=desired:Lerp(contact,math.sin(phase*math.pi)^2)
+      local contactWeight=math.min(1,math.sin(phase*math.pi)^2*1.5)
+      desired=desired:Lerp(contact,contactWeight)
+      -- Choke up on the real shaft for close walls/ceilings instead of
+      -- stretching wrists or moving the blade away from the selected sand.
+      local shift=CFrame.new(0,-e.contactSlide*contactWeight,0)
+      grip.C1=e.baseGrip*shift;e.leftTarget.CFrame=e.baseLeft*shift
      end
     end
     local leftHand=ch:FindFirstChild('LeftHand');local leftTarget=tool.Handle:FindFirstChild('LeftGrip')
